@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Session Summary - Kinetic Oracle</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#131313">
+</head>
+<body class="kinetic-glow">
+    <!-- TopAppBar -->
+    <header class="top-app-bar" style="background: #131313; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="top-app-bar__brand">
+            <div class="top-app-bar__avatar" style="border: 2px solid var(--primary-fixed);">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ucD-WmYQaQExqdikk7fuNP1bT_6UYChS09NNqzIie8v-0g7NmsSyJWk3I_OCvCF3pTumkdGU8NHhhIKHKS3VXYdYdm606r6YNPGg1jp60yEVGd2yvCTgJJ1xAaEVfAdHwwy1XDgui_AiDE-OV8gX-kXIEiJnkT1R_XJYvjoTG5AGLn408Ab2A9TLednuUewe2SSTcmW6YBazVjYjomgVURt7TvBzbV1BoOyuwVSH4W1IpI7E7j1mCw3-RgBGAnJJDwn7F5LNd_c" alt="User Profile">
+            </div>
+            <span class="top-app-bar__title" style="color: var(--primary-fixed);">KINETIC ORACLE</span>
+        </div>
+        <button class="top-app-bar__action">
+            <span class="material-symbols-outlined">bolt</span>
+        </button>
+    </header>
+
+    <main style="padding-top: 6rem; padding-bottom: 8rem; padding-left: 1.5rem; padding-right: 1.5rem;">
+        <!-- Hero Summary Section -->
+        <section class="card" style="padding: 2rem; margin-bottom: 2rem; position: relative; overflow: hidden; background: var(--surface-container); border: 1px solid rgba(71, 72, 50, 0.15);">
+             <div class="kinetic-glow" style="position: absolute; inset: 0; pointer-events: none; opacity: 0.3;"></div>
+             <div style="position: relative; z-index: 10;">
+                <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--secondary); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">
+                    <span class="material-symbols-outlined filled" style="font-size: 1rem;">check_circle</span>
+                    Session Complete
+                </div>
+                <h1 id="summary-title" class="text-display-md font-headline" style="color: white; margin-bottom: 0.25rem; letter-spacing: -0.04em;">SQUAT SESSION</h1>
+                <p style="color: var(--on-surface-variant); font-size: 0.875rem;">Hypertrophy Phase • AI Analyzed</p>
+             </div>
+             <div style="position: absolute; top: 0; right: 0; height: 100%; width: 40%; opacity: 0.15; pointer-events: none;">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbNiXQuf-mfoa9EcnjnUEBuoct6DUs1OHq5cYvet1O4UKPu30ZRqqhp5_kWf4KKvpJS-wqZAhBlH3Ibac6yvko7x2GfkpR0MBQq7Mlfok9w2oPdDLGal47JJK4QhkscLn7Ne5h7z3Vlonj4YH8gNJAw_NGO2jyp4ZH2GUjkhWtD5i5v7dhXqwFpmKuaAc4E7hxZ0IZ9We1iDmeIwGzn2X0Ni3pdv5-EIIcWFb7_t7tHGjh0nUu_-h1Drcdd-5IV6H184zh46gsYn8" alt="Muscles" style="width: 100%; height: 100%; object-fit: cover; mix-blend-mode: overlay;">
+             </div>
+        </section>
+
+        <!-- Stats Grid -->
+        <div style="display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+            <!-- Accuracy Card -->
+            <div class="card" style="padding: 2rem; display: flex; flex-direction: column; align-items: center; text-align: center;">
+                 <span class="text-label-sm" style="color: var(--on-surface-variant); margin-bottom: 1.5rem;">Accuracy</span>
+                 <div style="position: relative; width: 8rem; height: 8rem; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center;">
+                    <svg style="width: 100%; height: 100%; transform: rotate(-90deg);">
+                        <circle cx="50%" cy="50%" r="45%" fill="none" stroke="rgba(53, 53, 52, 0.3)" stroke-width="6"></circle>
+                        <circle id="summary-accuracy-circle" cx="50%" cy="50%" r="45%" fill="none" stroke="var(--primary-fixed)" stroke-width="8" stroke-dasharray="283" stroke-dashoffset="23" stroke-linecap="round" style="transition: stroke-dashoffset 1s ease;"></circle>
+                    </svg>
+                    <span id="summary-accuracy-val" class="text-display-sm font-headline" style="position: absolute; font-style: italic; color: white;">92%</span>
+                 </div>
+                 <span id="summary-accuracy-label" style="color: var(--secondary); font-size: 0.75rem; font-weight: 700;">Elite Form Precision</span>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                <div class="card-high" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center;">
+                    <span class="material-symbols-outlined" style="color: var(--primary-fixed); margin-bottom: 1rem;">timer</span>
+                    <span class="text-label-sm" style="color: var(--on-surface-variant); font-size: 0.625rem;">Duration</span>
+                    <span id="summary-duration" class="text-headline-lg font-headline" style="color: white; font-style: italic; margin-top: 0.5rem; letter-spacing: -0.04em;">14:22</span>
+                </div>
+                <div class="card-high" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: center;">
+                    <span class="material-symbols-outlined" style="color: var(--secondary); margin-bottom: 1rem;">rebase_edit</span>
+                    <span class="text-label-sm" style="color: var(--on-surface-variant); font-size: 0.625rem;">Total Reps</span>
+                    <span id="summary-reps" class="text-headline-lg font-headline" style="color: white; font-style: italic; margin-top: 0.5rem; letter-spacing: -0.04em;">48</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Graph -->
+        <section class="card" style="padding: 2rem; margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem;">
+                <div>
+                     <h3 class="text-headline-sm font-headline" style="color: white; letter-spacing: -0.04em;">KINETIC STABILITY</h3>
+                     <p style="font-size: 0.75rem; color: var(--on-surface-variant);">Real-time force output distribution</p>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <div style="width: 0.75rem; height: 0.75rem; background: var(--secondary); border-radius: 50%;"></div>
+                    <span style="font-size: 0.625rem; font-weight: 700; color: var(--on-surface-variant); text-transform: uppercase;">SMOOTHNESS</span>
+                </div>
+            </div>
+            <div style="height: 12rem; width: 100%; position: relative; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                 <svg viewBox="0 0 100 40" preserveAspectRatio="none" style="width: 100%; height: 100%; overflow: visible;">
+                    <path d="M0 30 Q15 5 30 20 T60 10 T90 25 T100 15" fill="none" stroke="var(--secondary)" stroke-width="1.5" style="filter: drop-shadow(0 0 5px rgba(126, 219, 127, 0.4));"></path>
+                 </svg>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-top: 1rem;">
+                <span style="font-size: 0.5rem; color: rgba(255,255,255,0.2); font-weight: 700; text-transform: uppercase;">Set 1</span>
+                <span style="font-size: 0.5rem; color: rgba(255,255,255,0.2); font-weight: 700; text-transform: uppercase;">Set 4</span>
+            </div>
+        </section>
+
+        <!-- AI Insights -->
+        <div style="display: flex; flex-direction: column; gap: 1rem; margin-bottom: 2rem;">
+             <div class="card-high" style="padding: 1.5rem; border-left: 4px solid var(--primary-fixed);">
+                 <div style="display: flex; gap: 1rem;">
+                    <div style="background: rgba(245, 255, 0, 0.1); padding: 0.5rem; border-radius: var(--radius-sm); align-self: flex-start;">
+                        <span class="material-symbols-outlined" style="color: var(--primary-fixed);">lightbulb</span>
+                    </div>
+                    <div>
+                        <h4 style="font-weight: 700; color: white;">Kinetic AI Recommendation</h4>
+                        <p id="ai-rec-text" style="font-size: 0.75rem; color: var(--on-surface-variant); margin-top: 0.25rem;">Analyzing session form &amp; tempo...</p>
+                    </div>
+                 </div>
+             </div>
+             <div class="card-high" style="padding: 1.5rem; border-left: 4px solid var(--secondary);">
+                 <div style="display: flex; gap: 1rem;">
+                    <div style="background: rgba(126, 219, 127, 0.1); padding: 0.5rem; border-radius: var(--radius-sm); align-self: flex-start;">
+                        <span class="material-symbols-outlined" style="color: var(--secondary);">trending_up</span>
+                    </div>
+                    <div>
+                        <h4 style="font-weight: 700; color: white;">Kinetic AI Highlight</h4>
+                        <p id="ai-highlight-text" style="font-size: 0.75rem; color: var(--on-surface-variant); margin-top: 0.25rem;">Evaluating peak force output...</p>
+                    </div>
+                 </div>
+             </div>
+        </div>
+        
+        <button class="btn-primary" style="width: 100%;" onclick="window.location.href='dashboard.html'">BACK TO HOME</button>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="dashboard.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">grid_view</span>
+            <span class="bottom-nav__label">Home</span>
+        </a>
+        <a href="workout.html" class="bottom-nav__item bottom-nav__item--active">
+            <span class="material-symbols-outlined bottom-nav__icon filled">fitness_center</span>
+            <span class="bottom-nav__label">Workout</span>
+        </a>
+        <a href="nutrition.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">restaurant</span>
+            <span class="bottom-nav__label">Nutrition</span>
+        </a>
+        <a href="shop.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">shopping_bag</span>
+            <span class="bottom-nav__label">Shop</span>
+        </a>
+        <a href="profile.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">person</span>
+            <span class="bottom-nav__label">Profile</span>
+        </a>
+    </nav>
+
+    <script src="js/app.js"></script>
+    <script src="js/session-summary.js"></script>
+</body>
+</html>

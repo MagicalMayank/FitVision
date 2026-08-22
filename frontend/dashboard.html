@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Kinetic Oracle - AI Fitness Coach</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#131313">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body class="kinetic-glow">
+    <!-- TopAppBar -->
+    <header class="top-app-bar">
+        <div class="top-app-bar__brand">
+            <div class="top-app-bar__avatar" style="border: 2px solid var(--primary-fixed);">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ucD-WmYQaQExqdikk7fuNP1bT_6UYChS09NNqzIie8v-0g7NmsSyJWk3I_OCvCF3pTumkdGU8NHhhIKHKS3VXYdYdm606r6YNPGg1jp60yEVGd2yvCTgJJ1xAaEVfAdHwwy1XDgui_AiDE-OV8gX-kXIEiJnkT1R_XJYvjoTG5AGLn408Ab2A9TLednuUewe2SSTcmW6YBazVjYjomgVURt7TvBzbV1BoOyuwVSH4W1IpI7E7j1mCw3-RgBGAnJJDwn7F5LNd_c" alt="User Profile">
+            </div>
+            <span class="top-app-bar__title">KINETIC ORACLE</span>
+        </div>
+        <button class="top-app-bar__action">
+            <span class="material-symbols-outlined">bolt</span>
+        </button>
+    </header>
+
+    <main style="padding-top: 6rem; padding-bottom: 8rem; padding-left: 1.5rem; padding-right: 1.5rem;">
+        <!-- Welcome Section -->
+        <div style="margin-bottom: 2rem;">
+            <p class="text-label-md" style="color: var(--on-surface-variant);">Performance Hub</p>
+            <h1 class="text-display-md font-headline" style="margin-top: 0.25rem; text-shadow: 0 2px 10px rgba(0,0,0,0.8); position: relative; z-index: 5;">Hello Alex 👋</h1>
+        </div>
+
+        <!-- Hero Card -->
+        <div class="hero-card" style="margin-bottom: 1.5rem;">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtdAtNMQQr5JEyA86sGs7v7i8kBlWuYIht1USc0M2JoiY4jwtpv7LH-agIyQ4m2kxfjqurn4uUAKaWaTpiZiSd8KUizbzTkb3_WUKs-9ypbk5HtsOjLxF9Wd6PyTuTYbyH-SDTh9rNlQ3w_Vh1EtuZ-k385XjwvoOSL_5tW8UGoVU_UIqFNlhDZXhLqU8fnCtepg_CxCyZBUXjcUAt4UeiOK9U_EACVXIQ_8b-O_mdoFLeA3fZxM2qGEwD0JQDThVVIZa8rfvTvHU" alt="Workout" class="hero-card__bg">
+            <div class="hero-card__gradient"></div>
+            <div class="hero-card__content">
+                <h2 class="hero-card__title">PUSH YOUR LIMITS WITH AI ANALYSIS</h2>
+                <a href="workout.html" class="btn-primary" style="margin-top: 1.5rem;">
+                    <span class="material-symbols-outlined filled">play_arrow</span>
+                    START WORKOUT
+                </a>
+            </div>
+        </div>
+
+        <!-- Steps Card -->
+        <div class="steps-card" style="margin-bottom: 1.5rem;">
+            <div class="steps-card__header">
+                <div class="steps-card__icon-wrap">
+                    <span class="material-symbols-outlined steps-card__icon filled">directions_run</span>
+                </div>
+                <span class="steps-card__tag">Daily Goal</span>
+            </div>
+            <div>
+                <h3 class="steps-card__value">8,432</h3>
+                <p class="steps-card__label">STEPS TODAY</p>
+            </div>
+            <div class="progress-bar" style="margin-top: 1.5rem;">
+                <div class="progress-bar__fill" style="width: 84%;"></div>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="exercise-selector" style="margin-bottom: 2rem;">
+            <button class="pill pill-active">Warm-up</button>
+            <button class="pill pill-inactive">Cardio</button>
+            <button class="pill pill-inactive">Strength</button>
+            <button class="pill pill-inactive">Yoga</button>
+        </div>
+
+        <!-- Summary -->
+        <div class="card-low" style="padding: 2rem; border: 1px solid rgba(71, 72, 50, 0.1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h3 class="text-headline-sm font-headline">Last Workout Summary</h3>
+                <span id="dash-summary-time" style="font-size: 0.75rem; color: var(--on-surface-variant);">Yesterday, 18:45</span>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <p class="stat-item__label">Duration</p>
+                    <p id="dash-summary-dur" class="stat-item__value" style="color: var(--primary-fixed);">45<span class="stat-item__unit">min</span></p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-item__label">Calories</p>
+                    <p id="dash-summary-cal" class="stat-item__value" style="color: var(--primary-fixed);">380<span class="stat-item__unit">kcal</span></p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-item__label">Avg HR</p>
+                    <p id="dash-summary-hr" class="stat-item__value" style="color: var(--secondary);">142<span class="stat-item__unit">bpm</span></p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-item__label">Precision</p>
+                    <p id="dash-summary-prec" class="stat-item__value" style="color: var(--secondary);">94<span class="stat-item__unit">%</span></p>
+                </div>
+            </div>
+
+            <!-- Perf Bars -->
+            <div class="perf-bars">
+                <div class="perf-bar" style="height: 40%; background: rgba(126, 219, 127, 0.1);"></div>
+                <div class="perf-bar" style="height: 65%; background: rgba(126, 219, 127, 0.1);"></div>
+                <div class="perf-bar" style="height: 50%; background: rgba(126, 219, 127, 0.2);"></div>
+                <div class="perf-bar" style="height: 85%; background: rgba(126, 219, 127, 0.3);"></div>
+                <div class="perf-bar" style="height: 95%; background: rgba(245, 255, 0, 0.4);"></div>
+                <div class="perf-bar" style="height: 80%; background: var(--primary-fixed);"></div>
+                <div class="perf-bar" style="height: 60%; background: rgba(126, 219, 127, 0.4);"></div>
+                <div class="perf-bar" style="height: 45%; background: rgba(126, 219, 127, 0.2);"></div>
+            </div>
+        </div>
+
+        <!-- AI Insight -->
+        <div class="ai-insight-card glass-panel" style="margin-top: 1.5rem; border: 1px solid rgba(245, 255, 0, 0.1);">
+            <div class="ai-insight-card__header">
+                <span class="material-symbols-outlined">psychology</span>
+                <span class="ai-insight-card__title">KINETIC AI INSIGHT</span>
+            </div>
+            <p id="dash-ai-insight-text" class="ai-insight-card__body">"Your recovery rate is optimal this week. Kinetic AI suggests focusing on full depth and knee stability during squat sessions."</p>
+            <a href="workout.html#performance" class="ai-insight-card__link">
+                VIEW ANALYSIS
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="dashboard.html" class="bottom-nav__item bottom-nav__item--active">
+            <span class="material-symbols-outlined bottom-nav__icon filled">grid_view</span>
+            <span class="bottom-nav__label">Home</span>
+        </a>
+        <a href="workout.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">fitness_center</span>
+            <span class="bottom-nav__label">Workout</span>
+        </a>
+        <a href="nutrition.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">restaurant</span>
+            <span class="bottom-nav__label">Nutrition</span>
+        </a>
+        <a href="shop.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">shopping_bag</span>
+            <span class="bottom-nav__label">Shop</span>
+        </a>
+        <a href="profile.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">person</span>
+            <span class="bottom-nav__label">Profile</span>
+        </a>
+    </nav>
+
+    <script src="js/app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js');
+            });
+        }
+    </script>
+</body>
+</html>

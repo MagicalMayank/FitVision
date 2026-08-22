@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Workout &amp; Analytics - Kinetic Oracle</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#131313">
+    <style>
+        .workout-hero {
+            position: relative;
+            background: var(--surface-container);
+            border: 1px solid rgba(71,72,50,0.15);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        .ex-chip-scroll {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            scrollbar-width: none;
+            padding-bottom: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .ex-chip-scroll::-webkit-scrollbar { display: none; }
+        
+        .camera-overlay-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background: #000;
+            display: none;
+            flex-direction: column;
+        }
+        .camera-overlay-modal--active {
+            display: flex;
+        }
+    </style>
+</head>
+<body class="kinetic-glow">
+    <!-- TopAppBar -->
+    <header class="top-app-bar" style="background: #131313; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="top-app-bar__brand">
+            <div class="top-app-bar__avatar" style="border: 2px solid var(--primary-fixed);">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ucD-WmYQaQExqdikk7fuNP1bT_6UYChS09NNqzIie8v-0g7NmsSyJWk3I_OCvCF3pTumkdGU8NHhhIKHKS3VXYdYdm606r6YNPGg1jp60yEVGd2yvCTgJJ1xAaEVfAdHwwy1XDgui_AiDE-OV8gX-kXIEiJnkT1R_XJYvjoTG5AGLn408Ab2A9TLednuUewe2SSTcmW6YBazVjYjomgVURt7TvBzbV1BoOyuwVSH4W1IpI7E7j1mCw3-RgBGAnJJDwn7F5LNd_c" alt="User Profile">
+            </div>
+            <span class="top-app-bar__title" style="color: var(--primary-fixed);">KINETIC ORACLE</span>
+        </div>
+        <button class="top-app-bar__action">
+            <span class="material-symbols-outlined">bolt</span>
+        </button>
+    </header>
+
+    <main style="padding-top: 5.5rem; padding-bottom: 8rem; padding-left: 1.25rem; padding-right: 1.25rem; max-width: 800px; margin: 0 auto;">
+        
+        <!-- SECTION 1: ACTIVE WORKOUT & POSE ANALYSIS LAUNCHER -->
+        <section class="workout-hero">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div>
+                    <span class="text-label-sm" style="color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">REAL-TIME POSE ANALYSIS</span>
+                    <h1 class="text-display-sm font-headline" style="color: white; margin-top: 0.25rem; line-height: 1.1;">START WORKOUT</h1>
+                </div>
+                <div style="background: rgba(245,255,0,0.1); border: 1px solid rgba(245,255,0,0.2); padding: 0.4rem 0.8rem; border-radius: var(--radius-full); display: flex; align-items: center; gap: 0.35rem; color: var(--primary-fixed); font-size: 0.7rem; font-weight: 700;">
+                    <span class="material-symbols-outlined" style="font-size: 0.9rem;">videocam</span>
+                    <span>YOLO11n-Pose AI</span>
+                </div>
+            </div>
+
+            <!-- Exercise Selection Chips -->
+            <p style="color: var(--on-surface-variant); font-size: 0.8rem; margin-top: 1rem;">Select Movement Target:</p>
+            <div class="ex-chip-scroll">
+                <button class="ex-select-chip ex-select-chip--active" data-exercise="squat">Squat</button>
+                <button class="ex-select-chip" data-exercise="pushup">Push-Up</button>
+                <button class="ex-select-chip" data-exercise="lunge">Lunge</button>
+                <button class="ex-select-chip" data-exercise="glute_bridge">Glute Bridge</button>
+                <button class="ex-select-chip" data-exercise="plank">Plank</button>
+                <button class="ex-select-chip" data-exercise="bicep_curl">Bicep Curl</button>
+                <button class="ex-select-chip" data-exercise="shoulder_press">Shoulder Press</button>
+                <button class="ex-select-chip" data-exercise="mountain_climber">Mountain Climber</button>
+                <button class="ex-select-chip" data-exercise="jumping_jack">Jumping Jack</button>
+                <button class="ex-select-chip" data-exercise="calf_raise">Calf Raise</button>
+            </div>
+
+            <!-- Primary START WORKOUT Action Button -->
+            <button id="launchCameraBtn" class="btn-primary" style="width: 100%; padding: 1.1rem; border-radius: var(--radius-md); font-size: 1rem; font-weight: 900; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: center; gap: 0.6rem; box-shadow: 0 0 25px rgba(245, 255, 0, 0.35);">
+                <span class="material-symbols-outlined" style="font-size: 1.5rem; font-variation-settings: 'FILL' 1;">play_circle</span>
+                <span>START POSE ANALYSIS WORKOUT</span>
+            </button>
+        </section>
+
+        <!-- SECTION 2: WORKOUT PERFORMANCE & ANALYTICS AREA -->
+        <section id="workout-analytics-section" style="margin-top: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem; padding: 0 0.25rem;">
+                <div>
+                    <h2 class="font-headline" style="color: white; font-weight: 700; font-size: 1.35rem; letter-spacing: -0.02em;">PERFORMANCE &amp; ANALYTICS</h2>
+                    <p style="color: var(--on-surface-variant); font-size: 0.75rem;">Consolidated workout statistics &amp; biomechanical insights</p>
+                </div>
+            </div>
+
+            <!-- Sticky 4-Segment Control pill -->
+            <nav class="analytics-segmented-control" aria-label="Workout Analytics Navigation">
+                <button class="segment-btn segment-btn--active" data-segment="overview" aria-selected="true">
+                    <span class="material-symbols-outlined segment-icon">grid_view</span>
+                    <span>Overview</span>
+                </button>
+                <button class="segment-btn" data-segment="performance" aria-selected="false">
+                    <span class="material-symbols-outlined segment-icon">analytics</span>
+                    <span>Performance</span>
+                </button>
+                <button class="segment-btn" data-segment="progress" aria-selected="false">
+                    <span class="material-symbols-outlined segment-icon">trending_up</span>
+                    <span>Progress</span>
+                </button>
+                <button class="segment-btn" data-segment="history" aria-selected="false">
+                    <span class="material-symbols-outlined segment-icon">history</span>
+                    <span>History</span>
+                </button>
+            </nav>
+
+            <!-- 4 Segment Panels -->
+            <div id="analytics-panels-container">
+                <div id="panel-overview" class="analytics-panel analytics-panel--active"></div>
+                <div id="panel-performance" class="analytics-panel"></div>
+                <div id="panel-progress" class="analytics-panel"></div>
+                <div id="panel-history" class="analytics-panel"></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- LIVE CAMERA & POSE ANALYSIS MODAL OVERLAY -->
+    <div id="cameraModal" class="camera-overlay-modal">
+        <div class="camera-container" style="height: 100vh; position: relative;">
+            <!-- Connection Status -->
+            <div id="connectionStatus" class="connection-status connection-status--hidden">
+                DISCONNECTED
+            </div>
+
+            <video id="webcam" autoplay playsinline muted style="width: 100%; height: 100%; object-fit: cover;"></video>
+            <canvas id="skeletonCanvas" style="position: absolute; inset: 0; width: 100%; height: 100%;"></canvas>
+            <div class="camera-gradient-overlay"></div>
+
+            <!-- UI Overlays -->
+            <div style="position: absolute; inset: 0; z-index: 20; display: flex; flex-direction: column; padding: 1.5rem; padding-top: 3.5rem; padding-bottom: 2rem; pointer-events: none;">
+                
+                <!-- Exercise Selector Chips inside Camera -->
+                <div style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; margin-bottom: 0.75rem; pointer-events: auto;" class="no-scrollbar">
+                    <button class="ex-select-chip ex-select-chip--active" data-exercise="squat">Squat</button>
+                    <button class="ex-select-chip" data-exercise="pushup">Push-Up</button>
+                    <button class="ex-select-chip" data-exercise="lunge">Lunge</button>
+                    <button class="ex-select-chip" data-exercise="glute_bridge">Glute Bridge</button>
+                    <button class="ex-select-chip" data-exercise="plank">Plank</button>
+                    <button class="ex-select-chip" data-exercise="bicep_curl">Bicep Curl</button>
+                    <button class="ex-select-chip" data-exercise="shoulder_press">Shoulder Press</button>
+                    <button class="ex-select-chip" data-exercise="mountain_climber">Mountain Climber</button>
+                    <button class="ex-select-chip" data-exercise="jumping_jack">Jumping Jack</button>
+                    <button class="ex-select-chip" data-exercise="calf_raise">Calf Raise</button>
+                </div>
+
+                <!-- Top Stats Row -->
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; pointer-events: auto;">
+                    <!-- Rep Counter Card -->
+                    <div class="glass-panel" style="padding: 1.5rem; border-radius: 2rem; width: 9rem; text-align: center; border: 1px solid rgba(255,255,255,0.05);">
+                        <p class="text-label-sm" style="color: rgba(255,255,255,0.5); margin-bottom: 0.25rem;">Rep Counter</p>
+                        <h1 id="repCount" class="text-display-lg" style="color: var(--primary-fixed); line-height: 0.8; margin-bottom: 0.75rem;">0</h1>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 0.4rem; color: var(--secondary);">
+                            <button id="decTarget" style="padding: 0.2rem;"><span class="material-symbols-outlined" style="font-size: 0.9rem;">remove_circle</span></button>
+                            <p class="text-label-sm" style="font-weight: 700; font-size: 0.65rem;">Target: <span id="targetDisplay">15</span></p>
+                            <button id="incTarget" style="padding: 0.2rem;"><span class="material-symbols-outlined" style="font-size: 0.9rem;">add_circle</span></button>
+                        </div>
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem;">
+                        <!-- Session Timer Pill -->
+                        <div class="glass-panel" style="padding: 1rem 2rem; border-radius: 3rem; text-align: right; border: 1px solid rgba(255,255,255,0.05);">
+                            <p class="text-label-sm" style="color: rgba(255,255,255,0.5); margin-bottom: 0.15rem;">Session Timer</p>
+                            <h2 id="timerDisplay" class="text-display-sm font-headline" style="color: white; line-height: 1;">00:00</h2>
+                        </div>
+                        
+                        <!-- AI Sync Pill -->
+                        <div class="glass-panel ai-sync-badge" style="padding: 0.5rem 1.25rem; border-radius: 2rem; background: rgba(126, 219, 127, 0.1); border: 1px solid rgba(126, 219, 127, 0.2);">
+                            <span class="ai-sync-badge__dot"></span>
+                            <span class="ai-sync-badge__label" style="font-size: 0.65rem;">AI Sync: Active</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Central AI Feedback Pill -->
+                <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+                    <div id="feedbackPill" class="feedback-pill feedback-pill--hidden">
+                        <p id="feedbackText" class="feedback-pill__text">KEEP BACK STRAIGHT</p>
+                    </div>
+                </div>
+
+                <!-- Bottom Controls -->
+                <div class="workout-controls" style="display: flex; justify-content: center; align-items: center; gap: 2.5rem; pointer-events: auto;">
+                    <button id="stopWorkout" class="glass-panel" style="width: 4.5rem; height: 4.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.1);">
+                        <span class="material-symbols-outlined" style="font-size: 2.5rem; color: white;">close</span>
+                    </button>
+                    
+                    <button id="toggleWorkout" style="width: 6.5rem; height: 6.5rem; border-radius: 50%; background: var(--primary-fixed); color: var(--on-primary-fixed); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 40px rgba(245, 255, 0, 0.4); border: none;">
+                        <span id="playIcon" class="material-symbols-outlined" style="font-size: 3.5rem; font-variation-settings: 'FILL' 1;">pause</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Standard 5-Tab Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="dashboard.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">grid_view</span>
+            <span class="bottom-nav__label">Home</span>
+        </a>
+        <a href="workout.html" class="bottom-nav__item bottom-nav__item--active">
+            <span class="material-symbols-outlined bottom-nav__icon filled">fitness_center</span>
+            <span class="bottom-nav__label">Workout</span>
+        </a>
+        <a href="nutrition.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">restaurant</span>
+            <span class="bottom-nav__label">Nutrition</span>
+        </a>
+        <a href="shop.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">shopping_bag</span>
+            <span class="bottom-nav__label">Shop</span>
+        </a>
+        <a href="profile.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">person</span>
+            <span class="bottom-nav__label">Profile</span>
+        </a>
+    </nav>
+
+    <script src="js/app.js"></script>
+    <script src="js/camera.js"></script>
+    <script src="js/skeleton.js"></script>
+    <script src="js/repCounter.js"></script>
+    <script src="js/feedback.js"></script>
+    <script src="js/workout-analytics.js"></script>
+    
+    <script>
+        // Wire launch button to open live camera overlay modal
+        document.addEventListener('DOMContentLoaded', () => {
+            const launchBtn = document.getElementById('launchCameraBtn');
+            const modal = document.getElementById('cameraModal');
+            const stopBtn = document.getElementById('stopWorkout');
+
+            if (launchBtn && modal) {
+                launchBtn.addEventListener('click', () => {
+                    modal.classList.add('camera-overlay-modal--active');
+                    document.body.style.overflow = 'hidden';
+                });
+            }
+
+            if (stopBtn && modal) {
+                stopBtn.addEventListener('click', () => {
+                    modal.classList.remove('camera-overlay-modal--active');
+                    document.body.style.overflow = '';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

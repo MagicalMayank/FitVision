@@ -1,0 +1,18 @@
+{
+  "name": "Kinetic Oracle",
+  "short_name": "Kinetic",
+  "description": "Premium AI-powered fitness coach with real-time pose analysis.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#131313",
+  "theme_color": "#131313",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "kinetic_oracle_logo_1776607521030.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

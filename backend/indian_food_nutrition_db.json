@@ -1,0 +1,2687 @@
+[
+  {
+    "dish_name": "adhirasam",
+    "category": "sweet",
+    "primary_ingredients": [
+      "rice_flour",
+      "jaggery",
+      "ghee",
+      "cardamom",
+      "sesame"
+    ],
+    "ingredient_ratios": {
+      "rice_flour": 0.45,
+      "jaggery": 0.35,
+      "ghee": 0.15,
+      "cardamom": 0.03,
+      "sesame": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 420,
+      "protein_g": 3.5,
+      "carbs_g": 65.0,
+      "fat_g": 16.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 12.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Rice based sweet",
+      "usda": "Rice flour pancake"
+    },
+    "notes": "Deep fried; high oil absorption from ghee frying"
+  },
+  {
+    "dish_name": "anarsa",
+    "category": "sweet",
+    "primary_ingredients": [
+      "rice_flour",
+      "jaggery",
+      "ghee",
+      "poppy_seeds"
+    ],
+    "ingredient_ratios": {
+      "rice_flour": 0.5,
+      "jaggery": 0.3,
+      "ghee": 0.18,
+      "poppy_seeds": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 450,
+      "protein_g": 3.0,
+      "carbs_g": 68.0,
+      "fat_g": 18.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 15.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Maharashtrian sweet",
+      "usda": "Rice cookie"
+    },
+    "notes": "Deep fried in ghee; poppy seeds on top"
+  },
+  {
+    "dish_name": "bandar_laddu",
+    "category": "sweet",
+    "primary_ingredients": [
+      "besan",
+      "sugar",
+      "ghee",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "besan": 0.4,
+      "sugar": 0.35,
+      "ghee": 0.23,
+      "cardamom": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 480,
+      "protein_g": 8.0,
+      "carbs_g": 58.0,
+      "fat_g": 24.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Besan laddu",
+      "usda": "Chickpea flour sweet"
+    },
+    "notes": "Roasted besan + ghee; no water"
+  },
+  {
+    "dish_name": "basundi",
+    "category": "sweet",
+    "primary_ingredients": [
+      "milk",
+      "sugar",
+      "saffron",
+      "cardamom",
+      "nuts"
+    ],
+    "ingredient_ratios": {
+      "milk": 0.75,
+      "sugar": 0.15,
+      "saffron": 0.01,
+      "cardamom": 0.01,
+      "nuts": 0.08
+    },
+    "nutrition_per_100g": {
+      "calories": 220,
+      "protein_g": 6.5,
+      "carbs_g": 28.0,
+      "fat_g": 9.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.55
+    },
+    "mappings": {
+      "ifct": "Milk sweet",
+      "usda": "Sweetened condensed milk"
+    },
+    "notes": "Milk reduced to 55% original volume; no oil"
+  },
+  {
+    "dish_name": "cham_cham",
+    "category": "sweet",
+    "primary_ingredients": [
+      "chhena",
+      "sugar",
+      "water",
+      "saffron"
+    ],
+    "ingredient_ratios": {
+      "chhena": 0.45,
+      "sugar": 0.35,
+      "water": 0.18,
+      "saffron": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 280,
+      "protein_g": 7.0,
+      "carbs_g": 48.0,
+      "fat_g": 7.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Bengali sweet",
+      "usda": "Chhena based sweet"
+    },
+    "notes": "Boiled in sugar syrup; chhena is fresh paneer"
+  },
+  {
+    "dish_name": "chhena_kheeri",
+    "category": "sweet",
+    "primary_ingredients": [
+      "chhena",
+      "milk",
+      "sugar",
+      "rice",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "chhena": 0.25,
+      "milk": 0.5,
+      "sugar": 0.15,
+      "rice": 0.08,
+      "cardamom": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 210,
+      "protein_g": 6.8,
+      "carbs_g": 26.0,
+      "fat_g": 8.5
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.6
+    },
+    "mappings": {
+      "ifct": "Kheer variant",
+      "usda": "Rice pudding with chhena"
+    },
+    "notes": "Milk reduced; rice thickens"
+  },
+  {
+    "dish_name": "chikki",
+    "category": "sweet",
+    "primary_ingredients": [
+      "peanuts",
+      "jaggery",
+      "ghee"
+    ],
+    "ingredient_ratios": {
+      "peanuts": 0.55,
+      "jaggery": 0.4,
+      "ghee": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 520,
+      "protein_g": 16.0,
+      "carbs_g": 48.0,
+      "fat_g": 30.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Peanut chikki",
+      "usda": "Peanut brittle"
+    },
+    "notes": "No oil absorption; dry sweet"
+  },
+  {
+    "dish_name": "dharwad_pedha",
+    "category": "sweet",
+    "primary_ingredients": [
+      "milk",
+      "sugar",
+      "dahi",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "milk": 0.7,
+      "sugar": 0.22,
+      "dahi": 0.06,
+      "cardamom": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 380,
+      "protein_g": 10.0,
+      "carbs_g": 55.0,
+      "fat_g": 14.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.35
+    },
+    "mappings": {
+      "ifct": "Pedha",
+      "usda": "Milk fudge"
+    },
+    "notes": "Curdled milk reduced heavily; very dense"
+  },
+  {
+    "dish_name": "double_ka_meetha",
+    "category": "sweet",
+    "primary_ingredients": [
+      "bread",
+      "milk",
+      "sugar",
+      "ghee",
+      "nuts",
+      "saffron"
+    ],
+    "ingredient_ratios": {
+      "bread": 0.3,
+      "milk": 0.4,
+      "sugar": 0.15,
+      "ghee": 0.1,
+      "nuts": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 320,
+      "protein_g": 6.0,
+      "carbs_g": 42.0,
+      "fat_g": 14.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 1.2
+    },
+    "mappings": {
+      "ifct": "Bread sweet",
+      "usda": "Indian bread pudding"
+    },
+    "notes": "Bread fried in ghee then soaked in milk; absorbs ghee + milk"
+  },
+  {
+    "dish_name": "gajar_ka_halwa",
+    "category": "sweet",
+    "primary_ingredients": [
+      "carrot",
+      "milk",
+      "sugar",
+      "ghee",
+      "mawa",
+      "nuts"
+    ],
+    "ingredient_ratios": {
+      "carrot": 0.4,
+      "milk": 0.25,
+      "sugar": 0.15,
+      "ghee": 0.12,
+      "mawa": 0.05,
+      "nuts": 0.03
+    },
+    "nutrition_per_100g": {
+      "calories": 280,
+      "protein_g": 4.5,
+      "carbs_g": 38.0,
+      "fat_g": 12.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 5.0,
+      "cooked_to_raw_ratio": 0.45
+    },
+    "mappings": {
+      "ifct": "Carrot halwa",
+      "usda": "Carrot pudding"
+    },
+    "notes": "Carrots cooked down in milk; ghee fried"
+  },
+  {
+    "dish_name": "ghevar",
+    "category": "sweet",
+    "primary_ingredients": [
+      "maida",
+      "sugar",
+      "ghee",
+      "milk",
+      "almonds"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.35,
+      "sugar": 0.3,
+      "ghee": 0.25,
+      "milk": 0.08,
+      "almonds": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 450,
+      "protein_g": 5.0,
+      "carbs_g": 55.0,
+      "fat_g": 22.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 20.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Rajasthani sweet",
+      "usda": "Honeycomb disc sweet"
+    },
+    "notes": "Deep fried in ghee; highly porous absorbs sugar syrup"
+  },
+  {
+    "dish_name": "gulab_jamun",
+    "category": "sweet",
+    "primary_ingredients": [
+      "mawa",
+      "maida",
+      "sugar",
+      "ghee",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "mawa": 0.5,
+      "maida": 0.1,
+      "sugar": 0.25,
+      "ghee": 0.13,
+      "cardamom": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 380,
+      "protein_g": 6.0,
+      "carbs_g": 55.0,
+      "fat_g": 15.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 18.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Gulab jamun",
+      "usda": "Milk solid sweet"
+    },
+    "notes": "Deep fried in ghee; soaked in sugar syrup"
+  },
+  {
+    "dish_name": "imarti",
+    "category": "sweet",
+    "primary_ingredients": [
+      "urad_dal",
+      "sugar",
+      "ghee",
+      "saffron"
+    ],
+    "ingredient_ratios": {
+      "urad_dal": 0.4,
+      "sugar": 0.35,
+      "ghee": 0.23,
+      "saffron": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 400,
+      "protein_g": 5.5,
+      "carbs_g": 58.0,
+      "fat_g": 16.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 20.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Imarti/jalebi variant",
+      "usda": "Fried lentil sweet"
+    },
+    "notes": "Deep fried in ghee; urad dal batter"
+  },
+  {
+    "dish_name": "jalebi",
+    "category": "sweet",
+    "primary_ingredients": [
+      "maida",
+      "sugar",
+      "ghee",
+      "yogurt",
+      "saffron"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.4,
+      "sugar": 0.35,
+      "ghee": 0.22,
+      "yogurt": 0.03
+    },
+    "nutrition_per_100g": {
+      "calories": 380,
+      "protein_g": 3.5,
+      "carbs_g": 65.0,
+      "fat_g": 12.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 18.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Jalebi",
+      "usda": "Fried sweet"
+    },
+    "notes": "Deep fried; fermented batter"
+  },
+  {
+    "dish_name": "kalakand",
+    "category": "sweet",
+    "primary_ingredients": [
+      "milk",
+      "sugar",
+      "lemon",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "milk": 0.75,
+      "sugar": 0.2,
+      "lemon": 0.03,
+      "cardamom": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 280,
+      "protein_g": 8.5,
+      "carbs_g": 38.0,
+      "fat_g": 10.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.3
+    },
+    "mappings": {
+      "ifct": "Milk cake",
+      "usda": "Curdled milk sweet"
+    },
+    "notes": "Heavily reduced milk; very dense"
+  },
+  {
+    "dish_name": "kakinada_khaja",
+    "category": "sweet",
+    "primary_ingredients": [
+      "maida",
+      "sugar",
+      "ghee"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.45,
+      "sugar": 0.35,
+      "ghee": 0.2
+    },
+    "nutrition_per_100g": {
+      "calories": 460,
+      "protein_g": 5.0,
+      "carbs_g": 62.0,
+      "fat_g": 20.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 15.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Layered sweet",
+      "usda": "Flaky pastry sweet"
+    },
+    "notes": "Layered dough fried in ghee"
+  },
+  {
+    "dish_name": "kajjikaya",
+    "category": "sweet",
+    "primary_ingredients": [
+      "maida",
+      "coconut",
+      "sugar",
+      "ghee",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.35,
+      "coconut": 0.25,
+      "sugar": 0.25,
+      "ghee": 0.13,
+      "cardamom": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 420,
+      "protein_g": 4.5,
+      "carbs_g": 52.0,
+      "fat_g": 20.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 12.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Stuffed sweet",
+      "usda": "Coconut stuffed pastry"
+    },
+    "notes": "Deep fried; coconut + sugar filling"
+  },
+  {
+    "dish_name": "kuzhi_paniyaram",
+    "category": "sweet",
+    "primary_ingredients": [
+      "rice",
+      "urad_dal",
+      "jaggery",
+      "coconut",
+      "ghee"
+    ],
+    "ingredient_ratios": {
+      "rice": 0.35,
+      "urad_dal": 0.15,
+      "jaggery": 0.3,
+      "coconut": 0.15,
+      "ghee": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 280,
+      "protein_g": 4.5,
+      "carbs_g": 48.0,
+      "fat_g": 8.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 5.0,
+      "cooked_to_raw_ratio": 1.8
+    },
+    "mappings": {
+      "ifct": "Paniyaram",
+      "usda": "Rice dumpling"
+    },
+    "notes": "Fermented batter; cooked in paniyaram pan with ghee"
+  },
+  {
+    "dish_name": "ledikeni",
+    "category": "sweet",
+    "primary_ingredients": [
+      "chhena",
+      "sugar",
+      "ghee",
+      "flour",
+      "saffron"
+    ],
+    "ingredient_ratios": {
+      "chhena": 0.45,
+      "sugar": 0.3,
+      "ghee": 0.2,
+      "flour": 0.03,
+      "saffron": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 340,
+      "protein_g": 8.0,
+      "carbs_g": 42.0,
+      "fat_g": 16.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 12.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Ledikeni",
+      "usda": "Chhena fried sweet"
+    },
+    "notes": "Chhena fried in ghee; sugar syrup soaked"
+  },
+  {
+    "dish_name": "lyangcha",
+    "category": "sweet",
+    "primary_ingredients": [
+      "maida",
+      "sugar",
+      "ghee",
+      "coconut",
+      "milk"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.35,
+      "sugar": 0.3,
+      "ghee": 0.2,
+      "coconut": 0.1,
+      "milk": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 380,
+      "protein_g": 4.0,
+      "carbs_g": 52.0,
+      "fat_g": 16.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 15.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Assamese sweet",
+      "usda": "Fried sweet"
+    },
+    "notes": "Deep fried; elongated shape"
+  },
+  {
+    "dish_name": "malapua",
+    "category": "sweet",
+    "primary_ingredients": [
+      "maida",
+      "milk",
+      "sugar",
+      "fennel",
+      "ghee"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.3,
+      "milk": 0.3,
+      "sugar": 0.25,
+      "fennel": 0.02,
+      "ghee": 0.13
+    },
+    "nutrition_per_100g": {
+      "calories": 320,
+      "protein_g": 5.0,
+      "carbs_g": 42.0,
+      "fat_g": 14.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 10.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Pancake sweet",
+      "usda": "Fried pancake"
+    },
+    "notes": "Pan fried in ghee; sugar syrup soaked"
+  },
+  {
+    "dish_name": "misti_doi",
+    "category": "sweet",
+    "primary_ingredients": [
+      "milk",
+      "sugar",
+      "yogurt_culture"
+    ],
+    "ingredient_ratios": {
+      "milk": 0.8,
+      "sugar": 0.18,
+      "yogurt_culture": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 180,
+      "protein_g": 5.5,
+      "carbs_g": 28.0,
+      "fat_g": 5.5
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.5
+    },
+    "mappings": {
+      "ifct": "Sweet yogurt",
+      "usda": "Caramelized yogurt"
+    },
+    "notes": "Milk caramelized then fermented; no oil"
+  },
+  {
+    "dish_name": "modak",
+    "category": "sweet",
+    "primary_ingredients": [
+      "rice_flour",
+      "coconut",
+      "jaggery",
+      "ghee",
+      "poppy_seeds"
+    ],
+    "ingredient_ratios": {
+      "rice_flour": 0.3,
+      "coconut": 0.3,
+      "jaggery": 0.3,
+      "ghee": 0.08,
+      "poppy_seeds": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 320,
+      "protein_g": 3.5,
+      "carbs_g": 48.0,
+      "fat_g": 12.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 5.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Modak",
+      "usda": "Stuffed dumpling"
+    },
+    "notes": "Steamed or fried; coconut-jaggery filling"
+  },
+  {
+    "dish_name": "mysore_pak",
+    "category": "sweet",
+    "primary_ingredients": [
+      "besan",
+      "sugar",
+      "ghee"
+    ],
+    "ingredient_ratios": {
+      "besan": 0.3,
+      "sugar": 0.35,
+      "ghee": 0.35
+    },
+    "nutrition_per_100g": {
+      "calories": 520,
+      "protein_g": 7.0,
+      "carbs_g": 50.0,
+      "fat_g": 32.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Mysore pak",
+      "usda": "Besan fudge"
+    },
+    "notes": "Extremely ghee heavy; no water"
+  },
+  {
+    "dish_name": "phirni",
+    "category": "sweet",
+    "primary_ingredients": [
+      "rice",
+      "milk",
+      "sugar",
+      "saffron",
+      "nuts"
+    ],
+    "ingredient_ratios": {
+      "rice": 0.1,
+      "milk": 0.7,
+      "sugar": 0.12,
+      "saffron": 0.01,
+      "nuts": 0.07
+    },
+    "nutrition_per_100g": {
+      "calories": 180,
+      "protein_g": 5.0,
+      "carbs_g": 24.0,
+      "fat_g": 7.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.55
+    },
+    "mappings": {
+      "ifct": "Rice pudding",
+      "usda": "Ground rice pudding"
+    },
+    "notes": "Ground rice cooked in milk; served cold"
+  },
+  {
+    "dish_name": "pootharekulu",
+    "category": "sweet",
+    "primary_ingredients": [
+      "rice_flour",
+      "sugar",
+      "ghee",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "rice_flour": 0.4,
+      "sugar": 0.35,
+      "ghee": 0.23,
+      "cardamom": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 440,
+      "protein_g": 3.0,
+      "carbs_g": 60.0,
+      "fat_g": 20.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 15.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Paper sweet",
+      "usda": "Rice paper sweet"
+    },
+    "notes": "Rice starch sheets fried in ghee; layered"
+  },
+  {
+    "dish_name": "qubani_ka_meetha",
+    "category": "sweet",
+    "primary_ingredients": [
+      "apricot",
+      "sugar",
+      "water",
+      "cream",
+      "almonds"
+    ],
+    "ingredient_ratios": {
+      "apricot": 0.5,
+      "sugar": 0.25,
+      "water": 0.15,
+      "cream": 0.07,
+      "almonds": 0.03
+    },
+    "nutrition_per_100g": {
+      "calories": 220,
+      "protein_g": 2.5,
+      "carbs_g": 42.0,
+      "fat_g": 6.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.8
+    },
+    "mappings": {
+      "ifct": "Apricot sweet",
+      "usda": "Stewed apricot"
+    },
+    "notes": "Hyderabadi; apricots stewed in sugar syrup"
+  },
+  {
+    "dish_name": "rabri",
+    "category": "sweet",
+    "primary_ingredients": [
+      "milk",
+      "sugar",
+      "saffron",
+      "cardamom",
+      "nuts"
+    ],
+    "ingredient_ratios": {
+      "milk": 0.82,
+      "sugar": 0.1,
+      "saffron": 0.01,
+      "cardamom": 0.01,
+      "nuts": 0.06
+    },
+    "nutrition_per_100g": {
+      "calories": 250,
+      "protein_g": 7.5,
+      "carbs_g": 28.0,
+      "fat_g": 12.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.25
+    },
+    "mappings": {
+      "ifct": "Rabri",
+      "usda": "Reduced milk cream"
+    },
+    "notes": "Milk reduced to 25%; cream layers"
+  },
+  {
+    "dish_name": "ras_malai",
+    "category": "sweet",
+    "primary_ingredients": [
+      "chhena",
+      "milk",
+      "sugar",
+      "saffron",
+      "pistachio"
+    ],
+    "ingredient_ratios": {
+      "chhena": 0.35,
+      "milk": 0.45,
+      "sugar": 0.12,
+      "saffron": 0.01,
+      "pistachio": 0.07
+    },
+    "nutrition_per_100g": {
+      "calories": 240,
+      "protein_g": 7.0,
+      "carbs_g": 26.0,
+      "fat_g": 12.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.7
+    },
+    "mappings": {
+      "ifct": "Rasmalai",
+      "usda": "Chhena in milk"
+    },
+    "notes": "Chhena discs in flavored milk"
+  },
+  {
+    "dish_name": "rasgulla",
+    "category": "sweet",
+    "primary_ingredients": [
+      "chhena",
+      "sugar",
+      "water",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "chhena": 0.4,
+      "sugar": 0.35,
+      "water": 0.23,
+      "cardamom": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 220,
+      "protein_g": 5.5,
+      "carbs_g": 40.0,
+      "fat_g": 4.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Rasgulla",
+      "usda": "Chhena ball in syrup"
+    },
+    "notes": "Boiled in sugar syrup; spongy"
+  },
+  {
+    "dish_name": "sandesh",
+    "category": "sweet",
+    "primary_ingredients": [
+      "chhena",
+      "sugar",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "chhena": 0.65,
+      "sugar": 0.3,
+      "cardamom": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 280,
+      "protein_g": 10.0,
+      "carbs_g": 38.0,
+      "fat_g": 9.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.85
+    },
+    "mappings": {
+      "ifct": "Sandesh",
+      "usda": "Chhena sweet"
+    },
+    "notes": "Fresh chhena lightly sweetened; no cooking"
+  },
+  {
+    "dish_name": "sheera",
+    "category": "sweet",
+    "primary_ingredients": [
+      "semolina",
+      "sugar",
+      "ghee",
+      "water",
+      "nuts"
+    ],
+    "ingredient_ratios": {
+      "semolina": 0.25,
+      "sugar": 0.25,
+      "ghee": 0.2,
+      "water": 0.25,
+      "nuts": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 340,
+      "protein_g": 4.5,
+      "carbs_g": 48.0,
+      "fat_g": 14.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 2.5
+    },
+    "mappings": {
+      "ifct": "Semolina halwa",
+      "usda": "Rava sheera"
+    },
+    "notes": "Semolina roasted in ghee; water added 2:1"
+  },
+  {
+    "dish_name": "sheer_korma",
+    "category": "sweet",
+    "primary_ingredients": [
+      "vermicelli",
+      "milk",
+      "sugar",
+      "ghee",
+      "dates",
+      "nuts"
+    ],
+    "ingredient_ratios": {
+      "vermicelli": 0.15,
+      "milk": 0.55,
+      "sugar": 0.12,
+      "ghee": 0.08,
+      "dates": 0.05,
+      "nuts": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 220,
+      "protein_g": 5.5,
+      "carbs_g": 30.0,
+      "fat_g": 8.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 4.0,
+      "cooked_to_raw_ratio": 1.8
+    },
+    "mappings": {
+      "ifct": "Vermicelli pudding",
+      "usda": "Eid special"
+    },
+    "notes": "Vermicelli roasted in ghee; cooked in milk"
+  },
+  {
+    "dish_name": "shrikhand",
+    "category": "sweet",
+    "primary_ingredients": [
+      "yogurt",
+      "sugar",
+      "saffron",
+      "cardamom",
+      "nuts"
+    ],
+    "ingredient_ratios": {
+      "yogurt": 0.75,
+      "sugar": 0.18,
+      "saffron": 0.01,
+      "cardamom": 0.01,
+      "nuts": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 200,
+      "protein_g": 6.5,
+      "carbs_g": 28.0,
+      "fat_g": 7.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.35
+    },
+    "mappings": {
+      "ifct": "Strained yogurt",
+      "usda": "Sweet yogurt"
+    },
+    "notes": "Yogurt hung to remove whey; very thick"
+  },
+  {
+    "dish_name": "sohan_halwa",
+    "category": "sweet",
+    "primary_ingredients": [
+      "cornflour",
+      "sugar",
+      "ghee",
+      "water",
+      "nuts"
+    ],
+    "ingredient_ratios": {
+      "cornflour": 0.15,
+      "sugar": 0.3,
+      "ghee": 0.3,
+      "water": 0.2,
+      "nuts": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 420,
+      "protein_g": 3.5,
+      "carbs_g": 55.0,
+      "fat_g": 20.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 5.0,
+      "cooked_to_raw_ratio": 0.4
+    },
+    "mappings": {
+      "ifct": "Sohan halwa",
+      "usda": "Dense nut sweet"
+    },
+    "notes": "Very dense; cooked until solid"
+  },
+  {
+    "dish_name": "sohan_papdi",
+    "category": "sweet",
+    "primary_ingredients": [
+      "besan",
+      "sugar",
+      "ghee",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "besan": 0.25,
+      "sugar": 0.35,
+      "ghee": 0.35,
+      "cardamom": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 480,
+      "protein_g": 6.0,
+      "carbs_g": 58.0,
+      "fat_g": 24.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Sohan papdi",
+      "usda": "Flaky sweet"
+    },
+    "notes": "No water; all ghee and sugar"
+  },
+  {
+    "dish_name": "sutar_feni",
+    "category": "sweet",
+    "primary_ingredients": [
+      "maida",
+      "sugar",
+      "ghee",
+      "saffron"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.4,
+      "sugar": 0.35,
+      "ghee": 0.23,
+      "saffron": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 430,
+      "protein_g": 5.0,
+      "carbs_g": 60.0,
+      "fat_g": 18.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 15.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Feni sweet",
+      "usda": "Thread sweet"
+    },
+    "notes": "Deep fried thin threads; sugar coated"
+  },
+  {
+    "dish_name": "unni_appam",
+    "category": "sweet",
+    "primary_ingredients": [
+      "rice",
+      "banana",
+      "jaggery",
+      "coconut",
+      "ghee"
+    ],
+    "ingredient_ratios": {
+      "rice": 0.3,
+      "banana": 0.25,
+      "jaggery": 0.25,
+      "coconut": 0.15,
+      "ghee": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 280,
+      "protein_g": 3.5,
+      "carbs_g": 50.0,
+      "fat_g": 8.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 5.0,
+      "cooked_to_raw_ratio": 1.5
+    },
+    "mappings": {
+      "ifct": "Appam",
+      "usda": "Rice banana sweet"
+    },
+    "notes": "Fermented rice + banana; cooked in appam pan"
+  },
+  {
+    "dish_name": "aloo_gobi",
+    "category": "curry",
+    "primary_ingredients": [
+      "potato",
+      "cauliflower",
+      "onion",
+      "tomato",
+      "ginger_garlic",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "potato": 0.35,
+      "cauliflower": 0.3,
+      "onion": 0.1,
+      "tomato": 0.08,
+      "ginger_garlic": 0.03,
+      "oil": 0.08,
+      "spices": 0.06
+    },
+    "nutrition_per_100g": {
+      "calories": 110,
+      "protein_g": 2.5,
+      "carbs_g": 14.0,
+      "fat_g": 5.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 6.0,
+      "cooked_to_raw_ratio": 0.85
+    },
+    "mappings": {
+      "ifct": "Vegetable curry",
+      "usda": "Potato cauliflower curry"
+    },
+    "notes": "Dry-ish curry; moderate oil"
+  },
+  {
+    "dish_name": "aloo_matar",
+    "category": "curry",
+    "primary_ingredients": [
+      "potato",
+      "green_peas",
+      "onion",
+      "tomato",
+      "ginger_garlic",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "potato": 0.35,
+      "green_peas": 0.2,
+      "onion": 0.12,
+      "tomato": 0.1,
+      "ginger_garlic": 0.03,
+      "oil": 0.12,
+      "spices": 0.08
+    },
+    "nutrition_per_100g": {
+      "calories": 120,
+      "protein_g": 3.0,
+      "carbs_g": 16.0,
+      "fat_g": 5.5
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 0.9
+    },
+    "mappings": {
+      "ifct": "Vegetable curry",
+      "usda": "Potato peas curry"
+    },
+    "notes": "Semi-gravy; onion-tomato base"
+  },
+  {
+    "dish_name": "aloo_methi",
+    "category": "curry",
+    "primary_ingredients": [
+      "potato",
+      "fenugreek_leaves",
+      "onion",
+      "tomato",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "potato": 0.45,
+      "fenugreek_leaves": 0.2,
+      "onion": 0.1,
+      "tomato": 0.08,
+      "oil": 0.1,
+      "spices": 0.07
+    },
+    "nutrition_per_100g": {
+      "calories": 105,
+      "protein_g": 2.5,
+      "carbs_g": 13.0,
+      "fat_g": 5.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 7.0,
+      "cooked_to_raw_ratio": 0.85
+    },
+    "mappings": {
+      "ifct": "Vegetable curry",
+      "usda": "Potato fenugreek curry"
+    },
+    "notes": "Dry curry; methi reduces moisture"
+  },
+  {
+    "dish_name": "aloo_shimla_mirch",
+    "category": "curry",
+    "primary_ingredients": [
+      "potato",
+      "capsicum",
+      "onion",
+      "tomato",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "potato": 0.4,
+      "capsicum": 0.25,
+      "onion": 0.12,
+      "tomato": 0.08,
+      "oil": 0.1,
+      "spices": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 100,
+      "protein_g": 2.0,
+      "carbs_g": 13.0,
+      "fat_g": 4.5
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 7.0,
+      "cooked_to_raw_ratio": 0.85
+    },
+    "mappings": {
+      "ifct": "Vegetable curry",
+      "usda": "Potato capsicum curry"
+    },
+    "notes": "Dry fry style"
+  },
+  {
+    "dish_name": "aloo_tikki",
+    "category": "snack",
+    "primary_ingredients": [
+      "potato",
+      "peas",
+      "bread_crumbs",
+      "oil",
+      "spices",
+      "coriander"
+    ],
+    "ingredient_ratios": {
+      "potato": 0.55,
+      "peas": 0.1,
+      "bread_crumbs": 0.08,
+      "oil": 0.15,
+      "spices": 0.07,
+      "coriander": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 180,
+      "protein_g": 3.0,
+      "carbs_g": 22.0,
+      "fat_g": 8.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 12.0,
+      "cooked_to_raw_ratio": 0.9
+    },
+    "mappings": {
+      "ifct": "Snack",
+      "usda": "Potato patty"
+    },
+    "notes": "Shallow fried; absorbs significant oil"
+  },
+  {
+    "dish_name": "bhindi_masala",
+    "category": "curry",
+    "primary_ingredients": [
+      "okra",
+      "onion",
+      "tomato",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "okra": 0.5,
+      "onion": 0.15,
+      "tomato": 0.1,
+      "oil": 0.15,
+      "spices": 0.1
+    },
+    "nutrition_per_100g": {
+      "calories": 130,
+      "protein_g": 2.5,
+      "carbs_g": 12.0,
+      "fat_g": 8.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 12.0,
+      "cooked_to_raw_ratio": 0.8
+    },
+    "mappings": {
+      "ifct": "Vegetable curry",
+      "usda": "Okra curry"
+    },
+    "notes": "Dry roasted bhindi; high oil to prevent stickiness"
+  },
+  {
+    "dish_name": "butter_chicken",
+    "category": "curry",
+    "primary_ingredients": [
+      "chicken",
+      "tomato",
+      "cream",
+      "butter",
+      "cashew",
+      "spices",
+      "honey"
+    ],
+    "ingredient_ratios": {
+      "chicken": 0.3,
+      "tomato": 0.2,
+      "cream": 0.12,
+      "butter": 0.1,
+      "cashew": 0.05,
+      "spices": 0.08,
+      "honey": 0.03,
+      "oil": 0.12
+    },
+    "nutrition_per_100g": {
+      "calories": 180,
+      "protein_g": 10.0,
+      "carbs_g": 8.0,
+      "fat_g": 12.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 0.95
+    },
+    "mappings": {
+      "ifct": "Non-veg curry",
+      "usda": "Chicken makhani"
+    },
+    "notes": "Rich gravy; butter + cream heavy; tandoori chicken base"
+  },
+  {
+    "dish_name": "chana_masala",
+    "category": "curry",
+    "primary_ingredients": [
+      "chickpeas",
+      "onion",
+      "tomato",
+      "oil",
+      "spices",
+      "ginger_garlic"
+    ],
+    "ingredient_ratios": {
+      "chickpeas": 0.4,
+      "onion": 0.15,
+      "tomato": 0.15,
+      "oil": 0.12,
+      "spices": 0.1,
+      "ginger_garlic": 0.08
+    },
+    "nutrition_per_100g": {
+      "calories": 140,
+      "protein_g": 5.5,
+      "carbs_g": 18.0,
+      "fat_g": 5.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 0.9
+    },
+    "mappings": {
+      "ifct": "Legume curry",
+      "usda": "Chickpea curry"
+    },
+    "notes": "Thick gravy; onion-tomato masala base"
+  },
+  {
+    "dish_name": "chicken_razala",
+    "category": "curry",
+    "primary_ingredients": [
+      "chicken",
+      "yogurt",
+      "onion",
+      "cashew",
+      "poppy_seeds",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "chicken": 0.35,
+      "yogurt": 0.15,
+      "onion": 0.12,
+      "cashew": 0.06,
+      "poppy_seeds": 0.03,
+      "oil": 0.15,
+      "spices": 0.14
+    },
+    "nutrition_per_100g": {
+      "calories": 160,
+      "protein_g": 12.0,
+      "carbs_g": 6.0,
+      "fat_g": 10.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 10.0,
+      "cooked_to_raw_ratio": 0.9
+    },
+    "mappings": {
+      "ifct": "Non-veg curry",
+      "usda": "White chicken curry"
+    },
+    "notes": "Yogurt + nut based white gravy; less tomato"
+  },
+  {
+    "dish_name": "chicken_tikka",
+    "category": "starter",
+    "primary_ingredients": [
+      "chicken",
+      "yogurt",
+      "spices",
+      "lemon",
+      "oil"
+    ],
+    "ingredient_ratios": {
+      "chicken": 0.6,
+      "yogurt": 0.15,
+      "spices": 0.12,
+      "lemon": 0.03,
+      "oil": 0.1
+    },
+    "nutrition_per_100g": {
+      "calories": 165,
+      "protein_g": 18.0,
+      "carbs_g": 4.0,
+      "fat_g": 8.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 6.0,
+      "cooked_to_raw_ratio": 0.85
+    },
+    "mappings": {
+      "ifct": "Tandoori",
+      "usda": "Grilled chicken"
+    },
+    "notes": "Marinated and grilled; minimal oil vs fried"
+  },
+  {
+    "dish_name": "chicken_tikka_masala",
+    "category": "curry",
+    "primary_ingredients": [
+      "chicken_tikka",
+      "tomato",
+      "cream",
+      "butter",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "chicken_tikka": 0.3,
+      "tomato": 0.2,
+      "cream": 0.1,
+      "butter": 0.08,
+      "spices": 0.12,
+      "oil": 0.1,
+      "onion": 0.1
+    },
+    "nutrition_per_100g": {
+      "calories": 175,
+      "protein_g": 11.0,
+      "carbs_g": 8.0,
+      "fat_g": 11.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 0.95
+    },
+    "mappings": {
+      "ifct": "Non-veg curry",
+      "usda": "Chicken tikka gravy"
+    },
+    "notes": "Similar to butter chicken but spicier; tikka pieces in gravy"
+  },
+  {
+    "dish_name": "daal_puri",
+    "category": "bread",
+    "primary_ingredients": [
+      "wheat_flour",
+      "lentil",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "wheat_flour": 0.45,
+      "lentil": 0.2,
+      "oil": 0.25,
+      "spices": 0.1
+    },
+    "nutrition_per_100g": {
+      "calories": 320,
+      "protein_g": 8.0,
+      "carbs_g": 40.0,
+      "fat_g": 14.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 20.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Stuffed bread",
+      "usda": "Lentil stuffed fried bread"
+    },
+    "notes": "Deep fried; significant oil absorption"
+  },
+  {
+    "dish_name": "dal_makhani",
+    "category": "curry",
+    "primary_ingredients": [
+      "black_lentil",
+      "kidney_beans",
+      "butter",
+      "cream",
+      "tomato",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "black_lentil": 0.3,
+      "kidney_beans": 0.1,
+      "butter": 0.12,
+      "cream": 0.08,
+      "tomato": 0.15,
+      "spices": 0.1,
+      "oil": 0.15
+    },
+    "nutrition_per_100g": {
+      "calories": 160,
+      "protein_g": 6.5,
+      "carbs_g": 16.0,
+      "fat_g": 8.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 10.0,
+      "cooked_to_raw_ratio": 0.85
+    },
+    "mappings": {
+      "ifct": "Legume curry",
+      "usda": "Creamy black lentils"
+    },
+    "notes": "Slow cooked; butter + cream heavy; restaurant style has more fat"
+  },
+  {
+    "dish_name": "dal_tadka",
+    "category": "curry",
+    "primary_ingredients": [
+      "yellow_lentil",
+      "onion",
+      "tomato",
+      "ghee",
+      "spices",
+      "garlic"
+    ],
+    "ingredient_ratios": {
+      "yellow_lentil": 0.45,
+      "onion": 0.1,
+      "tomato": 0.1,
+      "ghee": 0.08,
+      "spices": 0.12,
+      "garlic": 0.05,
+      "oil": 0.1
+    },
+    "nutrition_per_100g": {
+      "calories": 120,
+      "protein_g": 5.5,
+      "carbs_g": 15.0,
+      "fat_g": 4.5
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 7.0,
+      "cooked_to_raw_ratio": 0.9
+    },
+    "mappings": {
+      "ifct": "Legume curry",
+      "usda": "Tempered lentils"
+    },
+    "notes": "Ghee tadka on top; home style has less fat than dal makhani"
+  },
+  {
+    "dish_name": "dum_aloo",
+    "category": "curry",
+    "primary_ingredients": [
+      "baby_potato",
+      "yogurt",
+      "onion",
+      "tomato",
+      "cashew",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "baby_potato": 0.4,
+      "yogurt": 0.12,
+      "onion": 0.1,
+      "tomato": 0.1,
+      "cashew": 0.05,
+      "oil": 0.15,
+      "spices": 0.08
+    },
+    "nutrition_per_100g": {
+      "calories": 140,
+      "protein_g": 3.0,
+      "carbs_g": 15.0,
+      "fat_g": 7.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 10.0,
+      "cooked_to_raw_ratio": 0.9
+    },
+    "mappings": {
+      "ifct": "Vegetable curry",
+      "usda": "Stuffed potato curry"
+    },
+    "notes": "Potatoes fried then simmered in yogurt gravy"
+  },
+  {
+    "dish_name": "kadai_paneer",
+    "category": "curry",
+    "primary_ingredients": [
+      "paneer",
+      "capsicum",
+      "onion",
+      "tomato",
+      "cream",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "paneer": 0.25,
+      "capsicum": 0.2,
+      "onion": 0.12,
+      "tomato": 0.15,
+      "cream": 0.05,
+      "oil": 0.15,
+      "spices": 0.08
+    },
+    "nutrition_per_100g": {
+      "calories": 165,
+      "protein_g": 7.5,
+      "carbs_g": 10.0,
+      "fat_g": 11.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 10.0,
+      "cooked_to_raw_ratio": 0.9
+    },
+    "mappings": {
+      "ifct": "Paneer curry",
+      "usda": "Wok paneer"
+    },
+    "notes": "Semi-dry; capsicum + onion chunks; kadai masala"
+  },
+  {
+    "dish_name": "kadhi_pakoda",
+    "category": "curry",
+    "primary_ingredients": [
+      "yogurt",
+      "besan",
+      "onion",
+      "spinach",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "yogurt": 0.3,
+      "besan": 0.15,
+      "onion": 0.1,
+      "spinach": 0.08,
+      "oil": 0.2,
+      "spices": 0.12,
+      "water": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 130,
+      "protein_g": 4.5,
+      "carbs_g": 12.0,
+      "fat_g": 7.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 15.0,
+      "cooked_to_raw_ratio": 0.95
+    },
+    "mappings": {
+      "ifct": "Yogurt curry",
+      "usda": "Fritter yogurt curry"
+    },
+    "notes": "Pakoras fried then soaked in kadhi; significant oil from pakoras"
+  },
+  {
+    "dish_name": "karela_bharta",
+    "category": "curry",
+    "primary_ingredients": [
+      "bitter_gourd",
+      "onion",
+      "tomato",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "bitter_gourd": 0.45,
+      "onion": 0.15,
+      "tomato": 0.12,
+      "oil": 0.18,
+      "spices": 0.1
+    },
+    "nutrition_per_100g": {
+      "calories": 115,
+      "protein_g": 2.5,
+      "carbs_g": 10.0,
+      "fat_g": 7.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 14.0,
+      "cooked_to_raw_ratio": 0.8
+    },
+    "mappings": {
+      "ifct": "Vegetable curry",
+      "usda": "Bitter gourd mash"
+    },
+    "notes": "Bitter gourd fried then mashed; high oil to mask bitterness"
+  },
+  {
+    "dish_name": "kofta",
+    "category": "curry",
+    "primary_ingredients": [
+      "paneer",
+      "potato",
+      "cashew",
+      "cream",
+      "onion",
+      "tomato",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "paneer": 0.15,
+      "potato": 0.15,
+      "cashew": 0.05,
+      "cream": 0.08,
+      "onion": 0.1,
+      "tomato": 0.12,
+      "oil": 0.2,
+      "spices": 0.1,
+      "water": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 170,
+      "protein_g": 5.5,
+      "carbs_g": 12.0,
+      "fat_g": 11.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 16.0,
+      "cooked_to_raw_ratio": 0.95
+    },
+    "mappings": {
+      "ifct": "Vegetable curry",
+      "usda": "Paneer potato balls in gravy"
+    },
+    "notes": "Koftas deep fried; then in rich gravy"
+  },
+  {
+    "dish_name": "maach_jhol",
+    "category": "curry",
+    "primary_ingredients": [
+      "fish",
+      "potato",
+      "mustard",
+      "tomato",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "fish": 0.3,
+      "potato": 0.2,
+      "mustard": 0.08,
+      "tomato": 0.12,
+      "oil": 0.15,
+      "spices": 0.1,
+      "water": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 140,
+      "protein_g": 12.0,
+      "carbs_g": 8.0,
+      "fat_g": 8.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 10.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Fish curry",
+      "usda": "Bengali fish curry"
+    },
+    "notes": "Mustard based thin gravy; fish pieces"
+  },
+  {
+    "dish_name": "makki_di_roti_sarson_da_saag",
+    "category": "combo",
+    "primary_ingredients": [
+      "maize_flour",
+      "mustard_greens",
+      "spinach",
+      "ghee",
+      "garlic",
+      "ginger"
+    ],
+    "ingredient_ratios": {
+      "maize_flour": 0.3,
+      "mustard_greens": 0.25,
+      "spinach": 0.15,
+      "ghee": 0.15,
+      "garlic": 0.05,
+      "ginger": 0.05,
+      "spices": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 165,
+      "protein_g": 4.5,
+      "carbs_g": 18.0,
+      "fat_g": 8.5
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 10.0,
+      "cooked_to_raw_ratio": 0.9
+    },
+    "mappings": {
+      "ifct": "Punjabi combo",
+      "usda": "Corn bread + greens"
+    },
+    "notes": "Saag cooked with ghee; makki roti no oil but dense"
+  },
+  {
+    "dish_name": "navrattan_korma",
+    "category": "curry",
+    "primary_ingredients": [
+      "mixed_vegetables",
+      "paneer",
+      "cashew",
+      "cream",
+      "yogurt",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "mixed_vegetables": 0.35,
+      "paneer": 0.1,
+      "cashew": 0.06,
+      "cream": 0.08,
+      "yogurt": 0.08,
+      "oil": 0.2,
+      "spices": 0.08,
+      "water": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 155,
+      "protein_g": 4.5,
+      "carbs_g": 12.0,
+      "fat_g": 11.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 15.0,
+      "cooked_to_raw_ratio": 0.95
+    },
+    "mappings": {
+      "ifct": "Mixed veg curry",
+      "usda": "Nine gem curry"
+    },
+    "notes": "Rich creamy gravy; navrattan = nine jewels"
+  },
+  {
+    "dish_name": "palak_paneer",
+    "category": "curry",
+    "primary_ingredients": [
+      "spinach",
+      "paneer",
+      "onion",
+      "tomato",
+      "cream",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "spinach": 0.4,
+      "paneer": 0.18,
+      "onion": 0.1,
+      "tomato": 0.1,
+      "cream": 0.05,
+      "oil": 0.12,
+      "spices": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 140,
+      "protein_g": 7.0,
+      "carbs_g": 8.0,
+      "fat_g": 9.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 0.9
+    },
+    "mappings": {
+      "ifct": "Paneer curry",
+      "usda": "Spinach cottage cheese"
+    },
+    "notes": "Spinach puree base; blanched then pureed"
+  },
+  {
+    "dish_name": "paneer_butter_masala",
+    "category": "curry",
+    "primary_ingredients": [
+      "paneer",
+      "tomato",
+      "butter",
+      "cream",
+      "cashew",
+      "sugar",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "paneer": 0.2,
+      "tomato": 0.25,
+      "butter": 0.1,
+      "cream": 0.1,
+      "cashew": 0.06,
+      "sugar": 0.03,
+      "oil": 0.15,
+      "spices": 0.08,
+      "water": 0.03
+    },
+    "nutrition_per_100g": {
+      "calories": 175,
+      "protein_g": 6.5,
+      "carbs_g": 10.0,
+      "fat_g": 12.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 10.0,
+      "cooked_to_raw_ratio": 0.95
+    },
+    "mappings": {
+      "ifct": "Paneer curry",
+      "usda": "Paneer makhani"
+    },
+    "notes": "Very similar to butter chicken but paneer; sweet tomato gravy"
+  },
+  {
+    "dish_name": "bhatura",
+    "category": "bread",
+    "primary_ingredients": [
+      "maida",
+      "yogurt",
+      "oil",
+      "semolina"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.55,
+      "yogurt": 0.1,
+      "oil": 0.25,
+      "semolina": 0.1
+    },
+    "nutrition_per_100g": {
+      "calories": 320,
+      "protein_g": 6.0,
+      "carbs_g": 42.0,
+      "fat_g": 14.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 22.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Fried bread",
+      "usda": "Puffed fried bread"
+    },
+    "notes": "Deep fried; puffs up absorbing significant oil"
+  },
+  {
+    "dish_name": "chapati",
+    "category": "bread",
+    "primary_ingredients": [
+      "wheat_flour",
+      "water",
+      "oil"
+    ],
+    "ingredient_ratios": {
+      "wheat_flour": 0.65,
+      "water": 0.3,
+      "oil": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 240,
+      "protein_g": 7.5,
+      "carbs_g": 48.0,
+      "fat_g": 2.5
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 2.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Flatbread",
+      "usda": "Whole wheat roti"
+    },
+    "notes": "Dry roasted on tawa; minimal oil (some add ghee on top)"
+  },
+  {
+    "dish_name": "misi_roti",
+    "category": "bread",
+    "primary_ingredients": [
+      "wheat_flour",
+      "besan",
+      "onion",
+      "green_chili",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "wheat_flour": 0.5,
+      "besan": 0.15,
+      "onion": 0.1,
+      "green_chili": 0.03,
+      "oil": 0.15,
+      "spices": 0.07
+    },
+    "nutrition_per_100g": {
+      "calories": 280,
+      "protein_g": 8.0,
+      "carbs_g": 42.0,
+      "fat_g": 9.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 12.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Stuffed flatbread",
+      "usda": "Mixed flour roti"
+    },
+    "notes": "Rajasthani; roasted with oil; savory"
+  },
+  {
+    "dish_name": "naan",
+    "category": "bread",
+    "primary_ingredients": [
+      "maida",
+      "yogurt",
+      "milk",
+      "butter",
+      "yeast",
+      "sugar"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.55,
+      "yogurt": 0.1,
+      "milk": 0.1,
+      "butter": 0.12,
+      "yeast": 0.03,
+      "sugar": 0.03,
+      "water": 0.07
+    },
+    "nutrition_per_100g": {
+      "calories": 310,
+      "protein_g": 7.0,
+      "carbs_g": 48.0,
+      "fat_g": 10.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Leavened bread",
+      "usda": "Tandoori naan"
+    },
+    "notes": "Tandoor baked; butter/ghee brushed on top"
+  },
+  {
+    "dish_name": "biryani",
+    "category": "rice",
+    "primary_ingredients": [
+      "rice",
+      "meat_or_veg",
+      "yogurt",
+      "onion",
+      "ghee",
+      "saffron",
+      "spices",
+      "nuts"
+    ],
+    "ingredient_ratios": {
+      "rice": 0.35,
+      "meat_or_veg": 0.2,
+      "yogurt": 0.08,
+      "onion": 0.1,
+      "ghee": 0.12,
+      "saffron": 0.01,
+      "spices": 0.08,
+      "nuts": 0.03,
+      "water": 0.03
+    },
+    "nutrition_per_100g": {
+      "calories": 180,
+      "protein_g": 6.5,
+      "carbs_g": 22.0,
+      "fat_g": 7.5
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 2.2
+    },
+    "mappings": {
+      "ifct": "Rice dish",
+      "usda": "Layered rice"
+    },
+    "notes": "Rice cooked with meat/veg; dum style; ghee heavy; rice expands 2.2x"
+  },
+  {
+    "dish_name": "boondi",
+    "category": "snack",
+    "primary_ingredients": [
+      "besan",
+      "oil",
+      "spices",
+      "sugar_or_salt"
+    ],
+    "ingredient_ratios": {
+      "besan": 0.45,
+      "oil": 0.4,
+      "spices": 0.1,
+      "sugar_or_salt": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 450,
+      "protein_g": 8.0,
+      "carbs_g": 40.0,
+      "fat_g": 28.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 35.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Fried snack",
+      "usda": "Gram flour droplets"
+    },
+    "notes": "Deep fried tiny balls; massive oil absorption"
+  },
+  {
+    "dish_name": "poornalu",
+    "category": "sweet",
+    "primary_ingredients": [
+      "rice_flour",
+      "chana_dal",
+      "jaggery",
+      "coconut",
+      "ghee"
+    ],
+    "ingredient_ratios": {
+      "rice_flour": 0.25,
+      "chana_dal": 0.2,
+      "jaggery": 0.25,
+      "coconut": 0.2,
+      "ghee": 0.1
+    },
+    "nutrition_per_100g": {
+      "calories": 320,
+      "protein_g": 5.0,
+      "carbs_g": 52.0,
+      "fat_g": 12.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Sweet snack",
+      "usda": "Stuffed sweet balls"
+    },
+    "notes": "Deep fried; chana dal + jaggery filling"
+  },
+  {
+    "dish_name": "kachori",
+    "category": "snack",
+    "primary_ingredients": [
+      "maida",
+      "lentil_or_peas",
+      "oil",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.4,
+      "lentil_or_peas": 0.2,
+      "oil": 0.3,
+      "spices": 0.1
+    },
+    "nutrition_per_100g": {
+      "calories": 380,
+      "protein_g": 7.0,
+      "carbs_g": 42.0,
+      "fat_g": 20.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 25.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Fried snack",
+      "usda": "Stuffed pastry"
+    },
+    "notes": "Deep fried flaky pastry; very oily"
+  },
+  {
+    "dish_name": "shankarpali",
+    "category": "snack",
+    "primary_ingredients": [
+      "maida",
+      "sugar",
+      "ghee",
+      "milk"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.45,
+      "sugar": 0.25,
+      "ghee": 0.2,
+      "milk": 0.1
+    },
+    "nutrition_per_100g": {
+      "calories": 420,
+      "protein_g": 5.0,
+      "carbs_g": 58.0,
+      "fat_g": 18.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 15.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Sweet snack",
+      "usda": "Diamond cuts"
+    },
+    "notes": "Deep fried sweet biscuits"
+  },
+  {
+    "dish_name": "lassi",
+    "category": "beverage",
+    "primary_ingredients": [
+      "yogurt",
+      "water",
+      "sugar",
+      "cardamom",
+      "saffron"
+    ],
+    "ingredient_ratios": {
+      "yogurt": 0.55,
+      "water": 0.3,
+      "sugar": 0.12,
+      "cardamom": 0.01,
+      "saffron": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 95,
+      "protein_g": 3.5,
+      "carbs_g": 14.0,
+      "fat_g": 3.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Drink",
+      "usda": "Yogurt drink"
+    },
+    "notes": "Sweet or salted; diluted yogurt"
+  },
+  {
+    "dish_name": "poha",
+    "category": "breakfast",
+    "primary_ingredients": [
+      "flattened_rice",
+      "onion",
+      "peanut",
+      "potato",
+      "oil",
+      "spices",
+      "lemon"
+    ],
+    "ingredient_ratios": {
+      "flattened_rice": 0.4,
+      "onion": 0.1,
+      "peanut": 0.08,
+      "potato": 0.12,
+      "oil": 0.15,
+      "spices": 0.1,
+      "lemon": 0.05
+    },
+    "nutrition_per_100g": {
+      "calories": 160,
+      "protein_g": 3.5,
+      "carbs_g": 22.0,
+      "fat_g": 6.5
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 12.0,
+      "cooked_to_raw_ratio": 1.5
+    },
+    "mappings": {
+      "ifct": "Breakfast",
+      "usda": "Flattened rice stir fry"
+    },
+    "notes": "Poha absorbs water when washed; then stir fried with oil"
+  },
+  {
+    "dish_name": "ariselu",
+    "category": "sweet",
+    "primary_ingredients": [
+      "rice_flour",
+      "jaggery",
+      "ghee",
+      "sesame",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "rice_flour": 0.45,
+      "jaggery": 0.35,
+      "ghee": 0.15,
+      "sesame": 0.03,
+      "cardamom": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 410,
+      "protein_g": 3.5,
+      "carbs_g": 62.0,
+      "fat_g": 15.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 12.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Andhra sweet",
+      "usda": "Rice flour sweet"
+    },
+    "notes": "Deep fried; similar to adhirasam but different shape"
+  },
+  {
+    "dish_name": "chak_hao_kheer",
+    "category": "sweet",
+    "primary_ingredients": [
+      "black_rice",
+      "milk",
+      "sugar",
+      "nuts",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "black_rice": 0.2,
+      "milk": 0.6,
+      "sugar": 0.12,
+      "nuts": 0.05,
+      "cardamom": 0.03
+    },
+    "nutrition_per_100g": {
+      "calories": 180,
+      "protein_g": 4.5,
+      "carbs_g": 28.0,
+      "fat_g": 6.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.55
+    },
+    "mappings": {
+      "ifct": "Manipur sweet",
+      "usda": "Black rice pudding"
+    },
+    "notes": "Chak-hao is aromatic black rice; milk pudding"
+  },
+  {
+    "dish_name": "daal_baati_churma",
+    "category": "combo",
+    "primary_ingredients": [
+      "wheat_flour",
+      "lentil",
+      "ghee",
+      "sugar",
+      "semolina"
+    ],
+    "ingredient_ratios": {
+      "wheat_flour": 0.3,
+      "lentil": 0.2,
+      "ghee": 0.25,
+      "sugar": 0.15,
+      "semolina": 0.1
+    },
+    "nutrition_per_100g": {
+      "calories": 380,
+      "protein_g": 8.5,
+      "carbs_g": 48.0,
+      "fat_g": 16.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 20.0,
+      "cooked_to_raw_ratio": 0.85
+    },
+    "mappings": {
+      "ifct": "Rajasthani combo",
+      "usda": "Lentil wheat balls"
+    },
+    "notes": "Baati baked then soaked in ghee; served with dal and sweet churma"
+  },
+  {
+    "dish_name": "doodhpak",
+    "category": "sweet",
+    "primary_ingredients": [
+      "milk",
+      "rice",
+      "sugar",
+      "saffron",
+      "nuts",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "milk": 0.7,
+      "rice": 0.08,
+      "sugar": 0.12,
+      "saffron": 0.01,
+      "nuts": 0.06,
+      "cardamom": 0.03
+    },
+    "nutrition_per_100g": {
+      "calories": 190,
+      "protein_g": 5.0,
+      "carbs_g": 26.0,
+      "fat_g": 7.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 0.6
+    },
+    "mappings": {
+      "ifct": "Gujarati sweet",
+      "usda": "Milk rice pudding"
+    },
+    "notes": "Thicker than kheer; reduced milk with rice"
+  },
+  {
+    "dish_name": "gavvalu",
+    "category": "sweet",
+    "primary_ingredients": [
+      "maida",
+      "sugar",
+      "ghee",
+      "coconut",
+      "cardamom"
+    ],
+    "ingredient_ratios": {
+      "maida": 0.4,
+      "sugar": 0.3,
+      "ghee": 0.2,
+      "coconut": 0.08,
+      "cardamom": 0.02
+    },
+    "nutrition_per_100g": {
+      "calories": 420,
+      "protein_g": 4.5,
+      "carbs_g": 58.0,
+      "fat_g": 18.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 15.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Andhra sweet",
+      "usda": "Shell shaped sweet"
+    },
+    "notes": "Deep fried shell shaped pastry; sugar coated"
+  },
+  {
+    "dish_name": "litti_chokha",
+    "category": "combo",
+    "primary_ingredients": [
+      "wheat_flour",
+      "sattu",
+      "mustard_oil",
+      "eggplant",
+      "potato",
+      "tomato",
+      "spices"
+    ],
+    "ingredient_ratios": {
+      "wheat_flour": 0.25,
+      "sattu": 0.2,
+      "mustard_oil": 0.1,
+      "eggplant": 0.15,
+      "potato": 0.12,
+      "tomato": 0.1,
+      "spices": 0.08
+    },
+    "nutrition_per_100g": {
+      "calories": 165,
+      "protein_g": 5.5,
+      "carbs_g": 20.0,
+      "fat_g": 7.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 8.0,
+      "cooked_to_raw_ratio": 0.9
+    },
+    "mappings": {
+      "ifct": "Bihari combo",
+      "usda": "Stuffed wheat ball with mash"
+    },
+    "notes": "Litti is baked sattu stuffed ball; chokha is mashed roasted vegetables"
+  },
+  {
+    "dish_name": "pithe",
+    "category": "sweet",
+    "primary_ingredients": [
+      "rice_flour",
+      "jaggery",
+      "coconut",
+      "sesame",
+      "ghee"
+    ],
+    "ingredient_ratios": {
+      "rice_flour": 0.35,
+      "jaggery": 0.25,
+      "coconut": 0.25,
+      "sesame": 0.08,
+      "ghee": 0.07
+    },
+    "nutrition_per_100g": {
+      "calories": 310,
+      "protein_g": 4.0,
+      "carbs_g": 50.0,
+      "fat_g": 10.0
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 5.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Bengali sweet",
+      "usda": "Rice flour cake"
+    },
+    "notes": "Odia/Bengali; steamed or fried rice flour cakes with coconut filling"
+  }
+]

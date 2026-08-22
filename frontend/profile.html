@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Profile - Kinetic Oracle</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#131313">
+</head>
+<body class="kinetic-glow">
+    <!-- TopAppBar -->
+    <header class="top-app-bar" style="background: #131313; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="top-app-bar__brand">
+             <div class="top-app-bar__avatar" style="border: 2px solid var(--primary-fixed);">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ucD-WmYQaQExqdikk7fuNP1bT_6UYChS09NNqzIie8v-0g7NmsSyJWk3I_OCvCF3pTumkdGU8NHhhIKHKS3VXYdYdm606r6YNPGg1jp60yEVGd2yvCTgJJ1xAaEVfAdHwwy1XDgui_AiDE-OV8gX-kXIEiJnkT1R_XJYvjoTG5AGLn408Ab2A9TLednuUewe2SSTcmW6YBazVjYjomgVURt7TvBzbV1BoOyuwVSH4W1IpI7E7j1mCw3-RgBGAnJJDwn7F5LNd_c" alt="User Profile">
+            </div>
+        </div>
+        <h1 class="top-app-bar__title" style="margin-left: -2.5rem; color: var(--primary-fixed);">KINETIC ORACLE</h1>
+        <button class="top-app-bar__action">
+            <span class="material-symbols-outlined">bolt</span>
+        </button>
+    </header>
+
+    <main style="padding-top: 6rem; padding-bottom: 8rem; padding-left: 1.5rem; padding-right: 1.5rem;">
+        <!-- Profile Hero -->
+        <section style="display: flex; flex-direction: column; align-items: center; text-align: center; margin-bottom: 3rem;">
+            <div style="position: relative; margin-bottom: 2rem;">
+                <div style="width: 8rem; height: 8rem; border-radius: var(--radius-md); overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ucD-WmYQaQExqdikk7fuNP1bT_6UYChS09NNqzIie8v-0g7NmsSyJWk3I_OCvCF3pTumkdGU8NHhhIKHKS3VXYdYdm606r6YNPGg1jp60yEVGd2yvCTgJJ1xAaEVfAdHwwy1XDgui_AiDE-OV8gX-kXIEiJnkT1R_XJYvjoTG5AGLn408Ab2A9TLednuUewe2SSTcmW6YBazVjYjomgVURt7TvBzbV1BoOyuwVSH4W1IpI7E7j1mCw3-RgBGAnJJDwn7F5LNd_c" alt="Alex Rivera" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+                <button style="position: absolute; bottom: -0.5rem; right: -0.5rem; background: var(--primary-fixed); color: var(--on-primary-fixed); padding: 0.5rem; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+                    <span class="material-symbols-outlined" style="font-size: 1.25rem;">edit</span>
+                </button>
+            </div>
+            <h2 class="text-display-md font-headline" style="color: white; letter-spacing: -0.04em; filter: drop-shadow(0 2px 8px rgba(0,0,0,1)); position: relative; z-index: 5;">ALEX RIVERA</h2>
+            <p class="text-label-sm" style="color: var(--secondary); margin-top: 0.5rem; letter-spacing: 0.2em;">ELITE ATHLETE | LEVEL 42</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; width: 100%; max-width: 28rem; margin-top: 2.5rem;">
+                <div class="card" style="padding: 1.5rem; text-align: center; border: 1px solid rgba(71, 72, 50, 0.15);">
+                    <span class="text-display-sm font-headline" style="color: var(--primary-fixed);">128</span>
+                    <span class="text-label-sm" style="display: block; margin-top: 0.5rem; color: var(--on-surface-variant); font-size: 0.5rem;">Workouts completed</span>
+                </div>
+                <div class="card" style="padding: 1.5rem; text-align: center; border: 1px solid rgba(71, 72, 50, 0.15);">
+                    <span class="text-display-sm font-headline" style="color: var(--secondary);">342<span style="font-size: 1.5rem;">h</span></span>
+                    <span class="text-label-sm" style="display: block; margin-top: 0.5rem; color: var(--on-surface-variant); font-size: 0.5rem;">Total active time</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings List -->
+        <section style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <h3 class="text-label-sm" style="color: var(--on-surface-variant); margin-bottom: 0.5rem; padding-left: 0.5rem;">Configuration</h3>
+            
+            <button class="card-high" style="display: flex; align-items: center; justify-content: space-between; padding: 1.25rem; transition: background 0.2s;">
+                <div style="display: flex; align-items: center; gap: 1.25rem;">
+                    <div style="width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--surface-container-highest); display: flex; align-items: center; justify-content: center; color: var(--primary-fixed);">
+                        <span class="material-symbols-outlined">person</span>
+                    </div>
+                    <div style="text-align: left;">
+                        <span style="display: block; font-weight: 700; font-size: 1.125rem;">Account</span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--on-surface-variant);">Profile, Email, Security</span>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined" style="color: var(--on-surface-variant);">chevron_right</span>
+            </button>
+
+            <button class="card-high" style="display: flex; align-items: center; justify-content: space-between; padding: 1.25rem;">
+                <div style="display: flex; align-items: center; gap: 1.25rem;">
+                    <div style="width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--surface-container-highest); display: flex; align-items: center; justify-content: center; color: var(--secondary);">
+                        <span class="material-symbols-outlined">notifications</span>
+                    </div>
+                    <div style="text-align: left;">
+                        <span style="display: block; font-weight: 700; font-size: 1.125rem;">Notifications</span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--on-surface-variant);">Workout alerts, Daily goals</span>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined" style="color: var(--on-surface-variant);">chevron_right</span>
+            </button>
+
+            <button class="card-high" style="display: flex; align-items: center; justify-content: space-between; padding: 1.25rem;">
+                <div style="display: flex; align-items: center; gap: 1.25rem;">
+                    <div style="width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--surface-container-highest); display: flex; align-items: center; justify-content: center; color: var(--tertiary-fixed);">
+                        <span class="material-symbols-outlined">lock</span>
+                    </div>
+                    <div style="text-align: left;">
+                        <span style="display: block; font-weight: 700; font-size: 1.125rem;">Privacy</span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--on-surface-variant);">Data sharing, Visibility</span>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined" style="color: var(--on-surface-variant);">chevron_right</span>
+            </button>
+        </section>
+
+        <!-- Danger Zone -->
+        <section style="margin-top: 3rem; padding-left: 0.5rem;">
+            <button style="display: flex; align-items: center; gap: 0.75rem; color: var(--error); font-weight: 700; font-size: 0.875rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.1em;">
+                <span class="material-symbols-outlined" style="font-size: 1.25rem;">logout</span>
+                Logout session
+            </button>
+        </section>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="dashboard.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">grid_view</span>
+            <span class="bottom-nav__label">Home</span>
+        </a>
+        <a href="workout.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">fitness_center</span>
+            <span class="bottom-nav__label">Workout</span>
+        </a>
+        <a href="nutrition.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">restaurant</span>
+            <span class="bottom-nav__label">Nutrition</span>
+        </a>
+        <a href="shop.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">shopping_bag</span>
+            <span class="bottom-nav__label">Shop</span>
+        </a>
+        <a href="profile.html" class="bottom-nav__item bottom-nav__item--active">
+            <span class="material-symbols-outlined bottom-nav__icon filled">person</span>
+            <span class="bottom-nav__label">Profile</span>
+        </a>
+    </nav>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
