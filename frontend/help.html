@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Help & Support - FitVision</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#131313">
+</head>
+<body class="kinetic-glow">
+    <!-- TopAppBar -->
+    <header class="top-app-bar" style="background: #131313; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <a href="profile.html" class="top-app-bar__action" style="text-decoration: none; color: white;">
+            <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+        <h1 class="top-app-bar__title" style="color: var(--primary-fixed); margin-left: 0;">HELP & SUPPORT</h1>
+        <div style="width: 2.5rem;"></div>
+    </header>
+
+    <main style="padding-top: 6rem; padding-bottom: 8rem; padding-left: 1.5rem; padding-right: 1.5rem; max-width: 520px; margin: 0 auto;">
+        
+        <!-- Header Hero -->
+        <div style="margin-bottom: 2rem; text-align: center;">
+            <div style="width: 4rem; height: 4rem; border-radius: 50%; background: rgba(77, 232, 216, 0.15); color: #4de8d8; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;">
+                <span class="material-symbols-outlined" style="font-size: 2rem;">help</span>
+            </div>
+            <h2 class="text-display-md font-headline" style="color: white; font-size: 1.75rem;">FREQUENTLY ASKED QUESTIONS</h2>
+            <p class="text-label-md" style="color: var(--on-surface-variant); margin-top: 0.35rem;">Find answers about form tracking, AI nutrition, and privacy.</p>
+        </div>
+
+        <!-- FAQ Accordion List -->
+        <div style="display: flex; flex-direction: column; gap: 0.85rem;" id="faq-accordion">
+            
+            <div class="card-high" style="padding: 1.25rem; cursor: pointer;" onclick="toggleFaq(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 700; font-size: 0.95rem; color: white;">How does real-time form tracking work?</span>
+                    <span class="material-symbols-outlined faq-icon" style="color: var(--primary-fixed); transition: transform 0.3s ease;">expand_more</span>
+                </div>
+                <div class="faq-body" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; color: var(--on-surface-variant); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.75rem;">
+                    FitVision uses YOLO11n-Pose neural networks running locally in your browser. It detects key joint keypoints to compute knee angles, torso lean, and range of motion (ROM) in real time without sending video frames off your device.
+                </div>
+            </div>
+
+            <div class="card-high" style="padding: 1.25rem; cursor: pointer;" onclick="toggleFaq(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 700; font-size: 0.95rem; color: white;">Is my camera video recorded or saved?</span>
+                    <span class="material-symbols-outlined faq-icon" style="color: var(--primary-fixed); transition: transform 0.3s ease;">expand_more</span>
+                </div>
+                <div class="faq-body" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; color: var(--on-surface-variant); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.75rem;">
+                    No, absolute privacy is guaranteed. Video frames are processed in memory on your device only during active workout sessions and are immediately discarded. No video recordings leave your phone or computer.
+                </div>
+            </div>
+
+            <div class="card-high" style="padding: 1.25rem; cursor: pointer;" onclick="toggleFaq(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 700; font-size: 0.95rem; color: white;">How do I change my fitness goals or body metrics?</span>
+                    <span class="material-symbols-outlined faq-icon" style="color: var(--primary-fixed); transition: transform 0.3s ease;">expand_more</span>
+                </div>
+                <div class="faq-body" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; color: var(--on-surface-variant); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.75rem;">
+                    Navigate to the <strong>Profile</strong> tab and tap the <strong>EDIT</strong> button inside the <strong>BIO INFORMATION</strong> card. You can adjust your age, weight, height, and target fitness goal anytime.
+                </div>
+            </div>
+
+            <div class="card-high" style="padding: 1.25rem; cursor: pointer;" onclick="toggleFaq(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 700; font-size: 0.95rem; color: white;">Can I switch the Voice Coach language to Hindi?</span>
+                    <span class="material-symbols-outlined faq-icon" style="color: var(--primary-fixed); transition: transform 0.3s ease;">expand_more</span>
+                </div>
+                <div class="faq-body" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; color: var(--on-surface-variant); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.75rem;">
+                    Yes! You can toggle between <strong>English</strong> and <strong>हिंदी</strong> in the top app bar of the Workout screen. The Voice Coach will speak real-time form cues and post-workout insights in your selected language.
+                </div>
+            </div>
+
+            <div class="card-high" style="padding: 1.25rem; cursor: pointer;" onclick="toggleFaq(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 700; font-size: 0.95rem; color: white;">What foods does the Nutrition Scanner recognize?</span>
+                    <span class="material-symbols-outlined faq-icon" style="color: var(--primary-fixed); transition: transform 0.3s ease;">expand_more</span>
+                </div>
+                <div class="faq-body" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; color: var(--on-surface-variant); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.75rem;">
+                    The scanner recognizes a wide variety of meals including rice dishes, rotis, paneer, chicken, dal, salads, eggs, and fruit. It estimates portion sizes and calculates macro breakdowns automatically.
+                </div>
+            </div>
+
+            <div class="card-high" style="padding: 1.25rem; cursor: pointer;" onclick="toggleFaq(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-weight: 700; font-size: 0.95rem; color: white;">How is precision percentage calculated?</span>
+                    <span class="material-symbols-outlined faq-icon" style="color: var(--primary-fixed); transition: transform 0.3s ease;">expand_more</span>
+                </div>
+                <div class="faq-body" style="display: none; margin-top: 0.75rem; font-size: 0.85rem; color: var(--on-surface-variant); line-height: 1.5; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 0.75rem;">
+                    Precision is derived from joint ROM stability, rep depth completion, posture alignment, and rep hysteresis smoothness evaluated during each movement cycle.
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Contact Support Card -->
+        <div class="card-low" style="margin-top: 2.5rem; padding: 1.5rem; text-align: center; border: 1px dashed rgba(255,255,255,0.15);">
+            <span class="material-symbols-outlined" style="font-size: 2rem; color: var(--primary-fixed); margin-bottom: 0.5rem;">mail</span>
+            <h4 class="font-headline" style="color: white; font-weight: 700;">Need More Help?</h4>
+            <p style="font-size: 0.8rem; color: var(--on-surface-variant); margin-top: 0.25rem;">Reach out to our engineering team directly</p>
+            <a href="mailto:support@fitvision.app" class="btn-primary" style="display: inline-flex; width: auto; margin-top: 1rem; text-decoration: none; padding: 0.6rem 1.25rem; font-size: 0.8rem;">
+                Contact Support
+            </a>
+        </div>
+
+    </main>
+
+    <script src="js/app.js"></script>
+    <script>
+        function toggleFaq(card) {
+            const body = card.querySelector('.faq-body');
+            const icon = card.querySelector('.faq-icon');
+            const isOpen = body.style.display === 'block';
+            
+            body.style.display = isOpen ? 'none' : 'block';
+            icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+    </script>
+</body>
+</html>

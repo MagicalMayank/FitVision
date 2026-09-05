@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Notifications - FitVision</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#131313">
+</head>
+<body class="kinetic-glow">
+    <!-- TopAppBar -->
+    <header class="top-app-bar">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <a href="profile.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--surface-container-highest);">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+            <h1 class="top-app-bar__title" style="margin: 0; font-size: 1.1rem;">NOTIFICATION PREFERENCES</h1>
+        </div>
+        <button class="top-app-bar__action">
+            <span class="material-symbols-outlined">bolt</span>
+        </button>
+    </header>
+
+    <main style="padding-top: 6rem; padding-bottom: 8rem; padding-left: 1.5rem; padding-right: 1.5rem; max-width: 520px; margin: 0 auto;">
+        
+        <h3 class="text-label-sm" style="color: var(--on-surface-variant); margin-bottom: 0.75rem; padding-left: 0.5rem;">ALERT SETTINGS</h3>
+
+        <div style="display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 1.5rem;">
+            
+            <!-- 1. Workout Reminders -->
+            <div class="card-high" style="display: flex; align-items: center; justify-content: space-between; padding: 1.25rem;">
+                <div style="display: flex; align-items: center; gap: 1.25rem;">
+                    <div style="width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--surface-container-highest); display: flex; align-items: center; justify-content: center; color: var(--primary-fixed);">
+                        <span class="material-symbols-outlined">fitness_center</span>
+                    </div>
+                    <div style="text-align: left;">
+                        <span style="display: block; font-weight: 700; font-size: 1.05rem; color: var(--on-surface);">Workout Reminders</span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--on-surface-variant);">Daily prompts to stay on schedule</span>
+                    </div>
+                </div>
+                <label class="theme-switch">
+                    <input type="checkbox" id="notif-workout-reminders" onchange="saveNotificationPrefs()">
+                    <span class="theme-slider"></span>
+                </label>
+            </div>
+
+            <!-- 2. Daily Goal Alerts -->
+            <div class="card-high" style="display: flex; align-items: center; justify-content: space-between; padding: 1.25rem;">
+                <div style="display: flex; align-items: center; gap: 1.25rem;">
+                    <div style="width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--surface-container-highest); display: flex; align-items: center; justify-content: center; color: var(--secondary);">
+                        <span class="material-symbols-outlined">emoji_events</span>
+                    </div>
+                    <div style="text-align: left;">
+                        <span style="display: block; font-weight: 700; font-size: 1.05rem; color: var(--on-surface);">Daily Goal Alerts</span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--on-surface-variant);">Notifications when hitting daily targets</span>
+                    </div>
+                </div>
+                <label class="theme-switch">
+                    <input type="checkbox" id="notif-daily-goals" onchange="saveNotificationPrefs()">
+                    <span class="theme-slider"></span>
+                </label>
+            </div>
+
+            <!-- 3. Weekly Progress Summary -->
+            <div class="card-high" style="display: flex; align-items: center; justify-content: space-between; padding: 1.25rem;">
+                <div style="display: flex; align-items: center; gap: 1.25rem;">
+                    <div style="width: 2.5rem; height: 2.5rem; border-radius: 50%; background: var(--surface-container-highest); display: flex; align-items: center; justify-content: center; color: var(--tertiary-fixed, #ffd700);">
+                        <span class="material-symbols-outlined">analytics</span>
+                    </div>
+                    <div style="text-align: left;">
+                        <span style="display: block; font-weight: 700; font-size: 1.05rem; color: var(--on-surface);">Weekly Progress Summary</span>
+                        <span style="display: block; font-size: 0.75rem; color: var(--on-surface-variant);">Weekly form precision digests</span>
+                    </div>
+                </div>
+                <label class="theme-switch">
+                    <input type="checkbox" id="notif-weekly-summary" onchange="saveNotificationPrefs()">
+                    <span class="theme-slider"></span>
+                </label>
+            </div>
+
+        </div>
+
+        <!-- Local Preference Flag Note -->
+        <div class="card-low" style="padding: 1.25rem; border: 1px solid rgba(71,72,50,0.15);">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+                <span class="material-symbols-outlined" style="color: var(--secondary); font-size: 1.1rem;">info</span>
+                <span style="font-weight: 700; font-size: 0.85rem; color: white;">Local Preference Notice</span>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--on-surface-variant); margin: 0; line-height: 1.5;">
+                Notifications are currently managed as local preference state (<code style="color: var(--primary-fixed);">fitvision_notification_prefs</code>). No remote push notification server is currently attached.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="dashboard.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">grid_view</span>
+            <span class="bottom-nav__label">Home</span>
+        </a>
+        <a href="workout.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">fitness_center</span>
+            <span class="bottom-nav__label">Workout</span>
+        </a>
+        <a href="nutrition.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">restaurant</span>
+            <span class="bottom-nav__label">Nutrition</span>
+        </a>
+        <a href="shop.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined bottom-nav__icon">shopping_bag</span>
+            <span class="bottom-nav__label">Shop</span>
+        </a>
+        <a href="profile.html" class="bottom-nav__item bottom-nav__item--active">
+            <span class="material-symbols-outlined bottom-nav__icon filled">person</span>
+            <span class="bottom-nav__label">Profile</span>
+        </a>
+    </nav>
+
+    <script src="js/app.js"></script>
+    <script>
+        function loadNotificationPrefs() {
+            try {
+                const stored = localStorage.getItem('fitvision_notification_prefs');
+                const prefs = stored ? JSON.parse(stored) : { workoutReminders: true, dailyGoalAlerts: true, weeklyProgressSummary: false };
+                
+                document.getElementById('notif-workout-reminders').checked = !!prefs.workoutReminders;
+                document.getElementById('notif-daily-goals').checked = !!prefs.dailyGoalAlerts;
+                document.getElementById('notif-weekly-summary').checked = !!prefs.weeklyProgressSummary;
+            } catch(e) {
+                console.warn('Error loading notification preferences:', e);
+            }
+        }
+
+        function saveNotificationPrefs() {
+            try {
+                const prefs = {
+                    workoutReminders: document.getElementById('notif-workout-reminders').checked,
+                    dailyGoalAlerts: document.getElementById('notif-daily-goals').checked,
+                    weeklyProgressSummary: document.getElementById('notif-weekly-summary').checked
+                };
+                localStorage.setItem('fitvision_notification_prefs', JSON.stringify(prefs));
+            } catch(e) {
+                console.error('Error saving notification preferences:', e);
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', loadNotificationPrefs);
+    </script>
+</body>
+</html>
