@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Shopping Cart - FitVision</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#131313">
+    <style>
+        .cart-item-card {
+            background: var(--surface-container-low, #1c1b1b);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.25rem;
+            padding: 1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .cart-item-img {
+            width: 75px;
+            height: 75px;
+            border-radius: 0.85rem;
+            object-fit: cover;
+            background: #2a2a2a;
+            flex-shrink: 0;
+        }
+        .cart-item-info {
+            flex-grow: 1;
+        }
+        .cart-qty-btn {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.15s;
+        }
+        .cart-qty-btn:hover {
+            background: var(--primary-fixed);
+            color: black;
+            border-color: var(--primary-fixed);
+        }
+    </style>
+</head>
+<body class="kinetic-glow">
+
+    <!-- Top AppBar -->
+    <header class="top-app-bar" style="background: #131313; border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <a href="shop.html" style="color: inherit; text-decoration: none; display: flex; align-items: center; justify-content: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; background: var(--surface-container-highest);">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </a>
+            <span class="top-app-bar__title"><span class="brand-fit">Fit</span><span class="brand-vision">Vision</span></span>
+        </div>
+        <div style="font-size: 0.85rem; font-weight: 700; color: var(--on-surface-variant); text-transform: uppercase; letter-spacing: 0.05em;">
+            CART
+        </div>
+    </header>
+
+    <!-- Main Canvas -->
+    <main style="padding-top: 5.5rem; padding-bottom: 8rem; padding-left: 1.25rem; padding-right: 1.25rem; max-width: 520px; margin: 0 auto;">
+        
+        <div style="margin-bottom: 1.25rem; display: flex; justify-content: space-between; align-items: center;">
+            <h1 class="text-headline-md font-headline" style="color: white; font-size: 1.5rem; margin: 0;">Your Shopping Cart</h1>
+            <span id="cart-item-count" style="font-size: 0.8rem; color: var(--primary-fixed); font-weight: 700;">2 Items</span>
+        </div>
+
+        <!-- Items Container -->
+        <div id="cart-items-list">
+            <!-- Dynamically Rendered -->
+        </div>
+
+        <!-- Empty Cart State -->
+        <div id="empty-cart-state" style="display: none; text-align: center; padding: 3rem 1rem;">
+            <span class="material-symbols-outlined" style="font-size: 4rem; color: var(--on-surface-variant); opacity: 0.5;">shopping_cart</span>
+            <h2 class="font-headline" style="color: white; margin-top: 1rem; font-size: 1.25rem;">Your Cart is Empty</h2>
+            <p style="color: var(--on-surface-variant); font-size: 0.85rem; margin-top: 0.35rem;">Looks like you haven't added any fitness gear or supplements yet.</p>
+            <a href="shop.html" class="btn-primary" style="display: inline-flex; margin-top: 1.5rem; text-decoration: none; padding: 0.85rem 1.75rem;">
+                <span class="material-symbols-outlined">storefront</span>
+                BROWSE STORE
+            </a>
+        </div>
+
+        <!-- Order Summary Card -->
+        <div id="order-summary-card" class="card-low" style="padding: 1.35rem; margin-top: 1.5rem; border: 1px solid rgba(255,255,255,0.08);">
+            <h3 class="font-headline" style="color: white; font-size: 1.1rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: 0.5px;">ORDER SUMMARY</h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.65rem; font-size: 0.85rem;">
+                <div style="display: flex; justify-content: space-between; color: var(--on-surface-variant);">
+                    <span>Items Subtotal</span>
+                    <span id="summary-subtotal" style="color: white; font-weight: 600;">₹4,198</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; color: var(--on-surface-variant);">
+                    <span>Delivery Fee</span>
+                    <span style="color: var(--secondary); font-weight: 700;">FREE</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; color: var(--on-surface-variant);">
+                    <span>AI Member Discount</span>
+                    <span style="color: var(--primary-fixed); font-weight: 700;">-₹200</span>
+                </div>
+                <div style="height: 1px; background: rgba(255,255,255,0.08); margin: 0.35rem 0;"></div>
+                <div style="display: flex; justify-content: space-between; font-size: 1.1rem; font-weight: 800;">
+                    <span style="color: white;">Total Amount</span>
+                    <span id="summary-total" style="color: var(--primary-fixed);">₹3,998</span>
+                </div>
+            </div>
+
+            <button onclick="handleCheckout()" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 1.25rem; padding: 1.1rem; border: none; font-size: 0.95rem;">
+                <span class="material-symbols-outlined">lock</span>
+                PROCEED TO CHECKOUT
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 1000; align-items: center; justify-content: center; padding: 1.5rem;">
+        <div class="card-high" style="max-width: 420px; width: 100%; padding: 2rem; text-align: center; border: 2px solid var(--primary-fixed);">
+            <div style="width: 4rem; height: 4rem; border-radius: 50%; background: rgba(126, 219, 127, 0.15); color: var(--secondary); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
+                <span class="material-symbols-outlined" style="font-size: 2.2rem;">check_circle</span>
+            </div>
+            <h2 class="font-headline" style="color: white; font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">Order Placed Successfully!</h2>
+            <p style="color: var(--on-surface-variant); font-size: 0.85rem; margin-bottom: 1.25rem;">Order ID: <strong style="color: var(--primary-fixed);" id="modalOrderId">#FV-98214</strong><br>Your items are being prepared for dispatch.</p>
+            <button onclick="closeCheckoutModal()" class="btn-primary" style="width: 100%; justify-content: center; padding: 0.9rem;">
+                BACK TO STORE
+            </button>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation Bar -->
+    <nav class="bottom-nav">
+        <a href="dashboard.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined">grid_view</span>
+            <span class="bottom-nav__label">HOME</span>
+        </a>
+        <a href="workout.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined">fitness_center</span>
+            <span class="bottom-nav__label">WORKOUT</span>
+        </a>
+        <a href="nutrition.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined">restaurant</span>
+            <span class="bottom-nav__label">NUTRITION</span>
+        </a>
+        <a href="shop.html" class="bottom-nav__item bottom-nav__item--active">
+            <span class="material-symbols-outlined filled">shopping_bag</span>
+            <span class="bottom-nav__label">SHOP</span>
+        </a>
+        <a href="profile.html" class="bottom-nav__item">
+            <span class="material-symbols-outlined">person</span>
+            <span class="bottom-nav__label">PROFILE</span>
+        </a>
+    </nav>
+
+    <script src="js/app.js"></script>
+    <script>
+        const initialCart = [
+            {
+                id: 'mb-protein',
+                name: 'MuscleBlaze Whey Protein',
+                spec: 'Unflavored Raw • 25g Protein',
+                price: 2899,
+                qty: 1,
+                image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCoADIqUNXTuEKSatUsRLjNNPD4P0Pox7-xsXyR0cbtdoVk0fD5DWMy0mq8_9O439BChyGl_4CvkcEAewhp77CG6yHGGsQqmiuVzVsnYSSQDqkvsBaz0hhO-Gxsib1plDk6A9dnHaO-NBeiTwWBE_0tq5sLTE_QOItAYu4Ou1vHebMDOvpDYK8mG3RMEaZB58wHzqD25G36JjU7C5NEyCPup_uVtGPnPzOODruBCHOFtSaPxh9uoOQS'
+            },
+            {
+                id: 'flex-band',
+                name: 'FlexNet Resistance Bands',
+                spec: 'Set of 5 Heavy Duty Bands',
+                price: 1299,
+                qty: 1,
+                image: 'https://images.unsplash.com/photo-1598289431512-b97b0917affc?w=400&auto=format&fit=crop&q=80'
+            }
+        ];
+
+        function getCartData() {
+            try {
+                const stored = localStorage.getItem('fitvision_cart');
+                if (stored) return JSON.parse(stored);
+            } catch(e) {}
+            localStorage.setItem('fitvision_cart', JSON.stringify(initialCart));
+            return initialCart;
+        }
+
+        function saveCartData(cart) {
+            localStorage.setItem('fitvision_cart', JSON.stringify(cart));
+            renderCart();
+        }
+
+        function changeQty(index, delta) {
+            let cart = getCartData();
+            if (cart[index]) {
+                cart[index].qty += delta;
+                if (cart[index].qty <= 0) {
+                    cart.splice(index, 1);
+                }
+                saveCartData(cart);
+            }
+        }
+
+        function removeCartItem(index) {
+            let cart = getCartData();
+            cart.splice(index, 1);
+            saveCartData(cart);
+        }
+
+        function renderCart() {
+            const cart = getCartData();
+            const container = document.getElementById('cart-items-list');
+            const emptyState = document.getElementById('empty-cart-state');
+            const summaryCard = document.getElementById('order-summary-card');
+            const itemCountEl = document.getElementById('cart-item-count');
+
+            const totalItems = cart.reduce((acc, i) => acc + i.qty, 0);
+            if (itemCountEl) itemCountEl.textContent = `${totalItems} ${totalItems === 1 ? 'Item' : 'Items'}`;
+
+            if (cart.length === 0) {
+                container.style.display = 'none';
+                if (summaryCard) summaryCard.style.display = 'none';
+                if (emptyState) emptyState.style.display = 'block';
+                return;
+            }
+
+            if (emptyState) emptyState.style.display = 'none';
+            if (summaryCard) summaryCard.style.display = 'block';
+            container.style.display = 'block';
+
+            let subtotal = 0;
+            container.innerHTML = cart.map((item, idx) => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+                return `
+                <div class="cart-item-card">
+                    <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                    <div class="cart-item-info">
+                        <h4 class="font-headline" style="color: white; font-weight: 700; font-size: 0.95rem; margin: 0;">${item.name}</h4>
+                        <p style="color: var(--on-surface-variant); font-size: 0.72rem; margin-top: 0.15rem;">${item.spec}</p>
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.5rem;">
+                            <span style="color: var(--primary-fixed); font-weight: 800; font-size: 1.05rem;">₹${itemTotal.toLocaleString('en-IN')}</span>
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <button class="cart-qty-btn" onclick="changeQty(${idx}, -1)">-</button>
+                                <span style="color: white; font-weight: 700; font-size: 0.85rem; width: 18px; text-align: center;">${item.qty}</span>
+                                <button class="cart-qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="removeCartItem(${idx})" style="background: none; border: none; color: rgba(255,255,255,0.4); cursor: pointer; padding: 0.25rem;" title="Remove Item">
+                        <span class="material-symbols-outlined" style="font-size: 1.25rem;">delete</span>
+                    </button>
+                </div>
+                `;
+            }).join('');
+
+            const discount = subtotal > 1500 ? 200 : 0;
+            const finalTotal = Math.max(0, subtotal - discount);
+
+            const subtotalEl = document.getElementById('summary-subtotal');
+            const totalEl = document.getElementById('summary-total');
+
+            if (subtotalEl) subtotalEl.textContent = `₹${subtotal.toLocaleString('en-IN')}`;
+            if (totalEl) totalEl.textContent = `₹${finalTotal.toLocaleString('en-IN')}`;
+        }
+
+        function handleCheckout() {
+            const orderId = '#FV-' + Math.floor(10000 + Math.random() * 90000);
+            const modalId = document.getElementById('modalOrderId');
+            if (modalId) modalId.textContent = orderId;
+            const modal = document.getElementById('checkoutModal');
+            if (modal) modal.style.display = 'flex';
+        }
+
+        function closeCheckoutModal() {
+            localStorage.setItem('fitvision_cart', JSON.stringify([]));
+            window.location.href = 'shop.html';
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+</body>
+</html>
