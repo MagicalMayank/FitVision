@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 720" width="800" height="720">
+  <defs>
+    <!-- Glow filters -->
+    <filter id="glow-yellow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#F5FF00" flood-opacity="0.7"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-green" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feFlood flood-color="#22C55E" flood-opacity="0.7"/>
+      <feComposite in2="blur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="soft-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Colors -->
+    <style>
+      .body-base { fill: #3a4a5c; stroke: #5a6a7c; stroke-width: 1.2; }
+      .muscle { fill: #4a5a6c; stroke: #6a7a8c; stroke-width: 0.8; transition: fill 0.3s ease; }
+      
+      /* Dynamic highlight classes - use these from your code */
+      .high { fill: #F5FF00 !important; filter: url(#glow-yellow); }
+      .moderate { fill: #22C55E !important; filter: url(#glow-green); }
+      .none { fill: #4a5a6c; filter: none; }
+      
+      /* Optional hover for interactivity */
+      .muscle:hover { fill: #6a7a8c; cursor: pointer; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="720" fill="#0b0f14"/>
+
+  <!-- Title -->
+  <text x="40" y="42" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#e8eef5">Anatomy Map</text>
+  <rect x="680" y="22" width="90" height="26" rx="13" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+  <text x="725" y="40" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#94a3b8" text-anchor="middle">Interactive</text>
+
+  <!-- ==================== FRONT VIEW ==================== -->
+  <g id="front-view" transform="translate(80, 70)">
+    <!-- Body outline (base) -->
+    <path class="body-base" d="M95,30 
+      C110,10 130,5 145,12 C160,5 180,10 195,30
+      L200,55 C205,70 200,90 195,110
+      L210,160 C215,200 210,240 200,280
+      L195,320 C190,360 185,400 180,440
+      L175,500 C172,540 170,580 175,620
+      L140,620 C145,580 147,540 150,500
+      L145,440 C140,400 135,360 130,320
+      L125,280 C115,240 110,200 115,160
+      L130,110 C125,90 120,70 125,55 Z"/>
+
+    <!-- Head -->
+    <ellipse id="front-head" class="muscle" cx="145" cy="35" rx="28" ry="32"/>
+
+    <!-- Neck -->
+    <path id="front-neck" class="muscle" d="M130,65 L160,65 L158,85 L132,85 Z"/>
+
+    <!-- Shoulders / Delts -->
+    <path id="front-delts-left" class="muscle" d="M95,85 C70,90 55,110 50,140 L80,150 C85,120 100,100 120,95 Z"/>
+    <path id="front-delts-right" class="muscle" d="M195,85 C220,90 235,110 240,140 L210,150 C205,120 190,100 170,95 Z"/>
+
+    <!-- Chest / Pecs -->
+    <path id="front-chest" class="muscle" d="M115,95 
+      C125,85 165,85 175,95
+      C185,110 185,140 175,155
+      C165,165 125,165 115,155
+      C105,140 105,110 115,95 Z"/>
+
+    <!-- Abs (upper + lower as one group, or split) -->
+    <path id="front-abs" class="muscle" d="M125,160 
+      C135,155 155,155 165,160
+      L168,230 C165,245 145,250 125,245 Z"/>
+    
+    <!-- Obliques -->
+    <path id="front-obliques-left" class="muscle" d="M110,160 C105,180 100,210 105,245 L125,245 C120,210 115,180 120,165 Z"/>
+    <path id="front-obliques-right" class="muscle" d="M180,160 C185,180 190,210 185,245 L165,245 C170,210 175,180 170,165 Z"/>
+
+    <!-- Biceps -->
+    <path id="front-biceps-left" class="muscle" d="M55,145 C40,160 35,200 40,230 L70,225 C68,190 65,160 70,150 Z"/>
+    <path id="front-biceps-right" class="muscle" d="M235,145 C250,160 255,200 250,230 L220,225 C222,190 225,160 220,150 Z"/>
+
+    <!-- Forearms -->
+    <path id="front-forearms-left" class="muscle" d="M40,235 C30,270 25,310 30,350 L55,345 C55,300 55,265 60,240 Z"/>
+    <path id="front-forearms-right" class="muscle" d="M250,235 C260,270 265,310 260,350 L235,345 C235,300 235,265 230,240 Z"/>
+
+    <!-- Quads -->
+    <path id="front-quads-left" class="muscle" d="M115,280 C105,320 100,380 105,450 L140,450 C138,380 135,320 140,285 Z"/>
+    <path id="front-quads-right" class="muscle" d="M175,280 C185,320 190,380 185,450 L150,450 C152,380 155,320 150,285 Z"/>
+
+    <!-- Calves (front view lower leg) -->
+    <path id="front-calves-left" class="muscle" d="M110,460 C105,510 108,560 115,610 L140,610 C138,560 135,510 138,465 Z"/>
+    <path id="front-calves-right" class="muscle" d="M180,460 C185,510 182,560 175,610 L150,610 C152,560 155,510 152,465 Z"/>
+  </g>
+
+  <!-- ==================== BACK VIEW ==================== -->
+  <g id="back-view" transform="translate(420, 70)">
+    <!-- Body outline (base) -->
+    <path class="body-base" d="M95,30 
+      C110,10 130,5 145,12 C160,5 180,10 195,30
+      L200,55 C205,70 200,90 195,110
+      L210,160 C215,200 210,240 200,280
+      L195,320 C190,360 185,400 180,440
+      L175,500 C172,540 170,580 175,620
+      L140,620 C145,580 147,540 150,500
+      L145,440 C140,400 135,360 130,320
+      L125,280 C115,240 110,200 115,160
+      L130,110 C125,90 120,70 125,55 Z"/>
+
+    <!-- Head (back) -->
+    <ellipse id="back-head" class="muscle" cx="145" cy="35" rx="28" ry="32"/>
+
+    <!-- Neck / Upper traps -->
+    <path id="back-neck" class="muscle" d="M125,65 L165,65 L160,90 L130,90 Z"/>
+
+    <!-- Traps (main V shape) -->
+    <path id="back-traps" class="muscle" d="M100,90 
+      C120,80 170,80 190,90
+      C200,120 195,160 185,190
+      C170,210 120,210 105,190
+      C95,160 90,120 100,90 Z"/>
+
+    <!-- Rear Delts -->
+    <path id="back-rear-delts-left" class="muscle" d="M90,95 C65,105 50,130 48,155 L75,160 C80,130 95,110 115,105 Z"/>
+    <path id="back-rear-delts-right" class="muscle" d="M200,95 C225,105 240,130 242,155 L215,160 C210,130 195,110 175,105 Z"/>
+
+    <!-- Lats -->
+    <path id="back-lats" class="muscle" d="M105,195 
+      C95,230 90,270 100,310
+      C115,330 175,330 190,310
+      C200,270 195,230 185,195
+      C170,210 120,210 105,195 Z"/>
+
+    <!-- Lower Back / Erectors -->
+    <path id="back-lower-back" class="muscle" d="M125,310 
+      C130,340 135,370 140,400
+      L150,400 C155,370 160,340 165,310
+      C155,320 135,320 125,310 Z"/>
+
+    <!-- Triceps -->
+    <path id="back-triceps-left" class="muscle" d="M50,160 C35,180 30,220 35,255 L65,250 C65,210 60,175 70,165 Z"/>
+    <path id="back-triceps-right" class="muscle" d="M240,160 C255,180 260,220 255,255 L225,250 C225,210 230,175 220,165 Z"/>
+
+    <!-- Forearms (back) -->
+    <path id="back-forearms-left" class="muscle" d="M35,260 C25,295 22,335 28,370 L55,365 C55,320 55,285 60,265 Z"/>
+    <path id="back-forearms-right" class="muscle" d="M255,260 C265,295 268,335 262,370 L235,365 C235,320 235,285 230,265 Z"/>
+
+    <!-- Glutes -->
+    <path id="back-glutes" class="muscle" d="M115,400 
+      C110,430 115,460 125,480
+      C140,495 160,495 175,480
+      C185,460 190,430 185,400
+      C170,415 130,415 115,400 Z"/>
+
+    <!-- Hamstrings -->
+    <path id="back-hamstrings-left" class="muscle" d="M115,485 C105,530 100,580 108,620 L140,620 C138,575 135,530 140,490 Z"/>
+    <path id="back-hamstrings-right" class="muscle" d="M175,485 C185,530 190,580 182,620 L150,620 C152,575 155,530 150,490 Z"/>
+
+    <!-- Calves (back) -->
+    <path id="back-calves-left" class="muscle" d="M112,625 C108,660 112,690 120,710 L138,710 C136,680 135,655 137,630 Z"/>
+    <path id="back-calves-right" class="muscle" d="M178,625 C182,660 178,690 170,710 L152,710 C154,680 155,655 153,630 Z"/>
+  </g>
+
+  <!-- Labels -->
+  <text x="225" y="710" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#94a3b8" text-anchor="middle">FRONT</text>
+  <text x="565" y="710" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#94a3b8" text-anchor="middle">BACK</text>
+
+  <!-- ==================== LEGEND ==================== -->
+  <g id="legend" transform="translate(40, 640)">
+    <!-- High Engagement -->
+    <circle cx="12" cy="12" r="8" fill="#F5FF00" filter="url(#soft-glow)"/>
+    <text x="28" y="16" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#e2e8f0">
+      High Engagement (80-100% form + reps completed)
+    </text>
+
+    <!-- Moderate Engagement -->
+    <circle cx="12" cy="40" r="8" fill="#22C55E" filter="url(#soft-glow)"/>
+    <text x="28" y="44" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#e2e8f0">
+      Moderate Engagement (50-79%)
+    </text>
+
+    <!-- Not Trained -->
+    <circle cx="12" cy="68" r="8" fill="#4a5a6c" stroke="#6a7a8c" stroke-width="1.5"/>
+    <text x="28" y="72" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#e2e8f0">
+      Not Trained This Session
+    </text>
+  </g>
+</svg>
