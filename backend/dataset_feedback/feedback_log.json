@@ -1,0 +1,29 @@
+[
+  {
+    "id": "fb_20260824_231522_2024",
+    "timestamp": "2026-08-24T23:15:22Z",
+    "predicted_class": "anarsa",
+    "corrected_class": "DAHI",
+    "is_new_class": true,
+    "portion_g": 60,
+    "image_path": "dataset_feedback\\images\\fb_20260824_231522_2024.jpg"
+  },
+  {
+    "id": "fb_20260825_003545_5428",
+    "timestamp": "2026-08-25T00:35:45Z",
+    "predicted_class": "bandar_laddu",
+    "corrected_class": "Banana",
+    "is_new_class": true,
+    "portion_g": 10,
+    "image_path": "dataset_feedback\\images\\fb_20260825_003545_5428.jpg"
+  },
+  {
+    "id": "fb_20260825_003545_5495",
+    "timestamp": "2026-08-25T00:35:45Z",
+    "predicted_class": "bandar_laddu",
+    "corrected_class": "Banana",
+    "is_new_class": true,
+    "portion_g": 10,
+    "image_path": "dataset_feedback\\images\\fb_20260825_003545_5495.jpg"
+  }
+]

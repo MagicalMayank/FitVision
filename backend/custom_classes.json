@@ -1,0 +1,26 @@
+{
+  "dahi": {
+    "dish_name": "Dahi",
+    "key": "dahi",
+    "category": "custom",
+    "nutrition_per_100g": {
+      "calories": 200,
+      "protein_g": 8,
+      "carbs_g": 25,
+      "fat_g": 7
+    },
+    "created_at": "2026-08-24T23:15:22Z"
+  },
+  "banana": {
+    "dish_name": "Banana",
+    "key": "banana",
+    "category": "custom",
+    "nutrition_per_100g": {
+      "calories": 50,
+      "protein_g": 8,
+      "carbs_g": 25,
+      "fat_g": 7
+    },
+    "created_at": "2026-08-25T00:35:45Z"
+  }
+}
