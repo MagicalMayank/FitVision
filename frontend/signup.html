@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Initialize Account - FitVision</title>
+    
+    <!-- Design System Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    
+    <!-- FitVision Vanilla CSS Design System -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="kinetic-glow signup-page">
+
+    <div class="signup-card">
+        
+        <!-- Step Indicator Header (Steps 1-4) -->
+        <div id="stepIndicator" class="step-indicator-bar">
+            <div class="top-app-bar__brand">
+                <span class="top-app-bar__title"><span class="brand-fit">Fit</span><span class="brand-vision">Vision</span></span>
+            </div>
+            <div class="flex items-center gap-3">
+                <span id="stepText" class="text-label-md text-white/50">STEP 1 OF 4</span>
+                <div class="step-dots">
+                    <div id="dot1" class="step-dot step-dot--active"></div>
+                    <div id="dot2" class="step-dot"></div>
+                    <div id="dot3" class="step-dot"></div>
+                    <div id="dot4" class="step-dot"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             STEP 1: ACCOUNT BASICS
+             ========================================== -->
+        <div id="step1View" class="signup-step-view">
+            <div class="mb-6">
+                <h1 class="text-headline-md font-headline font-bold text-white">Account Basics</h1>
+                <p class="text-body-md text-white/50">Enter your basic credentials to get started</p>
+            </div>
+
+            <form id="step1Form" onsubmit="event.preventDefault();" class="space-y-4">
+                <div class="form-group">
+                    <label class="form-label" for="inputName">Full Name</label>
+                    <input type="text" id="inputName" class="form-input" placeholder="Alex Rivera" required>
+                    <span id="errorName" class="error-text" style="display:none;">Please enter your full name.</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="inputEmail">Email Address</label>
+                    <input type="email" id="inputEmail" class="form-input" placeholder="alex.rivera@fitvision.com" required>
+                    <span id="errorEmail" class="error-text" style="display:none;">Please enter a valid email address.</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="inputPassword">Password</label>
+                    <input type="password" id="inputPassword" class="form-input" placeholder="At least 8 characters" required>
+                    <span id="errorPassword" class="error-text" style="display:none;">Password must be at least 8 characters long.</span>
+                </div>
+
+                <div class="form-group mb-6">
+                    <label class="form-label" for="inputConfirmPassword">Confirm Password</label>
+                    <input type="password" id="inputConfirmPassword" class="form-input" placeholder="Re-enter password" required>
+                    <span id="errorConfirmPassword" class="error-text" style="display:none;">Passwords do not match.</span>
+                </div>
+
+                <button id="btnStep1Continue" type="button" class="btn-primary" style="width:100%; justify-content:center; padding:1.1rem;" disabled>
+                    <span>Continue</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- ==========================================
+             STEP 2: YOUR BODY
+             ========================================== -->
+        <div id="step2View" class="signup-step-view" style="display:none;">
+            <div class="mb-4">
+                <h1 class="text-headline-md font-headline font-bold text-white">Your Body</h1>
+                <p class="text-body-md text-white/50">Biomechanical & personal health metrics</p>
+            </div>
+
+            <!-- Age Native Scroll-Snap Picker -->
+            <div class="form-group mb-4">
+                <div class="flex justify-between items-center mb-1">
+                    <label class="form-label" style="margin-bottom:0;">Select Age</label>
+                    <span id="selectedAgeLabel" class="text-headline-sm font-headline text-primary-fixed font-bold">25 yrs</span>
+                </div>
+
+                <div class="scroll-picker-wrap">
+                    <div class="scroll-picker-highlight"></div>
+                    <div id="ageScrollTrack" class="scroll-picker-track">
+                        <!-- Numbers 13 to 100 generated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gender Pills -->
+            <div class="form-group mb-5">
+                <label class="form-label">Gender</label>
+                <div class="flex gap-2" style="flex-wrap: wrap;">
+                    <button type="button" class="pill pill-inactive gender-pill" data-gender="Male">Male</button>
+                    <button type="button" class="pill pill-inactive gender-pill" data-gender="Female">Female</button>
+                    <button type="button" class="pill pill-inactive gender-pill" data-gender="Prefer not to say">Prefer not to say</button>
+                </div>
+            </div>
+
+            <!-- Height Input & Unit Toggle -->
+            <div class="form-group mb-4">
+                <div class="flex justify-between items-center mb-1">
+                    <label class="form-label" style="margin-bottom:0;">Height</label>
+                    <div class="unit-toggle-group">
+                        <button type="button" id="btnHeightCm" class="unit-toggle-btn unit-toggle-btn--active">CM</button>
+                        <button type="button" id="btnHeightFt" class="unit-toggle-btn">FT-IN</button>
+                    </div>
+                </div>
+                <input type="number" id="inputHeight" class="form-input" value="175" min="50" max="250" placeholder="175">
+            </div>
+
+            <!-- Weight Input & Unit Toggle -->
+            <div class="form-group mb-6">
+                <div class="flex justify-between items-center mb-1">
+                    <label class="form-label" style="margin-bottom:0;">Current Weight</label>
+                    <div class="unit-toggle-group">
+                        <button type="button" id="btnWeightKg" class="unit-toggle-btn unit-toggle-btn--active">KG</button>
+                        <button type="button" id="btnWeightLb" class="unit-toggle-btn">LB</button>
+                    </div>
+                </div>
+                <input type="number" id="inputWeight" class="form-input" value="70" min="20" max="300" placeholder="70">
+            </div>
+
+            <div class="flex gap-3">
+                <button id="btnStep2Back" type="button" class="btn-secondary" style="flex:1; justify-content:center;">Back</button>
+                <button id="btnStep2Continue" type="button" class="btn-primary" style="flex:2; justify-content:center;" disabled>
+                    <span>Continue</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             STEP 3: CHOOSE YOUR AVATAR
+             ========================================== -->
+        <div id="step3View" class="signup-step-view" style="display:none;">
+            <div class="mb-4">
+                <h1 class="text-headline-md font-headline font-bold text-white">Choose Your Avatar</h1>
+                <p class="text-body-md text-white/50">Pick a preset illustration or upload your photo</p>
+            </div>
+
+            <!-- Selected Avatar Preview -->
+            <div class="flex justify-center mb-4">
+                <div class="top-app-bar__avatar" style="width:5rem; height:5rem; border-width:3px;">
+                    <img id="avatarPreviewImg" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Avatar Preview">
+                </div>
+            </div>
+
+            <!-- Avatar Grid -->
+            <div class="avatar-grid mb-4" id="avatarGrid">
+                <!-- Preset Avatar Cards generated by JS -->
+            </div>
+
+            <!-- File Upload Option -->
+            <label class="avatar-upload-btn mb-4">
+                <span class="material-symbols-outlined text-primary-fixed">cloud_upload</span>
+                <span>Upload Custom Photo</span>
+                <input type="file" id="inputAvatarFile" accept="image/*" style="display:none;">
+            </label>
+
+            <div class="text-center mb-6">
+                <button type="button" id="btnSkipAvatar" class="text-label-md text-secondary hover:underline">Skip for now (Use Default)</button>
+            </div>
+
+            <div class="flex gap-3">
+                <button id="btnStep3Back" type="button" class="btn-secondary" style="flex:1; justify-content:center;">Back</button>
+                <button id="btnStep3Continue" type="button" class="btn-primary" style="flex:2; justify-content:center;">
+                    <span>Continue</span>
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             STEP 4: YOUR GOALS
+             ========================================== -->
+        <div id="step4View" class="signup-step-view" style="display:none;">
+            <div class="mb-4">
+                <h1 class="text-headline-md font-headline font-bold text-white">Your Goals</h1>
+                <p class="text-body-md text-white/50">What's your primary fitness target?</p>
+            </div>
+
+            <div class="goal-cards-list mb-4">
+                <div class="goal-card" data-goal="Lose Weight">
+                    <div class="goal-card__icon"><span class="material-symbols-outlined">trending_down</span></div>
+                    <div>
+                        <div class="goal-card__title">Lose Weight</div>
+                        <div class="goal-card__desc">Burn body fat & increase lean energy</div>
+                    </div>
+                </div>
+
+                <div class="goal-card" data-goal="Maintain Weight">
+                    <div class="goal-card__icon"><span class="material-symbols-outlined">balance</span></div>
+                    <div>
+                        <div class="goal-card__title">Maintain Weight</div>
+                        <div class="goal-card__desc">Sustain current body composition & fitness</div>
+                    </div>
+                </div>
+
+                <div class="goal-card" data-goal="Build Muscle">
+                    <div class="goal-card__icon"><span class="material-symbols-outlined">fitness_center</span></div>
+                    <div>
+                        <div class="goal-card__title">Build Muscle</div>
+                        <div class="goal-card__desc">Hypertrophy & progressive strength gains</div>
+                    </div>
+                </div>
+
+                <div class="goal-card" data-goal="Improve Endurance">
+                    <div class="goal-card__icon"><span class="material-symbols-outlined">directions_run</span></div>
+                    <div>
+                        <div class="goal-card__title">Improve Endurance</div>
+                        <div class="goal-card__desc">Cardiovascular stamina & active recovery</div>
+                    </div>
+                </div>
+
+                <div class="goal-card" data-goal="General Fitness">
+                    <div class="goal-card__icon"><span class="material-symbols-outlined">bolt</span></div>
+                    <div>
+                        <div class="goal-card__title">General Fitness</div>
+                        <div class="goal-card__desc">Overall health, mobility & daily vitality</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disclaimer -->
+            <p class="text-label-sm text-white/30 text-center mb-6" style="text-transform:none; font-weight:normal; line-height:1.4;">
+                This helps us personalize your experience. Results vary by individual — FitVision provides guidance, not guarantees.
+            </p>
+
+            <div class="flex gap-3">
+                <button id="btnStep4Back" type="button" class="btn-secondary" style="flex:1; justify-content:center;">Back</button>
+                <button id="btnStep4Continue" type="button" class="btn-primary" style="flex:2; justify-content:center;" disabled>
+                    <span>Complete Setup</span>
+                    <span class="material-symbols-outlined">check_circle</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ==========================================
+             STEP 5: BUILDING EXPERIENCE (ANIMATION)
+             ========================================== -->
+        <div id="step5View" class="building-screen" style="display:none;">
+            <div class="pulse-ring-container">
+                <div class="pulse-ring"></div>
+                <div class="pulse-ring-inner">FV</div>
+            </div>
+
+            <h2 class="font-headline text-headline-sm font-bold text-white mb-2">
+                Building Your Personalized FitVision Experience
+            </h2>
+            <p class="text-body-md text-white/40 mb-6">Configuring AI models & biomechanical rules engine...</p>
+
+            <div class="w-full max-w-xs text-left" style="margin: 0 auto;">
+                <div id="staggerItem1" class="stagger-step-item">
+                    <span class="material-symbols-outlined" style="font-size:1.2rem;">progress_activity</span>
+                    <span>Calculating baseline metrics...</span>
+                </div>
+                <div id="staggerItem2" class="stagger-step-item">
+                    <span class="material-symbols-outlined" style="font-size:1.2rem;">progress_activity</span>
+                    <span>Setting up your custom dashboard...</span>
+                </div>
+                <div id="staggerItem3" class="stagger-step-item">
+                    <span class="material-symbols-outlined" style="font-size:1.2rem;">progress_activity</span>
+                    <span>Personalizing AI Coach & Form Rules...</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Multi-step Signup JavaScript logic -->
+    <script>
+        // Single State Object in Memory
+        const signupState = {
+            name: '',
+            email: '',
+            password: '',
+            age: 25,
+            gender: '',
+            height: 175,
+            heightUnit: 'cm',
+            weight: 70,
+            weightUnit: 'kg',
+            avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+            goal: ''
+        };
+
+        // Preset Avatars Array (Unsplash high quality fitness avatars)
+        const PRESET_AVATARS = [
+            'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=150&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=150&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80',
+            'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?w=150&auto=format&fit=crop&q=80'
+        ];
+
+        let currentStep = 1;
+
+        // Initialize App & Event Listeners
+        window.addEventListener('DOMContentLoaded', () => {
+            initStep1();
+            initStep2AgePicker();
+            initStep2GenderAndUnits();
+            initStep3Avatars();
+            initStep4Goals();
+        });
+
+        // ----------------------------------------------------
+        // STEP 1 VALIDATION & CONTROL
+        // ----------------------------------------------------
+        function initStep1() {
+            const inputName = document.getElementById('inputName');
+            const inputEmail = document.getElementById('inputEmail');
+            const inputPassword = document.getElementById('inputPassword');
+            const inputConfirmPassword = document.getElementById('inputConfirmPassword');
+            const btnContinue = document.getElementById('btnStep1Continue');
+
+            function validateStep1() {
+                const nameValid = inputName.value.trim().length > 0;
+                const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputEmail.value.trim());
+                const passValid = inputPassword.value.length >= 8;
+                const confirmValid = inputConfirmPassword.value === inputPassword.value && passValid;
+
+                // Inline Errors
+                document.getElementById('errorName').style.display = inputName.value && !nameValid ? 'block' : 'none';
+                document.getElementById('errorEmail').style.display = inputEmail.value && !emailValid ? 'block' : 'none';
+                document.getElementById('errorPassword').style.display = inputPassword.value && !passValid ? 'block' : 'none';
+                document.getElementById('errorConfirmPassword').style.display = inputConfirmPassword.value && !confirmValid ? 'block' : 'none';
+
+                const allValid = nameValid && emailValid && passValid && confirmValid;
+                btnContinue.disabled = !allValid;
+                return allValid;
+            }
+
+            [inputName, inputEmail, inputPassword, inputConfirmPassword].forEach(input => {
+                input.addEventListener('input', validateStep1);
+            });
+
+            btnContinue.addEventListener('click', () => {
+                if (validateStep1()) {
+                    signupState.name = inputName.value.trim();
+                    signupState.email = inputEmail.value.trim();
+                    signupState.password = inputPassword.value;
+                    goToStep(2);
+                }
+            });
+        }
+
+        // ----------------------------------------------------
+        // STEP 2 AGE SCROLL PICKER & BODY METRICS
+        // ----------------------------------------------------
+        function initStep2AgePicker() {
+            const track = document.getElementById('ageScrollTrack');
+            const ageLabel = document.getElementById('selectedAgeLabel');
+
+            for (let i = 13; i <= 100; i++) {
+                const item = document.createElement('div');
+                item.className = 'scroll-picker-item' + (i === 25 ? ' scroll-picker-item--active' : '');
+                item.innerText = i;
+                item.setAttribute('data-age', i);
+                item.addEventListener('click', () => {
+                    item.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    selectAge(i);
+                });
+                track.appendChild(item);
+            }
+
+            // Detect centered item on scroll
+            let scrollTimer;
+            track.addEventListener('scroll', () => {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(() => {
+                    const centerPoint = track.scrollLeft + track.clientWidth / 2;
+                    let closestItem = null;
+                    let minDistance = Infinity;
+
+                    track.querySelectorAll('.scroll-picker-item').forEach(item => {
+                        const itemCenter = item.offsetLeft + item.clientWidth / 2;
+                        const distance = Math.abs(centerPoint - itemCenter);
+                        if (distance < minDistance) {
+                            minDistance = distance;
+                            closestItem = item;
+                        }
+                    });
+
+                    if (closestItem) {
+                        const ageVal = parseInt(closestItem.getAttribute('data-age'), 10);
+                        selectAge(ageVal);
+                    }
+                }, 100);
+            });
+
+            function selectAge(ageVal) {
+                signupState.age = ageVal;
+                ageLabel.innerText = `${ageVal} yrs`;
+                track.querySelectorAll('.scroll-picker-item').forEach(el => {
+                    if (parseInt(el.getAttribute('data-age'), 10) === ageVal) {
+                        el.classList.add('scroll-picker-item--active');
+                    } else {
+                        el.classList.remove('scroll-picker-item--active');
+                    }
+                });
+                validateStep2();
+            }
+
+            // Scroll initial 25 to center
+            setTimeout(() => {
+                const initialEl = track.querySelector('[data-age="25"]');
+                if (initialEl) {
+                    initialEl.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'center' });
+                }
+            }, 100);
+        }
+
+        function initStep2GenderAndUnits() {
+            const genderButtons = document.querySelectorAll('.gender-pill');
+            const inputHeight = document.getElementById('inputHeight');
+            const inputWeight = document.getElementById('inputWeight');
+            const btnContinue = document.getElementById('btnStep2Continue');
+            const btnBack = document.getElementById('btnStep2Back');
+
+            genderButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    genderButtons.forEach(b => {
+                        b.classList.remove('pill-active');
+                        b.classList.add('pill-inactive');
+                    });
+                    btn.classList.remove('pill-inactive');
+                    btn.classList.add('pill-active');
+                    signupState.gender = btn.getAttribute('data-gender');
+                    validateStep2();
+                });
+            });
+
+            // Height Unit Toggle
+            const btnHeightCm = document.getElementById('btnHeightCm');
+            const btnHeightFt = document.getElementById('btnHeightFt');
+            btnHeightCm.addEventListener('click', () => {
+                btnHeightCm.classList.add('unit-toggle-btn--active');
+                btnHeightFt.classList.remove('unit-toggle-btn--active');
+                signupState.heightUnit = 'cm';
+            });
+            btnHeightFt.addEventListener('click', () => {
+                btnHeightFt.classList.add('unit-toggle-btn--active');
+                btnHeightCm.classList.remove('unit-toggle-btn--active');
+                signupState.heightUnit = 'ft-in';
+            });
+
+            // Weight Unit Toggle
+            const btnWeightKg = document.getElementById('btnWeightKg');
+            const btnWeightLb = document.getElementById('btnWeightLb');
+            btnWeightKg.addEventListener('click', () => {
+                btnWeightKg.classList.add('unit-toggle-btn--active');
+                btnWeightLb.classList.remove('unit-toggle-btn--active');
+                signupState.weightUnit = 'kg';
+            });
+            btnWeightLb.addEventListener('click', () => {
+                btnWeightLb.classList.add('unit-toggle-btn--active');
+                btnWeightKg.classList.remove('unit-toggle-btn--active');
+                signupState.weightUnit = 'lb';
+            });
+
+            [inputHeight, inputWeight].forEach(inp => inp.addEventListener('input', validateStep2));
+
+            function validateStep2() {
+                const heightVal = parseFloat(inputHeight.value);
+                const weightVal = parseFloat(inputWeight.value);
+                const valid = signupState.age > 0 && signupState.gender && heightVal > 0 && weightVal > 0;
+                btnContinue.disabled = !valid;
+                return valid;
+            }
+
+            btnBack.addEventListener('click', () => goToStep(1));
+            btnContinue.addEventListener('click', () => {
+                if (validateStep2()) {
+                    signupState.height = parseFloat(inputHeight.value);
+                    signupState.weight = parseFloat(inputWeight.value);
+                    goToStep(3);
+                }
+            });
+        }
+
+        // ----------------------------------------------------
+        // STEP 3 AVATARS
+        // ----------------------------------------------------
+        function initStep3Avatars() {
+            const grid = document.getElementById('avatarGrid');
+            const previewImg = document.getElementById('avatarPreviewImg');
+            const inputAvatarFile = document.getElementById('inputAvatarFile');
+            const btnSkip = document.getElementById('btnSkipAvatar');
+            const btnBack = document.getElementById('btnStep3Back');
+            const btnContinue = document.getElementById('btnStep3Continue');
+
+            PRESET_AVATARS.forEach((url, idx) => {
+                const item = document.createElement('div');
+                item.className = 'avatar-option' + (idx === 0 ? ' avatar-option--active' : '');
+                item.innerHTML = `<img src="${url}" alt="Avatar ${idx+1}">`;
+                item.addEventListener('click', () => {
+                    grid.querySelectorAll('.avatar-option').forEach(el => el.classList.remove('avatar-option--active'));
+                    item.classList.add('avatar-option--active');
+                    signupState.avatar = url;
+                    previewImg.src = url;
+                });
+                grid.appendChild(item);
+            });
+
+            inputAvatarFile.addEventListener('change', (e) => {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = (event) => {
+                        const customUrl = event.target.result;
+                        signupState.avatar = customUrl;
+                        previewImg.src = customUrl;
+                        grid.querySelectorAll('.avatar-option').forEach(el => el.classList.remove('avatar-option--active'));
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            btnSkip.addEventListener('click', () => {
+                signupState.avatar = PRESET_AVATARS[0];
+                previewImg.src = PRESET_AVATARS[0];
+                goToStep(4);
+            });
+
+            btnBack.addEventListener('click', () => goToStep(2));
+            btnContinue.addEventListener('click', () => goToStep(4));
+        }
+
+        // ----------------------------------------------------
+        // STEP 4 GOALS
+        // ----------------------------------------------------
+        function initStep4Goals() {
+            const cards = document.querySelectorAll('.goal-card');
+            const btnBack = document.getElementById('btnStep4Back');
+            const btnContinue = document.getElementById('btnStep4Continue');
+
+            cards.forEach(card => {
+                card.addEventListener('click', () => {
+                    cards.forEach(c => c.classList.remove('goal-card--active'));
+                    card.classList.add('goal-card--active');
+                    signupState.goal = card.getAttribute('data-goal');
+                    btnContinue.disabled = false;
+                });
+            });
+
+            btnBack.addEventListener('click', () => goToStep(3));
+            btnContinue.addEventListener('click', () => {
+                if (signupState.goal) {
+                    goToStep(5);
+                }
+            });
+        }
+
+        // ----------------------------------------------------
+        // NAVIGATION & STEP 5 ANIMATION
+        // ----------------------------------------------------
+        function goToStep(stepNum) {
+            currentStep = stepNum;
+
+            // Views
+            document.getElementById('step1View').style.display = stepNum === 1 ? 'block' : 'none';
+            document.getElementById('step2View').style.display = stepNum === 2 ? 'block' : 'none';
+            document.getElementById('step3View').style.display = stepNum === 3 ? 'block' : 'none';
+            document.getElementById('step4View').style.display = stepNum === 4 ? 'block' : 'none';
+            document.getElementById('step5View').style.display = stepNum === 5 ? 'flex' : 'none';
+
+            // Indicator
+            const indicator = document.getElementById('stepIndicator');
+            if (stepNum <= 4) {
+                indicator.style.display = 'flex';
+                document.getElementById('stepText').innerText = `STEP ${stepNum} OF 4`;
+                for (let i = 1; i <= 4; i++) {
+                    const dot = document.getElementById(`dot${i}`);
+                    dot.className = 'step-dot';
+                    if (i === stepNum) dot.classList.add('step-dot--active');
+                    else if (i < stepNum) dot.classList.add('step-dot--completed');
+                }
+            } else {
+                indicator.style.display = 'none';
+                runStep5Animation();
+            }
+        }
+
+        function runStep5Animation() {
+            const item1 = document.getElementById('staggerItem1');
+            const item2 = document.getElementById('staggerItem2');
+            const item3 = document.getElementById('staggerItem3');
+
+            setTimeout(() => {
+                item1.classList.add('stagger-step-item--visible');
+            }, 500);
+
+            setTimeout(() => {
+                item1.classList.add('stagger-step-item--done');
+                item1.querySelector('.material-symbols-outlined').innerText = 'check_circle';
+                item2.classList.add('stagger-step-item--visible');
+            }, 1400);
+
+            setTimeout(() => {
+                item2.classList.add('stagger-step-item--done');
+                item2.querySelector('.material-symbols-outlined').innerText = 'check_circle';
+                item3.classList.add('stagger-step-item--visible');
+            }, 2300);
+
+            setTimeout(() => {
+                item3.classList.add('stagger-step-item--done');
+                item3.querySelector('.material-symbols-outlined').innerText = 'check_circle';
+            }, 3000);
+
+            // Persist State to LocalStorage & Redirect
+            setTimeout(() => {
+                signupState.timestamp = new Date().toISOString();
+                localStorage.setItem('fitvision_user_profile', JSON.stringify(signupState));
+                console.log('Saved user profile to localStorage:', signupState);
+                window.location.href = 'dashboard.html';
+            }, 3600);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Login - FitVision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F5FF00',
+                        surface: '#131313',
+                        surfaceContent: '#201f1f',
+                        secondary: '#7edb7f',
+                    },
+                    fontFamily: {
+                        headline: ['Space Grotesk', 'sans-serif'],
+                        body: ['Manrope', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .kinetic-glow {
+            background: radial-gradient(circle at top right, rgba(245, 255, 0, 0.1) 0%, transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(126, 219, 127, 0.05) 0%, transparent 40%);
+        }
+    </style>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-surface text-white font-body min-h-screen flex flex-col justify-center items-center p-6 kinetic-glow">
+    
+    <div class="w-full max-w-md">
+        <div class="text-center mb-10">
+            <h1 class="brand-logo-text" style="font-size: 2.75rem; margin-bottom: 0.5rem;"><span class="brand-fit">Fit</span><span class="brand-vision">Vision</span></h1>
+            <p class="text-white/40 text-sm uppercase tracking-widest font-bold">A.I. POWERED FITNESS ANALYSIS</p>
+        </div>
+
+        <div class="bg-surfaceContent/60 backdrop-blur-xl p-8 rounded-[2.5rem] border border-white/5 shadow-2xl">
+            <h2 class="font-headline text-2xl font-bold mb-6">Welcome Back</h2>
+            
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-white/40 mb-2 px-1">Email Address</label>
+                    <input type="email" id="loginEmail" placeholder="alex.rivera@fitvision.com" value="alex.rivera@fitvision.com" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:border-primary outline-none transition-all text-sm">
+                </div>
+                
+                <div class="mb-6">
+                    <label class="block text-[10px] font-bold uppercase tracking-widest text-white/40 mb-2 px-1">Password</label>
+                    <input type="password" placeholder="••••••••" value="fitvision2026" class="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 focus:border-primary outline-none transition-all text-sm">
+                </div>
+
+                <button type="submit" class="w-full bg-primary text-black font-headline font-black py-5 rounded-2xl uppercase tracking-widest hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_0_20px_rgba(245,255,0,0.3)]">
+                    Login
+                </button>
+            </form>
+            <script>
+                document.getElementById('loginForm').addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const emailInput = document.getElementById('loginEmail');
+                    const email = emailInput ? emailInput.value.trim() : '';
+                    if (email) {
+                        const rawName = email.split('@')[0].replace(/[._-]/g, ' ');
+                        const formattedName = rawName.split(' ').map(w => w ? (w.charAt(0).toUpperCase() + w.slice(1)) : '').join(' ');
+                        const existing = localStorage.getItem('fitvision_user_profile');
+                        if (!existing) {
+                            localStorage.setItem('fitvision_user_profile', JSON.stringify({
+                                name: formattedName || 'Alex Rivera',
+                                email: email,
+                                avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80'
+                            }));
+                        }
+                    }
+                    window.location.href = 'dashboard.html';
+                });
+            </script>
+
+            <div class="mt-8 pt-8 border-t border-white/5 text-center">
+                <p class="text-white/40 text-xs">Don't have an Account? <a href="signup.html" class="text-secondary font-bold">Initialize Account</a></p>
+            </div>
+        </div>
+
+        <!-- Demo Credentials -->
+        <div class="mt-8 p-6 rounded-3xl bg-white/5 border border-white/5 text-center">
+            <p class="text-[10px] font-bold uppercase tracking-widest text-primary mb-3">Demo Credentials</p>
+            <div class="flex justify-center gap-6 text-xs text-white/60">
+                <p><span class="text-white/30">Email:</span> alex.rivera@fitvision.com</p>
+                <p><span class="text-white/30">Pass:</span> fitvision2026</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
