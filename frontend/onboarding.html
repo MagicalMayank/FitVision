@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Get Started - FitVision</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <meta name="theme-color" content="#0B0F14">
+    <style>
+        :root {
+            --ob-bg: #0B0F14;
+            --ob-bg-gradient: radial-gradient(circle at 85% 30%, rgba(229, 238, 0, 0.14) 0%, #0B0F14 65%);
+            --ob-text-white: #FFFFFF;
+            --ob-text-muted: #94A3B8;
+            --ob-accent: #E5EE00;
+            --ob-accent-glow: rgba(229, 238, 0, 0.5);
+            --ob-card-bg: rgba(30, 41, 59, 0.85);
+            --ob-card-border: rgba(255, 255, 255, 0.12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #06090C;
+            color: var(--ob-text-white);
+            font-family: var(--font-body, 'Manrope', sans-serif);
+            overflow-x: hidden;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .onboarding-wrapper {
+            position: relative;
+            max-width: 440px;
+            width: 100%;
+            height: 100vh;
+            min-height: 640px;
+            max-height: 920px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.5rem 1.5rem 1.75rem 1.5rem;
+            overflow: hidden;
+            background: var(--ob-bg-gradient);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Ambient Glow Arch behind Model */
+        .background-arch {
+            position: absolute;
+            top: 5%;
+            right: -28%;
+            width: 350px;
+            height: 590px;
+            border-radius: 220px 220px 0 0;
+            background: radial-gradient(circle at 40% 30%, rgba(229, 238, 0, 0.18) 0%, rgba(30, 41, 59, 0.5) 70%, rgba(11, 15, 20, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        /* Top Header */
+        .onboarding-header {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding-top: 0.25rem;
+        }
+
+        .onboarding-brand {
+            font-family: var(--font-headline, 'Space Grotesk', sans-serif);
+            font-weight: 900;
+            font-size: 1.3rem;
+            letter-spacing: -0.02em;
+            color: var(--ob-accent);
+            text-shadow: 0 0 15px rgba(229, 238, 0, 0.4);
+        }
+
+        .onboarding-skip {
+            color: var(--ob-text-muted);
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0.4rem 0.85rem;
+            border-radius: 20px;
+            transition: color 0.2s, background 0.2s;
+        }
+
+        .onboarding-skip:hover {
+            color: var(--ob-accent);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Hero Main Section */
+        .onboarding-hero {
+            position: relative;
+            z-index: 5;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Enlarged Athlete Model Image (~20% Larger) */
+        .hero-image-container {
+            position: absolute;
+            bottom: -0.5rem;
+            right: -3.5rem;
+            width: 95%;
+            height: 98%;
+            z-index: 2;
+            pointer-events: none;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 82%, transparent 100%);
+        }
+
+        .hero-athlete-img {
+            max-width: 140%;
+            max-height: 115%;
+            object-fit: contain;
+            object-position: bottom right;
+            filter: drop-shadow(-12px 18px 30px rgba(0, 0, 0, 0.7));
+        }
+
+        /* Left Stacked Content */
+        .hero-text-content {
+            position: relative;
+            z-index: 6;
+            max-width: 58%;
+            padding-top: 0.5rem;
+        }
+
+        .hero-title {
+            font-family: var(--font-headline, 'Space Grotesk', sans-serif);
+            font-size: 2.75rem;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+            color: var(--ob-text-white);
+            margin: 0 0 1.25rem 0;
+        }
+
+        .hero-title .accent-word {
+            display: inline-block;
+            color: var(--ob-accent);
+            text-shadow: 0 0 25px rgba(229, 238, 0, 0.35);
+        }
+
+        .hero-subtext {
+            font-size: 0.95rem;
+            line-height: 1.55;
+            color: var(--ob-text-muted);
+            font-weight: 500;
+            margin: 0 0 2.25rem 0;
+            max-width: 215px;
+        }
+
+        /* Primary CTA Button (Get Started ->) */
+        .get-started-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.85rem;
+            background: var(--ob-accent);
+            color: #0B0F14;
+            font-family: var(--font-body, 'Manrope', sans-serif);
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 0.65rem 0.65rem 0.65rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 10px 30px var(--ob-accent-glow), 0 2px 8px rgba(0,0,0,0.5);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+            width: fit-content;
+        }
+
+        .get-started-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 35px var(--ob-accent-glow), 0 4px 12px rgba(0,0,0,0.6);
+        }
+
+        .btn-arrow-circle {
+            width: 2.35rem;
+            height: 2.35rem;
+            border-radius: 50%;
+            background: #0B0F14;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .btn-arrow-circle .material-symbols-outlined {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .get-started-btn:hover .btn-arrow-circle {
+            transform: translateX(3px);
+        }
+
+        /* Bottom Social Proof Card (#1E293B Dark Surface) */
+        .social-proof-card {
+            position: relative;
+            z-index: 10;
+            background: var(--ob-card-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--ob-card-border);
+            border-radius: 28px;
+            padding: 1.15rem 1.35rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+
+        .social-proof-label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+
+        .social-proof-title {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--ob-text-muted);
+        }
+
+        .social-proof-count {
+            font-family: var(--font-headline, 'Space Grotesk', sans-serif);
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--ob-text-white);
+            letter-spacing: -0.02em;
+        }
+
+        .avatar-stack-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-avatar-svg {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 2.5px solid #1E293B;
+            margin-left: -0.65rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            object-fit: cover;
+        }
+
+        .user-avatar-svg:first-child {
+            margin-left: 0;
+        }
+
+        .avatar-add-btn {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 1.5px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.05);
+            margin-left: -0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ob-text-white);
+        }
+
+        .avatar-add-btn .material-symbols-outlined {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        @media (max-width: 380px) {
+            .hero-title {
+                font-size: 2.3rem;
+            }
+            .hero-text-content {
+                max-width: 62%;
+            }
+            .hero-image-container {
+                right: -3.8rem;
+                width: 98%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="onboarding-wrapper">
+        <!-- Ambient Radial Glow Arch -->
+        <div class="background-arch"></div>
+
+        <!-- Top Header: Neon Brand + Muted Skip Link -->
+        <header class="onboarding-header">
+            <div class="onboarding-brand brand-logo-text" style="font-size: 1.45rem;"><span class="brand-fit">Fit</span><span class="brand-vision">Vision</span></div>
+            <a href="login.html" class="onboarding-skip">Skip</a>
+        </header>
+
+        <!-- Main Hero Section: Left Text + Right Athlete Image -->
+        <main class="onboarding-hero">
+            <!-- Overlapping Enlarged Athlete Hero Image -->
+            <div class="hero-image-container">
+                <img src="upscaled Man image.png" alt="Athlete Lunge Pose" class="hero-athlete-img">
+            </div>
+
+            <!-- Left Stacked Content -->
+            <div class="hero-text-content">
+                <h1 class="hero-title">
+                    Your<br>
+                    <span class="accent-word">Fitness</span><br>
+                    Journey<br>
+                    Starts Here
+                </h1>
+                <p class="hero-subtext">
+                    Track workouts, stay consistent and become your best self.
+                </p>
+
+                <!-- Primary CTA Button -->
+                <a href="login.html" class="get-started-btn">
+                    <span>Get Started</span>
+                    <div class="btn-arrow-circle">
+                        <span class="material-symbols-outlined">arrow_forward</span>
+                    </div>
+                </a>
+            </div>
+        </main>
+
+        <!-- Bottom Floating Social Proof Card (#1E293B Dark Surface) -->
+        <footer class="social-proof-card">
+            <div class="social-proof-label">
+                <span class="social-proof-title">Join Over</span>
+                <span class="social-proof-count">2M+ Users</span>
+            </div>
+
+            <div class="avatar-stack-container">
+                <svg class="user-avatar-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="18" cy="18" r="18" fill="#3B82F6"/>
+                    <circle cx="18" cy="13" r="6" fill="#1E293B"/>
+                    <path d="M7 32C7 26 12 23 18 23C24 23 29 26 29 32" fill="#60A5FA"/>
+                </svg>
+                <svg class="user-avatar-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="18" cy="18" r="18" fill="#10B981"/>
+                    <circle cx="18" cy="13" r="6" fill="#065F46"/>
+                    <path d="M7 32C7 26 12 23 18 23C24 23 29 26 29 32" fill="#34D399"/>
+                </svg>
+                <svg class="user-avatar-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="18" cy="18" r="18" fill="#F59E0B"/>
+                    <circle cx="18" cy="13" r="6" fill="#78350F"/>
+                    <path d="M7 32C7 26 12 23 18 23C24 23 29 26 29 32" fill="#FBBF24"/>
+                </svg>
+                <div class="avatar-add-btn">
+                    <span class="material-symbols-outlined">add</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Preserve first-time vs returning user routing check
+        window.addEventListener('DOMContentLoaded', () => {
+            const profile = localStorage.getItem('fitvision_user_profile');
+            if (profile) {
+                // Returning user should skip onboarding
+                window.location.href = 'dashboard.html';
+            }
+        });
+    </script>
+</body>
+</html>
