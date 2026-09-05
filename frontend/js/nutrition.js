@@ -1,9 +1,9 @@
 /**
- * Kinetic Oracle — Nutrition Module
+ * FitVision — Nutrition Module
  * Handles: meal scanning, localStorage persistence, UI updates, AI insights
  */
 
-const NUTRITION_API = 'http://localhost:8000';
+const NUTRITION_API = window.API_BASE;
 const STORAGE_KEY = 'kinetic_nutrition_data';
 const TODAY_KEY = () => new Date().toISOString().split('T')[0];
 
@@ -172,57 +172,190 @@ function updateDailyTotals(data) {
         }
     }
 
-    // Recovery Score
+    // Recovery Score & Dynamic Load/Recovery Indicators
     updateRecoveryScore(data);
+    updateDynamicPerformanceIndicators(data);
+}
+
+function updateDynamicPerformanceIndicators(data) {
+    const t = data ? data.totals : { calories: 0, protein_g: 0, carbs_g: 0, fat_g: 0 };
+    
+    // 1. Calculate LOAD dynamically from workout history & real session data
+    let loadText = 'LOW';
+    let loadColor = 'var(--secondary)'; // green
+
+    try {
+        let history = [];
+        const rawHistory = localStorage.getItem('kinetic_workout_history');
+        if (rawHistory) history = JSON.parse(rawHistory);
+
+        const lastSessionRaw = localStorage.getItem('kinetic_last_workout_session');
+        let lastSession = lastSessionRaw ? JSON.parse(lastSessionRaw) : null;
+        
+        const todayStr = TODAY_KEY();
+        const todayWorkouts = history.filter(s => s.timestamp && s.timestamp.startsWith(todayStr));
+        
+        let totalRepsToday = todayWorkouts.reduce((acc, s) => acc + (s.reps || 0), 0);
+        if (lastSession && lastSession.timestamp && lastSession.timestamp.startsWith(todayStr)) {
+            totalRepsToday = Math.max(totalRepsToday, lastSession.reps || 0);
+        }
+
+        if (totalRepsToday >= 25 || todayWorkouts.length >= 2) {
+            loadText = 'HIGH';
+            loadColor = 'var(--error)'; // red/coral
+        } else if (totalRepsToday > 0 || todayWorkouts.length > 0 || history.length > 0) {
+            loadText = 'MED';
+            loadColor = 'var(--primary-fixed)'; // yellow
+        } else {
+            loadText = 'LOW';
+            loadColor = 'var(--secondary)'; // green
+        }
+    } catch(e) {
+        console.warn('Error computing load indicator:', e);
+    }
+
+    if (DOM.aiLoadIndicator) {
+        DOM.aiLoadIndicator.textContent = loadText;
+        DOM.aiLoadIndicator.style.color = loadColor;
+    }
+
+    // 2. Calculate RECOVERY dynamically from actual nutrition intake vs goals
+    const proteinRatio = (t.protein_g || 0) / (GOALS.protein || 150);
+    const calorieRatio = (t.calories || 0) / (GOALS.calories || 2400);
+    const avgScore = (proteinRatio * 0.6 + calorieRatio * 0.4);
+
+    let recoveryText = 'LOW';
+    let recoveryColor = 'var(--error)'; // coral/red
+
+    if (avgScore >= 0.75) {
+        recoveryText = 'HIGH';
+        recoveryColor = 'var(--secondary)'; // green
+    } else if (avgScore >= 0.35) {
+        recoveryText = 'MED';
+        recoveryColor = 'var(--primary-fixed)'; // yellow
+    } else {
+        recoveryText = 'LOW';
+        recoveryColor = 'var(--error)'; // coral/red
+    }
+
+    if (DOM.aiRecoveryIndicator) {
+        DOM.aiRecoveryIndicator.textContent = recoveryText;
+        DOM.aiRecoveryIndicator.style.color = recoveryColor;
+    }
+
+    // 3. Calculate TARGET dynamically from user profile or goals
+    let targetProteinG = GOALS.protein || 150;
+    try {
+        const storedProfile = localStorage.getItem('fitvision_user_profile');
+        if (storedProfile) {
+            const profile = JSON.parse(storedProfile);
+            if (profile.weight) {
+                targetProteinG = Math.round(profile.weight * 2.0);
+            }
+        }
+    } catch(e) {}
+
+    if (DOM.aiTargetIndicator) {
+        DOM.aiTargetIndicator.textContent = `${targetProteinG}g`;
+        DOM.aiTargetIndicator.style.color = 'white';
+    }
 }
 
 function updateRecoveryScore(data) {
     const t = data.totals;
-    const proteinPct = t.protein_g / GOALS.protein;
-    const carbsPct = t.carbs_g / GOALS.carbs;
-    const calPct = t.calories / GOALS.calories;
+    const proteinRatio = Math.min((t.protein_g || 0) / GOALS.protein, 1);
+    const carbsRatio = Math.min((t.carbs_g || 0) / GOALS.carbs, 1);
+    const calRatio = Math.min((t.calories || 0) / GOALS.calories, 1);
+    
+    // Hydration calculation based on meals logged or fallback 50%
+    const loggedMealsCount = data.meals ? data.meals.length : 0;
+    const hydrationL = Math.min(1.0 + (loggedMealsCount * 0.3), 2.0);
+    const hydrationRatio = hydrationL / 2.0;
 
-    // Calculate recovery score (weighted average)
+    // Calculate weighted average recovery score
     const score = Math.round(
-        (Math.min(proteinPct, 1) * 35 +
-         Math.min(carbsPct, 1) * 25 +
-         Math.min(calPct, 1) * 30 +
-         0.5 * 10)  // Hydration assumed 50% (no sensor)
+        (proteinRatio * 35 +
+         carbsRatio * 25 +
+         calRatio * 30 +
+         hydrationRatio * 10)
     );
 
     if (DOM.recoveryScoreValue) DOM.recoveryScoreValue.textContent = score;
-    if (DOM.recoveryScoreRing) {
-        const circumference = 283;
-        const offset = circumference - (circumference * score / 100);
-        DOM.recoveryScoreRing.setAttribute('stroke-dashoffset', offset);
-    }
 
-    // Update checklist
-    const setCheck = (el, pct) => {
-        if (!el) return;
-        const icon = el.querySelector('.material-symbols-outlined');
-        if (pct >= 0.8) {
-            icon.textContent = 'check';
-            icon.style.color = 'var(--secondary)';
-            el.style.border = '';
-        } else if (pct >= 0.4) {
-            icon.textContent = 'horizontal_rule';
-            icon.style.color = 'var(--outline)';
-            el.style.border = '';
-        } else {
-            icon.textContent = 'warning';
-            icon.style.color = 'var(--error)';
-            el.style.border = '1px solid rgba(255,180,171,0.3)';
+    // 1. Update 4-Segment Donut Chart Ring
+    // Radius = 40, Arc Quarter = 57.8px max stroke length
+    const MAX_ARC = 57.8;
+    const TOTAL_C = 251.3;
+
+    const setSegmentStroke = (id, ratio) => {
+        const segEl = document.getElementById(id);
+        if (segEl) {
+            const fillLen = (MAX_ARC * Math.max(0, Math.min(ratio, 1))).toFixed(1);
+            segEl.setAttribute('stroke-dasharray', `${fillLen} ${TOTAL_C}`);
         }
     };
-    setCheck(DOM.recoveryProtein, proteinPct);
-    setCheck(DOM.recoveryCarbs, carbsPct);
-    setCheck(DOM.recoveryCalories, calPct);
-    // Hydration is always assumed moderate
-    if (DOM.recoveryHydration) {
-        const icon = DOM.recoveryHydration.querySelector('.material-symbols-outlined');
-        if (icon) { icon.textContent = 'horizontal_rule'; icon.style.color = 'var(--outline)'; }
-    }
+
+    setSegmentStroke('seg-protein', proteinRatio);
+    setSegmentStroke('seg-hydration', hydrationRatio);
+    setSegmentStroke('seg-carbs', carbsRatio);
+    setSegmentStroke('seg-calories', calRatio);
+
+    // 2. Update Actionable Per-Macro Rows
+    const formatMacroRow = (rowId, currentVal, targetVal, unit, ratio) => {
+        const rowEl = document.getElementById(rowId);
+        if (!rowEl) return;
+
+        const valSpan = rowEl.querySelector('[id$="-row-vals"]');
+        const gapSpan = rowEl.querySelector('[id$="-row-gap"]');
+
+        const currentFormatted = typeof currentVal === 'number' ? Math.round(currentVal).toLocaleString() : currentVal;
+        const targetFormatted = typeof targetVal === 'number' ? Math.round(targetVal).toLocaleString() : targetVal;
+
+        if (valSpan) valSpan.textContent = `${currentFormatted}${unit} / ${targetFormatted}${unit}`;
+
+        if (gapSpan) {
+            let gapText = '';
+            let gapColor = 'var(--error)';
+
+            if (ratio >= 0.9) {
+                gapText = 'target reached!';
+                gapColor = 'var(--secondary)';
+            } else if (ratio >= 0.5) {
+                if (typeof targetVal === 'number' && typeof currentVal === 'number') {
+                    const diff = Math.round((targetVal - currentVal) * 10) / 10;
+                    gapText = diff <= 0.2 && unit === 'L' ? 'almost there' : `need ${diff}${unit} more`;
+                } else {
+                    gapText = 'almost there';
+                }
+                gapColor = '#ff9800'; // Amber
+            } else {
+                if (typeof targetVal === 'number' && typeof currentVal === 'number') {
+                    const diff = Math.round((targetVal - currentVal) * 10) / 10;
+                    gapText = `need ${diff}${unit} more`;
+                } else {
+                    gapText = 'below target';
+                }
+                gapColor = 'var(--error)'; // Red/Muted Warning
+            }
+
+            gapSpan.textContent = gapText;
+            gapSpan.style.color = gapColor;
+        }
+
+        // Color coding whole row border
+        if (ratio >= 0.9) {
+            rowEl.style.borderColor = 'rgba(126,219,127,0.3)';
+        } else if (ratio >= 0.5) {
+            rowEl.style.borderColor = 'rgba(255,152,0,0.3)';
+        } else {
+            rowEl.style.borderColor = 'rgba(255,180,171,0.2)';
+        }
+    };
+
+    formatMacroRow('recovery-protein', t.protein_g || 0, GOALS.protein, 'g', proteinRatio);
+    formatMacroRow('recovery-hydration', hydrationL, 2.0, 'L', hydrationRatio);
+    formatMacroRow('recovery-carbs', t.carbs_g || 0, GOALS.carbs, 'g', carbsRatio);
+    formatMacroRow('recovery-calories', t.calories || 0, GOALS.calories, ' kcal', calRatio);
 }
 
 function renderMealsTimeline(data) {
@@ -766,14 +899,8 @@ async function fetchAIInsight() {
             DOM.aiInsightText.innerHTML = result.insight || 'Unable to generate insight.';
         }
 
-        // Update indicator pills based on actual data
-        const proteinGap = GOALS.protein - data.totals.protein_g;
-        if (DOM.aiLoadIndicator) DOM.aiLoadIndicator.textContent = 'HIGH';
-        if (DOM.aiRecoveryIndicator) {
-            DOM.aiRecoveryIndicator.textContent = proteinGap > 30 ? 'LOW' : proteinGap > 10 ? 'MED' : 'HIGH';
-            DOM.aiRecoveryIndicator.style.color = proteinGap > 30 ? 'var(--error)' : 'var(--primary-fixed)';
-        }
-        if (DOM.aiTargetIndicator) DOM.aiTargetIndicator.textContent = `${GOALS.protein}g`;
+        // Update indicator pills dynamically based on actual data
+        updateDynamicPerformanceIndicators(data);
 
     } catch (err) {
         console.error('AI Insight error:', err);
@@ -906,6 +1033,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (DOM.cameraBtn) {
         DOM.cameraBtn.addEventListener('click', async (e) => {
             e.stopPropagation();
+            const started = await startLiveCamera();
+            if (!started) DOM.fileInput.click();
+        });
+    }
+
+    // Recovery Score CTA button
+    const recoveryCta = document.getElementById('recovery-scan-cta');
+    if (recoveryCta) {
+        recoveryCta.addEventListener('click', async (e) => {
+            e.stopPropagation();
+            const scanCard = document.querySelector('.card-low');
+            if (scanCard) scanCard.scrollIntoView({ behavior: 'smooth' });
             const started = await startLiveCamera();
             if (!started) DOM.fileInput.click();
         });
