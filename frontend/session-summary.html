@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Session Summary - Kinetic Oracle</title>
+    <title>Session Summary - FitVision</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,10 +18,11 @@
             <div class="top-app-bar__avatar" style="border: 2px solid var(--primary-fixed);">
                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ucD-WmYQaQExqdikk7fuNP1bT_6UYChS09NNqzIie8v-0g7NmsSyJWk3I_OCvCF3pTumkdGU8NHhhIKHKS3VXYdYdm606r6YNPGg1jp60yEVGd2yvCTgJJ1xAaEVfAdHwwy1XDgui_AiDE-OV8gX-kXIEiJnkT1R_XJYvjoTG5AGLn408Ab2A9TLednuUewe2SSTcmW6YBazVjYjomgVURt7TvBzbV1BoOyuwVSH4W1IpI7E7j1mCw3-RgBGAnJJDwn7F5LNd_c" alt="User Profile">
             </div>
-            <span class="top-app-bar__title" style="color: var(--primary-fixed);">KINETIC ORACLE</span>
+            <span class="top-app-bar__title"><span class="brand-fit">Fit</span><span class="brand-vision">Vision</span></span>
         </div>
-        <button class="top-app-bar__action">
-            <span class="material-symbols-outlined">bolt</span>
+        <button class="top-app-bar__action" title="Daily Streak">
+            <span class="material-symbols-outlined filled" style="color: var(--primary-fixed);">bolt</span>
+            <span id="streakCount" class="streak-badge">3</span>
         </button>
     </header>
 
@@ -120,7 +121,7 @@
              </div>
         </div>
         
-        <button class="btn-primary" style="width: 100%;" onclick="window.location.href='dashboard.html'">BACK TO HOME</button>
+        <button class="btn-primary" style="width: 100%;" onclick="window.location.href='workout.html'">VIEW WORKOUT ANALYTICS &amp; METRICS</button>
     </main>
 
     <!-- Bottom Navigation -->

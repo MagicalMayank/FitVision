@@ -3,80 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Workout &amp; Analytics - Kinetic Oracle</title>
+    <title>Workout &amp; Analytics - FitVision</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <meta name="theme-color" content="#131313">
-    <style>
-        .workout-hero {
-            position: relative;
-            background: var(--surface-container);
-            border: 1px solid rgba(71,72,50,0.15);
-            border-radius: var(--radius-lg);
-            padding: 1.75rem;
-            margin-bottom: 2rem;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        .ex-chip-scroll {
-            display: flex;
-            gap: 0.5rem;
-            overflow-x: auto;
-            scrollbar-width: none;
-            padding-bottom: 0.5rem;
-            margin-top: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        .ex-chip-scroll::-webkit-scrollbar { display: none; }
-        
-        .camera-overlay-modal {
-            position: fixed;
-            inset: 0;
-            z-index: 100;
-            background: #000;
-            display: none;
-            flex-direction: column;
-        }
-        .camera-overlay-modal--active {
-            display: flex;
-        }
-    </style>
 </head>
 <body class="kinetic-glow">
-    <!-- TopAppBar -->
+
+    <!-- Top App Bar -->
     <header class="top-app-bar" style="background: #131313; border-bottom: 1px solid rgba(255,255,255,0.05);">
         <div class="top-app-bar__brand">
             <div class="top-app-bar__avatar" style="border: 2px solid var(--primary-fixed);">
                 <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ucD-WmYQaQExqdikk7fuNP1bT_6UYChS09NNqzIie8v-0g7NmsSyJWk3I_OCvCF3pTumkdGU8NHhhIKHKS3VXYdYdm606r6YNPGg1jp60yEVGd2yvCTgJJ1xAaEVfAdHwwy1XDgui_AiDE-OV8gX-kXIEiJnkT1R_XJYvjoTG5AGLn408Ab2A9TLednuUewe2SSTcmW6YBazVjYjomgVURt7TvBzbV1BoOyuwVSH4W1IpI7E7j1mCw3-RgBGAnJJDwn7F5LNd_c" alt="User Profile">
             </div>
-            <span class="top-app-bar__title" style="color: var(--primary-fixed);">KINETIC ORACLE</span>
+            <span class="top-app-bar__title"><span class="brand-fit">Fit</span><span class="brand-vision">Vision</span></span>
         </div>
-        <button class="top-app-bar__action">
-            <span class="material-symbols-outlined">bolt</span>
-        </button>
+        <div style="display: flex; align-items: center; gap: 0.65rem;">
+            <!-- Bilingual Voice Coach Language Toggle (EN / Hindi) (Commented out per user request) -->
+            <!--
+            <div class="voice-lang-toggle" title="Voice Coach Language">
+                <button id="voiceLangEnBtn" class="voice-lang-btn voice-lang-btn--active" onclick="window.voiceCoach && window.voiceCoach.setLangPref('en')">EN</button>
+                <button id="voiceLangHiBtn" class="voice-lang-btn" onclick="window.voiceCoach && window.voiceCoach.setLangPref('hi')">हिंदी</button>
+            </div>
+            -->
+            <button class="top-app-bar__action" title="Daily Streak">
+                <span class="material-symbols-outlined filled" style="color: var(--primary-fixed);">bolt</span>
+                <span id="streakCount" class="streak-badge">3</span>
+            </button>
+        </div>
     </header>
 
-    <main style="padding-top: 5.5rem; padding-bottom: 8rem; padding-left: 1.25rem; padding-right: 1.25rem; max-width: 800px; margin: 0 auto;">
-        
-        <!-- SECTION 1: ACTIVE WORKOUT & POSE ANALYSIS LAUNCHER -->
-        <section class="workout-hero">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <div>
-                    <span class="text-label-sm" style="color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">REAL-TIME POSE ANALYSIS</span>
-                    <h1 class="text-display-sm font-headline" style="color: white; margin-top: 0.25rem; line-height: 1.1;">START WORKOUT</h1>
-                </div>
-                <div style="background: rgba(245,255,0,0.1); border: 1px solid rgba(245,255,0,0.2); padding: 0.4rem 0.8rem; border-radius: var(--radius-full); display: flex; align-items: center; gap: 0.35rem; color: var(--primary-fixed); font-size: 0.7rem; font-weight: 700;">
-                    <span class="material-symbols-outlined" style="font-size: 0.9rem;">videocam</span>
-                    <span>YOLO11n-Pose AI</span>
-                </div>
+    <!-- MAIN PAGE CONTENT -->
+    <main style="padding-top: 5.5rem; padding-bottom: 8rem; padding-left: 1rem; padding-right: 1rem; max-width: 480px; margin: 0 auto;">
+
+        <!-- EXERCISE SELECTION CHIPS CARD ABOVE FULL PORTRAIT BUTTON -->
+        <section class="card" style="padding: 1.25rem; margin-bottom: 1.25rem; background: var(--surface-container-high); border: 1px solid rgba(255,255,255,0.1);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+                <span class="text-label-sm" style="color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;">SELECT TARGET EXERCISE</span>
+                <span id="selectedExBadge" class="badge" style="background: rgba(245,255,0,0.15); color: var(--primary-fixed); font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: var(--radius-full);">SQUAT ACTIVE</span>
             </div>
 
-            <!-- Exercise Selection Chips -->
-            <p style="color: var(--on-surface-variant); font-size: 0.8rem; margin-top: 1rem;">Select Movement Target:</p>
-            <div class="ex-chip-scroll">
+            <div class="ex-chip-grid-page no-scrollbar">
                 <button class="ex-select-chip ex-select-chip--active" data-exercise="squat">Squat</button>
                 <button class="ex-select-chip" data-exercise="pushup">Push-Up</button>
                 <button class="ex-select-chip" data-exercise="lunge">Lunge</button>
@@ -88,16 +58,214 @@
                 <button class="ex-select-chip" data-exercise="jumping_jack">Jumping Jack</button>
                 <button class="ex-select-chip" data-exercise="calf_raise">Calf Raise</button>
             </div>
+        </section>
 
-            <!-- Primary START WORKOUT Action Button -->
-            <button id="launchCameraBtn" class="btn-primary" style="width: 100%; padding: 1.1rem; border-radius: var(--radius-md); font-size: 1rem; font-weight: 900; letter-spacing: 0.05em; display: flex; align-items: center; justify-content: center; gap: 0.6rem; box-shadow: 0 0 25px rgba(245, 255, 0, 0.35);">
-                <span class="material-symbols-outlined" style="font-size: 1.5rem; font-variation-settings: 'FILL' 1;">play_circle</span>
-                <span>START POSE ANALYSIS WORKOUT</span>
+        <!-- LAUNCH POSE SESSION BANNER CARD -->
+        <section class="card-high" style="padding: 1.25rem; margin-bottom: 1.5rem; border: 1px solid rgba(245,255,0,0.2); background: linear-gradient(135deg, rgba(32,31,31,0.9) 0%, rgba(42,42,42,0.9) 100%);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem;">
+                <div>
+                    <span class="text-label-sm" style="color: var(--secondary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">AI VISION ENGINE</span>
+                    <h2 class="font-headline" style="color: white; font-size: 1.4rem; font-weight: 800; margin-top: 0.15rem;">LIVE WORKOUT</h2>
+                </div>
+                <div style="background: rgba(245,255,0,0.15); color: var(--primary-fixed); padding: 0.5rem; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+                    <span class="material-symbols-outlined" style="font-size: 1.6rem;">camera_front</span>
+                </div>
+            </div>
+            <p style="color: var(--on-surface-variant); font-size: 0.8rem; margin-bottom: 1rem; line-height: 1.4;">
+                AI watches your form in real time, counts your reps, and alerts you the moment your technique slips.
+            </p>
+            <button onclick="handleStartWorkoutClick()" class="btn-primary" style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 0 20px rgba(245, 255, 0, 0.3);">
+                <span class="material-symbols-outlined">play_circle</span>
+                <span>START WORKOUT VISION CAMERA</span>
             </button>
         </section>
 
+        <!-- DEDICATED EMBEDDED LIVE CAMERA CARD CONTAINER -->
+        <section id="embeddedCameraContainer" class="embedded-camera-card" style="display: none;">
+            <video id="webcam" autoplay playsinline muted></video>
+            <canvas id="skeletonCanvas"></canvas>
+
+            <!-- Connection Status -->
+            <div id="connectionStatus" class="connection-status connection-status--hidden">DISCONNECTED</div>
+
+            <!-- TOP HUD ROW (SPLIT LEFT & RIGHT GLASS CARDS) -->
+            <div class="top-hud-container">
+                <!-- Left Glass Card: REP COUNTER -->
+                <div class="glass-hud-card glass-hud-card--left">
+                    <span class="hud-card-label">REP COUNTER</span>
+                    <h1 id="repCount" class="hud-card-main-val">0</h1>
+                    <div class="hud-card-sub-row">
+                        <button id="decTarget" class="stepper-btn" title="Decrease Target"><span class="material-symbols-outlined" style="font-size: 0.95rem;">remove</span></button>
+                        <span class="hud-card-sub-label">TARGET: <strong id="targetDisplay">15</strong></span>
+                        <button id="incTarget" class="stepper-btn" title="Increase Target"><span class="material-symbols-outlined" style="font-size: 0.95rem;">add</span></button>
+                    </div>
+                </div>
+
+                <!-- Right Glass Card: SESSION TIMER & AI SYNC -->
+                <div class="glass-hud-card glass-hud-card--right">
+                    <span class="hud-card-label">SESSION TIMER</span>
+                    <span id="timerDisplay" class="hud-card-timer-val">00:00</span>
+                    <div class="ai-sync-pill">
+                        <span class="ai-sync-pill__dot"></span>
+                        <span id="aiSyncStatusText" class="ai-sync-pill__text">AI SYNC: ACTIVE</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CENTER FLOATING FORM FEEDBACK PILL (NEON YELLOW OVERLAY ON SKELETON) -->
+            <div id="feedbackPill" class="center-feedback-pill feedback-pill--hidden">
+                <span id="feedbackText" class="center-feedback-text">POSITION YOURSELF IN FRAME</span>
+            </div>
+
+            <!-- BOTTOM CIRCULAR ICON CONTROLS (CLOSE 'X', PAUSE '||', AND VOICE MUTE) -->
+            <div class="bottom-icon-bar">
+                <button id="modalCloseBtn" class="nav-circle-btn nav-circle-btn--sm" title="Close &amp; View Analytics">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+
+                <button id="toggleWorkout" class="nav-circle-btn nav-circle-btn--lg" title="Pause / Resume Analysis">
+                    <span id="playIcon" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pause</span>
+                </button>
+
+                <button id="btnVoiceMute" class="nav-circle-btn nav-circle-btn--sm" title="Mute / Unmute Voice Coach" onclick="window.voiceCoach && window.voiceCoach.toggleMute()">
+                    <span id="voiceMuteIcon" class="material-symbols-outlined">volume_up</span>
+                </button>
+            </div>
+        </section>
+
+
+        <!-- SECTION: POST-SESSION MUSCLE HEATMAP CARD -->
+        <section id="muscleHeatmapCard" class="card" style="display: none; margin-bottom: 1.5rem; border: 1px solid rgba(245,255,0,0.15); background: var(--surface-container-high); border-radius: var(--radius-md); overflow: hidden;">
+
+            <!-- Card Header -->
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06);">
+                <div>
+                    <span class="text-label-sm" style="color: var(--primary-fixed); font-weight: 700; letter-spacing: 0.1em;">POST-SESSION ANALYSIS</span>
+                    <h3 class="font-headline" style="color: white; font-size: 1.1rem; font-weight: 800; margin-top: 0.1rem; display: flex; align-items: center; gap: 0.4rem;">
+                        <span>MUSCLE ENGAGEMENT MAP</span>
+                        <span class="material-symbols-outlined" style="font-size: 1.1rem; color: var(--primary-fixed);">fitness_center</span>
+                    </h3>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <!-- Session stat pills -->
+                    <span id="heatmap-exercise-pill" style="font-size: 0.65rem; font-weight: 700; color: var(--on-surface-variant); background: var(--surface-container-highest); padding: 0.25rem 0.55rem; border-radius: var(--radius-full);">—</span>
+                    <span id="heatmap-score-pill" style="font-size: 0.65rem; font-weight: 700; color: var(--primary-fixed); background: rgba(245,255,0,0.1); padding: 0.25rem 0.55rem; border-radius: var(--radius-full);">FORM —%</span>
+                    <button id="toggleHeatmapCollapseBtn" title="Toggle Heatmap" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--radius-full); padding: 0.35rem; color: var(--on-surface-variant); cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                        <span id="collapseHeatmapIcon" class="material-symbols-outlined" style="font-size: 1.2rem;">expand_less</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Collapsible Body -->
+            <div id="muscleHeatmapBody" style="padding: 1rem 1.25rem;">
+
+                <!-- SVG container — JS will fetch & inline HRucY.svg here -->
+                <div id="muscleHeatmapSVGContainer" style="width: 100%; border-radius: var(--radius-sm); overflow: hidden; background: #0b0f14;">
+                    <!-- SVG loaded dynamically by muscleMap.js -->
+                    <p style="color: var(--on-surface-variant); font-size: 0.8rem; text-align: center; padding: 2rem;">Complete a workout session to see your muscle heatmap.</p>
+                </div>
+
+                <!-- HTML legend override (matches exact wording spec) -->
+                <div style="display: flex; flex-wrap: wrap; gap: 0.75rem 1.5rem; margin-top: 0.85rem; padding: 0.75rem; background: var(--surface-container-highest); border-radius: var(--radius-sm);">
+                    <div style="display: flex; align-items: center; gap: 0.45rem;">
+                        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #F5FF00; box-shadow: 0 0 6px #F5FF00;"></span>
+                        <span style="font-size: 0.72rem; color: var(--on-surface-variant);">High Engagement (80-100% form + reps completed)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.45rem;">
+                        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #22C55E; box-shadow: 0 0 6px #22C55E;"></span>
+                        <span style="font-size: 0.72rem; color: var(--on-surface-variant);">Moderate Engagement (50-79%)</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 0.45rem;">
+                        <span style="display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: #4a5a6c; border: 1px solid #6a7a8c;"></span>
+                        <span style="font-size: 0.72rem; color: var(--on-surface-variant);">Not Trained This Session</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: 3D BIOMECHANICS VISUALIZATION PANEL (COMMENTED OUT - preserved for future re-enable) -->
+        <!--
+        <section id="biomechanics3DCard" class="biomechanics-3d-card">
+            <div class="biomechanics-3d-header">
+                <div>
+                    <span class="text-label-sm" style="color: #00F5FF; font-weight: 700; letter-spacing: 0.1em;">WEBGL 3D ENGINE</span>
+                    <h3 class="font-headline" style="color: white; font-size: 1.15rem; font-weight: 800; margin-top: 0.1rem; display: flex; align-items: center; gap: 0.4rem;">
+                        <span>3D BIOMECHANICS</span>
+                        <span class="material-symbols-outlined" style="font-size: 1.2rem; color: #00F5FF;">view_in_ar</span>
+                    </h3>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <button id="toggle3DCollapseBtn" class="biomechanics-3d-btn" title="Toggle 3D View Panel">
+                        <span id="collapse3DIcon" class="material-symbols-outlined">expand_less</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- COLLAPSIBLE BODY
+            <div id="biomechanics3DBody">
+                <div id="biomechanics3DCanvasContainer" class="biomechanics-3d-canvas-wrapper">
+                    <!-- WebGL Canvas
+                    <canvas id="biomechanics3DCanvas"></canvas>
+
+                    <!-- TOP OVERLAY HUD BADGES
+                    <div class="biomechanics-3d-overlay-hud">
+                        <div id="bio3dPhaseBadge" class="biomechanics-3d-badge">
+                            <span class="material-symbols-outlined" style="font-size: 0.85rem;">directions_run</span>
+                            <span>SQUAT &bull; STANDBY</span>
+                        </div>
+                        <div id="bio3dScoreBadge" class="biomechanics-3d-badge" style="border-color: #00F5FF; color: #00F5FF;">
+                            <span>FORM 100%</span>
+                        </div>
+                    </div>
+
+                    <!-- BOTTOM METRICS OVERLAY
+                    <div id="bio3dMetricsBox" class="biomechanics-3d-metrics-box">
+                        <div class="bio3d-feedback-line">Awaiting Vision Camera Stream...</div>
+                    </div>
+
+                    <!-- TOOLBAR CONTROLS
+                    <div class="biomechanics-3d-toolbar">
+                        <button id="bio3dResetCamBtn" class="biomechanics-3d-btn" title="Reset 3D Camera" onclick="if(window.biomechanicalSkeleton3D) window.biomechanicalSkeleton3D.resetCamera()">
+                            <span class="material-symbols-outlined" style="font-size: 1.1rem;">center_focus_strong</span>
+                        </button>
+                        <button id="bio3dGridToggleBtn" class="biomechanics-3d-btn" title="Toggle Grid Floor" onclick="if(window.biomechanicalSkeleton3D) window.biomechanicalSkeleton3D.toggleGrid()">
+                            <span class="material-symbols-outlined" style="font-size: 1.1rem;">grid_4x4</span>
+                        </button>
+                    </div>
+
+                    <!-- FALLBACK OVERLAY
+                    <div id="bio3dFallback" class="bio3d-fallback" style="display: none;">
+                        <span class="material-symbols-outlined bio3d-fallback-icon">3d_rotation</span>
+                        <span class="bio3d-fallback-text">Initializing 3D Biomechanics...</span>
+                    </div>
+                </div>
+
+                <!-- LEGEND FOOTER
+                <div class="biomechanics-3d-legend">
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #00F5FF; box-shadow: 0 0 6px #00F5FF;"></span>
+                        <span>17 YOLO Joints</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #F5FF00; box-shadow: 0 0 6px #F5FF00;"></span>
+                        <span>Active Target Joint</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #7EDB7F; box-shadow: 0 0 6px #7EDB7F;"></span>
+                        <span>Anatomical Bones</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="legend-dot" style="background: #FF3366; box-shadow: 0 0 6px #FF3366;"></span>
+                        <span>Form Alert State</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        -->
+
         <!-- SECTION 2: WORKOUT PERFORMANCE & ANALYTICS AREA -->
-        <section id="workout-analytics-section" style="margin-top: 2rem;">
+        <section id="workout-analytics-section">
             <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1rem; padding: 0 0.25rem;">
                 <div>
                     <h2 class="font-headline" style="color: white; font-weight: 700; font-size: 1.35rem; letter-spacing: -0.02em;">PERFORMANCE &amp; ANALYTICS</h2>
@@ -135,84 +303,6 @@
         </section>
     </main>
 
-    <!-- LIVE CAMERA & POSE ANALYSIS MODAL OVERLAY -->
-    <div id="cameraModal" class="camera-overlay-modal">
-        <div class="camera-container" style="height: 100vh; position: relative;">
-            <!-- Connection Status -->
-            <div id="connectionStatus" class="connection-status connection-status--hidden">
-                DISCONNECTED
-            </div>
-
-            <video id="webcam" autoplay playsinline muted style="width: 100%; height: 100%; object-fit: cover;"></video>
-            <canvas id="skeletonCanvas" style="position: absolute; inset: 0; width: 100%; height: 100%;"></canvas>
-            <div class="camera-gradient-overlay"></div>
-
-            <!-- UI Overlays -->
-            <div style="position: absolute; inset: 0; z-index: 20; display: flex; flex-direction: column; padding: 1.5rem; padding-top: 3.5rem; padding-bottom: 2rem; pointer-events: none;">
-                
-                <!-- Exercise Selector Chips inside Camera -->
-                <div style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 0.5rem; margin-bottom: 0.75rem; pointer-events: auto;" class="no-scrollbar">
-                    <button class="ex-select-chip ex-select-chip--active" data-exercise="squat">Squat</button>
-                    <button class="ex-select-chip" data-exercise="pushup">Push-Up</button>
-                    <button class="ex-select-chip" data-exercise="lunge">Lunge</button>
-                    <button class="ex-select-chip" data-exercise="glute_bridge">Glute Bridge</button>
-                    <button class="ex-select-chip" data-exercise="plank">Plank</button>
-                    <button class="ex-select-chip" data-exercise="bicep_curl">Bicep Curl</button>
-                    <button class="ex-select-chip" data-exercise="shoulder_press">Shoulder Press</button>
-                    <button class="ex-select-chip" data-exercise="mountain_climber">Mountain Climber</button>
-                    <button class="ex-select-chip" data-exercise="jumping_jack">Jumping Jack</button>
-                    <button class="ex-select-chip" data-exercise="calf_raise">Calf Raise</button>
-                </div>
-
-                <!-- Top Stats Row -->
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; pointer-events: auto;">
-                    <!-- Rep Counter Card -->
-                    <div class="glass-panel" style="padding: 1.5rem; border-radius: 2rem; width: 9rem; text-align: center; border: 1px solid rgba(255,255,255,0.05);">
-                        <p class="text-label-sm" style="color: rgba(255,255,255,0.5); margin-bottom: 0.25rem;">Rep Counter</p>
-                        <h1 id="repCount" class="text-display-lg" style="color: var(--primary-fixed); line-height: 0.8; margin-bottom: 0.75rem;">0</h1>
-                        <div style="display: flex; align-items: center; justify-content: center; gap: 0.4rem; color: var(--secondary);">
-                            <button id="decTarget" style="padding: 0.2rem;"><span class="material-symbols-outlined" style="font-size: 0.9rem;">remove_circle</span></button>
-                            <p class="text-label-sm" style="font-weight: 700; font-size: 0.65rem;">Target: <span id="targetDisplay">15</span></p>
-                            <button id="incTarget" style="padding: 0.2rem;"><span class="material-symbols-outlined" style="font-size: 0.9rem;">add_circle</span></button>
-                        </div>
-                    </div>
-
-                    <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.75rem;">
-                        <!-- Session Timer Pill -->
-                        <div class="glass-panel" style="padding: 1rem 2rem; border-radius: 3rem; text-align: right; border: 1px solid rgba(255,255,255,0.05);">
-                            <p class="text-label-sm" style="color: rgba(255,255,255,0.5); margin-bottom: 0.15rem;">Session Timer</p>
-                            <h2 id="timerDisplay" class="text-display-sm font-headline" style="color: white; line-height: 1;">00:00</h2>
-                        </div>
-                        
-                        <!-- AI Sync Pill -->
-                        <div class="glass-panel ai-sync-badge" style="padding: 0.5rem 1.25rem; border-radius: 2rem; background: rgba(126, 219, 127, 0.1); border: 1px solid rgba(126, 219, 127, 0.2);">
-                            <span class="ai-sync-badge__dot"></span>
-                            <span class="ai-sync-badge__label" style="font-size: 0.65rem;">AI Sync: Active</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Central AI Feedback Pill -->
-                <div style="flex-grow: 1; display: flex; align-items: center; justify-content: center;">
-                    <div id="feedbackPill" class="feedback-pill feedback-pill--hidden">
-                        <p id="feedbackText" class="feedback-pill__text">KEEP BACK STRAIGHT</p>
-                    </div>
-                </div>
-
-                <!-- Bottom Controls -->
-                <div class="workout-controls" style="display: flex; justify-content: center; align-items: center; gap: 2.5rem; pointer-events: auto;">
-                    <button id="stopWorkout" class="glass-panel" style="width: 4.5rem; height: 4.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(255,255,255,0.1);">
-                        <span class="material-symbols-outlined" style="font-size: 2.5rem; color: white;">close</span>
-                    </button>
-                    
-                    <button id="toggleWorkout" style="width: 6.5rem; height: 6.5rem; border-radius: 50%; background: var(--primary-fixed); color: var(--on-primary-fixed); display: flex; align-items: center; justify-content: center; box-shadow: 0 0 40px rgba(245, 255, 0, 0.4); border: none;">
-                        <span id="playIcon" class="material-symbols-outlined" style="font-size: 3.5rem; font-variation-settings: 'FILL' 1;">pause</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Standard 5-Tab Bottom Navigation -->
     <nav class="bottom-nav">
         <a href="dashboard.html" class="bottom-nav__item">
@@ -237,33 +327,128 @@
         </a>
     </nav>
 
+    <!-- Muscle Heatmap Engine -->
+    <script src="js/muscleMap.js"></script>
+
+    <!-- Three.js & OrbitControls for 3D Biomechanics Engine (COMMENTED OUT - preserved for future re-enable) -->
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="components/BiomechanicalSkeleton3D.js"></script>
+    -->
+
+    <script src="js/voiceCueLibrary.js"></script>
+    <script src="js/voiceCoach.js"></script>
     <script src="js/app.js"></script>
     <script src="js/camera.js"></script>
     <script src="js/skeleton.js"></script>
     <script src="js/repCounter.js"></script>
     <script src="js/feedback.js"></script>
     <script src="js/workout-analytics.js"></script>
-    
+
+    <!-- Pre-workout squat instructions bottom sheet -->
+    <div id="squatInstructionsSheet" class="bottom-sheet-backdrop" style="display: none;">
+        <div class="bottom-sheet">
+            <div class="bottom-sheet__handle"></div>
+            <div class="bottom-sheet__content">
+                <h3 class="font-headline" style="color: white; font-weight: 800; font-size: 1.25rem; margin-bottom: 1rem; text-align: center; text-transform: uppercase;">SQUAT — CORRECT FORM</h3>
+                <video src="squat_animation.mp4" autoplay loop muted playsinline class="instruction-video" style="width: 100%; border-radius: var(--radius-md); margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.1); max-height: 200px; object-fit: cover;"></video>
+                <ul class="form-tips-list" style="color: var(--on-surface-variant); font-size: 0.8rem; line-height: 1.5; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+                    <li style="margin-bottom: 0.4rem;">Feet shoulder-width apart, toes slightly turned out</li>
+                    <li style="margin-bottom: 0.4rem;">Lower until hips drop below knee level — don't stop at half-depth</li>
+                    <li style="margin-bottom: 0.4rem;">Keep chest up, shoulders back — avoid rounding your lower back</li>
+                    <li style="margin-bottom: 0.4rem;">Let knees track over your toes, don't let them cave inward</li>
+                    <li style="margin-bottom: 0.4rem;">Keep weight in your heels/midfoot — heels stay flat on the floor</li>
+                </ul>
+                <button class="btn-primary" style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 0 20px rgba(245, 255, 0, 0.3);">
+                    OK, START SESSION
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pre-workout pushup instructions bottom sheet -->
+    <div id="pushupInstructionsSheet" class="bottom-sheet-backdrop" style="display: none;">
+        <div class="bottom-sheet">
+            <div class="bottom-sheet__handle"></div>
+            <div class="bottom-sheet__content">
+                <h3 class="font-headline" style="color: white; font-weight: 800; font-size: 1.25rem; margin-bottom: 1rem; text-align: center; text-transform: uppercase;">PUSH-UP — CORRECT FORM</h3>
+                <video src="Push_up_animation.mp4" autoplay loop muted playsinline class="instruction-video" style="width: 100%; border-radius: var(--radius-md); margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.1); max-height: 200px; object-fit: cover;"></video>
+                <ul class="form-tips-list" style="color: var(--on-surface-variant); font-size: 0.8rem; line-height: 1.5; margin-bottom: 1.5rem; padding-left: 1.25rem;">
+                    <li style="margin-bottom: 0.4rem;">Place hands flat on the floor slightly wider than shoulder-width apart</li>
+                    <li style="margin-bottom: 0.4rem;">Extend legs straight back to balance on toes in a plank position</li>
+                    <li style="margin-bottom: 0.4rem;">Lower your body until your chest almost touches the floor</li>
+                    <li style="margin-bottom: 0.4rem;">Keep elbows tucked at a 45-degree angle without sagging hips</li>
+                    <li style="margin-bottom: 0.4rem;">Push firmly through your palms to return to the starting position</li>
+                </ul>
+                <button class="btn-primary" style="width: 100%; padding: 0.85rem; border-radius: var(--radius-md); font-weight: 800; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; box-shadow: 0 0 20px rgba(245, 255, 0, 0.3);">
+                    OK, START SESSION
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Wire launch button to open live camera overlay modal
+        const sheetMap = {
+            'squat': 'squatInstructionsSheet',
+            'pushup': 'pushupInstructionsSheet'
+        };
+
+        // Conditional Flow for Start Workout Button
+        function handleStartWorkoutClick() {
+            const selectedExercise = window.currentExercise || 'squat';
+            const sheetId = sheetMap[selectedExercise];
+            if (sheetId) {
+                const sheet = document.getElementById(sheetId);
+                if (sheet) {
+                    sheet.style.display = 'flex';
+                    const video = sheet.querySelector('.instruction-video');
+                    if (video) {
+                        video.currentTime = 0;
+                        video.play().catch(function(e) {
+                            console.log('Video play prevented/failed:', e);
+                        });
+                    }
+                }
+            } else {
+                window.openCameraModal();
+            }
+        }
+
+        // Close instructions sheet utility
+        function closeInstructionsSheet(sheetId) {
+            const sheet = document.getElementById(sheetId);
+            if (sheet) {
+                sheet.style.display = 'none';
+                const video = sheet.querySelector('.instruction-video');
+                if (video) {
+                    video.pause();
+                }
+            }
+        }
+
+        // Setup backdrop and button listeners
         document.addEventListener('DOMContentLoaded', () => {
-            const launchBtn = document.getElementById('launchCameraBtn');
-            const modal = document.getElementById('cameraModal');
-            const stopBtn = document.getElementById('stopWorkout');
+            Object.values(sheetMap).forEach(sheetId => {
+                const sheet = document.getElementById(sheetId);
+                if (!sheet) return;
 
-            if (launchBtn && modal) {
-                launchBtn.addEventListener('click', () => {
-                    modal.classList.add('camera-overlay-modal--active');
-                    document.body.style.overflow = 'hidden';
+                // Dismiss instructions on backdrop tap
+                sheet.addEventListener('click', (e) => {
+                    if (e.target === sheet) {
+                        closeInstructionsSheet(sheetId);
+                    }
                 });
-            }
 
-            if (stopBtn && modal) {
-                stopBtn.addEventListener('click', () => {
-                    modal.classList.remove('camera-overlay-modal--active');
-                    document.body.style.overflow = '';
-                });
-            }
+                // OK click handler
+                const okBtn = sheet.querySelector('.btn-primary');
+                if (okBtn) {
+                    okBtn.addEventListener('click', () => {
+                        closeInstructionsSheet(sheetId);
+                        window.openCameraModal();
+                    });
+                }
+            });
         });
     </script>
 </body>
