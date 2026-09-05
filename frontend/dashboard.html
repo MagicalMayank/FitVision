@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kinetic Oracle - AI Fitness Coach</title>
+    <title>FitVision - AI Fitness Coach</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,23 +19,68 @@
     <header class="top-app-bar">
         <div class="top-app-bar__brand">
             <div class="top-app-bar__avatar" style="border: 2px solid var(--primary-fixed);">
-                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9ucD-WmYQaQExqdikk7fuNP1bT_6UYChS09NNqzIie8v-0g7NmsSyJWk3I_OCvCF3pTumkdGU8NHhhIKHKS3VXYdYdm606r6YNPGg1jp60yEVGd2yvCTgJJ1xAaEVfAdHwwy1XDgui_AiDE-OV8gX-kXIEiJnkT1R_XJYvjoTG5AGLn408Ab2A9TLednuUewe2SSTcmW6YBazVjYjomgVURt7TvBzbV1BoOyuwVSH4W1IpI7E7j1mCw3-RgBGAnJJDwn7F5LNd_c" alt="User Profile">
+                <img id="dash-top-app-bar-avatar" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'><rect width='100' height='100' fill='%231c1d18'/><text x='50%' y='55%' dominant-baseline='middle' text-anchor='middle' fill='%23f5ff00' font-size='40' font-family='sans-serif' font-weight='900'>FV</text></svg>" alt="User Profile">
             </div>
-            <span class="top-app-bar__title">KINETIC ORACLE</span>
+            <span class="top-app-bar__title"><span class="brand-fit">Fit</span><span class="brand-vision">Vision</span></span>
         </div>
-        <button class="top-app-bar__action">
-            <span class="material-symbols-outlined">bolt</span>
+        <button class="top-app-bar__action" title="Daily Streak">
+            <span class="material-symbols-outlined filled" style="color: var(--primary-fixed);">bolt</span>
+            <span id="streakCount" class="streak-badge">3</span>
         </button>
     </header>
 
-    <main style="padding-top: 6rem; padding-bottom: 8rem; padding-left: 1.5rem; padding-right: 1.5rem;">
-        <!-- Welcome Section -->
-        <div style="margin-bottom: 2rem;">
-            <p class="text-label-md" style="color: var(--on-surface-variant);">Performance Hub</p>
-            <h1 class="text-display-md font-headline" style="margin-top: 0.25rem; text-shadow: 0 2px 10px rgba(0,0,0,0.8); position: relative; z-index: 5;">Hello Alex 👋</h1>
+    <main style="padding-top: 6rem; padding-bottom: 8rem; padding-left: 1.5rem; padding-right: 1.5rem; max-width: 520px; margin: 0 auto;">
+        <!-- 1. Welcome Section & AI Motivational Line -->
+        <div style="margin-bottom: 1.5rem;">
+            <h1 id="user-greeting-title" class="text-display-md font-headline" style="margin-top: 0.25rem; text-shadow: 0 2px 10px rgba(0,0,0,0.8); position: relative; z-index: 5;">Hello Alex 👋</h1>
+            <p id="dash-motivational-line" class="text-label-md" style="color: var(--on-surface-variant); font-style: normal; margin-top: 0.35rem; opacity: 0.85;">"Push your boundaries today — consistency builds mastery."</p>
         </div>
 
-        <!-- Hero Card -->
+        <!-- 2. NEW: My Week Strip (Replaces removed Steps Card) -->
+        <div style="margin-bottom: 1.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem;">
+                <span class="text-label-md font-headline" style="letter-spacing: 0.5px; color: var(--on-surface-variant);">MY WEEK</span>
+            </div>
+            <div id="my-week-strip" class="my-week-strip-pill">
+                <div class="my-week-pill my-week-pill--past">
+                    <div class="my-week-emoji-badge"><span class="material-symbols-outlined" style="font-size: 1.15rem;">local_fire_department</span></div>
+                    <span class="my-week-pill-num">31</span>
+                    <span class="my-week-pill-day">Mon</span>
+                </div>
+                <div class="my-week-pill my-week-pill--past">
+                    <div class="my-week-emoji-badge"><span class="material-symbols-outlined" style="font-size: 1.15rem;">fitness_center</span></div>
+                    <span class="my-week-pill-num">1</span>
+                    <span class="my-week-pill-day">Tue</span>
+                </div>
+                <div class="my-week-pill my-week-pill--past">
+                    <div class="my-week-emoji-badge"><span class="material-symbols-outlined" style="font-size: 1.15rem;">self_improvement</span></div>
+                    <span class="my-week-pill-num">2</span>
+                    <span class="my-week-pill-day">Wed</span>
+                </div>
+                <div class="my-week-pill my-week-pill--past">
+                    <div class="my-week-emoji-badge"><span class="material-symbols-outlined" style="font-size: 1.15rem;">bolt</span></div>
+                    <span class="my-week-pill-num">3</span>
+                    <span class="my-week-pill-day">Thu</span>
+                </div>
+                <div class="my-week-pill my-week-pill--past">
+                    <div class="my-week-emoji-badge"><span class="material-symbols-outlined" style="font-size: 1.15rem;">military_tech</span></div>
+                    <span class="my-week-pill-num">4</span>
+                    <span class="my-week-pill-day">Fri</span>
+                </div>
+                <div class="my-week-pill my-week-pill--today">
+                    <div class="my-week-emoji-badge"><span class="material-symbols-outlined filled" style="font-size: 1.15rem;">target</span></div>
+                    <span class="my-week-pill-num">5</span>
+                    <span class="my-week-pill-day">Sat</span>
+                </div>
+                <div class="my-week-pill my-week-pill--future">
+                    <div class="my-week-emoji-badge"><span class="material-symbols-outlined" style="font-size: 1.15rem;">spa</span></div>
+                    <span class="my-week-pill-num">6</span>
+                    <span class="my-week-pill-day">Sun</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Hero Card "START WORKOUT" (Unchanged) -->
         <div class="hero-card" style="margin-bottom: 1.5rem;">
             <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtdAtNMQQr5JEyA86sGs7v7i8kBlWuYIht1USc0M2JoiY4jwtpv7LH-agIyQ4m2kxfjqurn4uUAKaWaTpiZiSd8KUizbzTkb3_WUKs-9ypbk5HtsOjLxF9Wd6PyTuTYbyH-SDTh9rNlQ3w_Vh1EtuZ-k385XjwvoOSL_5tW8UGoVU_UIqFNlhDZXhLqU8fnCtepg_CxCyZBUXjcUAt4UeiOK9U_EACVXIQ_8b-O_mdoFLeA3fZxM2qGEwD0JQDThVVIZa8rfvTvHU" alt="Workout" class="hero-card__bg">
             <div class="hero-card__gradient"></div>
@@ -48,33 +93,85 @@
             </div>
         </div>
 
-        <!-- Steps Card -->
-        <div class="steps-card" style="margin-bottom: 1.5rem;">
-            <div class="steps-card__header">
-                <div class="steps-card__icon-wrap">
-                    <span class="material-symbols-outlined steps-card__icon filled">directions_run</span>
+        <!-- 4. NEW: My Goals Section -->
+        <div class="card-low" style="margin-bottom: 1.5rem; padding: 1.5rem; border: 1px solid rgba(71, 72, 50, 0.15);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="material-symbols-outlined" style="color: var(--primary-fixed);">target</span>
+                    <h3 class="text-headline-sm font-headline">MY GOALS</h3>
                 </div>
-                <span class="steps-card__tag">Daily Goal</span>
             </div>
+
+            <!-- AI Recommended Goals -->
+            <div style="margin-bottom: 1rem;">
+                <p class="text-label-sm" style="color: var(--on-surface-variant); margin-bottom: 0.5rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;">AI-RECOMMENDED TARGETS</p>
+                <div id="ai-goals-container">
+                    <!-- Dynamically rendered -->
+                </div>
+            </div>
+
+            <!-- User Goals -->
             <div>
-                <h3 class="steps-card__value">8,432</h3>
-                <p class="steps-card__label">STEPS TODAY</p>
-            </div>
-            <div class="progress-bar" style="margin-top: 1.5rem;">
-                <div class="progress-bar__fill" style="width: 84%;"></div>
+                <p class="text-label-sm" style="color: var(--on-surface-variant); margin-bottom: 0.5rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.5px;">PERSONAL GOALS</p>
+                <div id="user-goals-container">
+                    <!-- Dynamically rendered -->
+                </div>
+
+                <!-- Inline Add Goal -->
+                <div id="add-goal-form" style="display: none; margin-top: 0.75rem; gap: 0.5rem;">
+                    <input type="text" id="new-goal-input" placeholder="Enter custom goal..." style="flex: 1; background: var(--surface-container-highest); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); padding: 0.5rem 0.75rem; color: white; font-size: 0.8rem;">
+                    <button onclick="saveCustomGoal()" style="background: var(--primary-fixed); color: var(--on-primary-fixed); border: none; border-radius: var(--radius-sm); padding: 0.5rem 0.85rem; font-weight: 800; font-size: 0.75rem; cursor: pointer;">SAVE</button>
+                </div>
+
+                <button id="btn-show-add-goal" onclick="toggleAddGoalForm()" style="margin-top: 0.75rem; background: transparent; border: 1px dashed rgba(255,255,255,0.2); border-radius: var(--radius-sm); padding: 0.5rem; width: 100%; color: var(--primary-fixed); font-size: 0.75rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+                    <span class="material-symbols-outlined" style="font-size: 1rem;">add</span>
+                    ADD GOAL
+                </button>
             </div>
         </div>
 
-        <!-- Categories -->
-        <div class="exercise-selector" style="margin-bottom: 2rem;">
-            <button class="pill pill-active">Warm-up</button>
-            <button class="pill pill-inactive">Cardio</button>
-            <button class="pill pill-inactive">Strength</button>
-            <button class="pill pill-inactive">Yoga</button>
+        <!-- 5. NEW: Nutrition Snapshot Section -->
+        <div class="card-low" style="margin-bottom: 1.5rem; padding: 1.5rem; border: 1px solid rgba(71, 72, 50, 0.15);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="material-symbols-outlined" style="color: var(--secondary);">restaurant</span>
+                    <h3 class="text-headline-sm font-headline">THIS WEEK'S NUTRITION</h3>
+                </div>
+                <span id="dash-nutrition-meals-stat" style="font-size: 0.75rem; color: var(--on-surface-variant); font-weight: 600;">0 meals logged</span>
+            </div>
+
+            <!-- Donut Chart & Calorie Counter -->
+            <div class="nutrition-donut-container">
+                <div style="position: relative; display: flex; align-items: center; justify-content: center;">
+                    <svg class="nutrition-donut-svg" viewBox="0 0 100 100">
+                        <circle class="nutrition-donut-bg" cx="50" cy="50" r="38"></circle>
+                        <circle id="dash-donut-fill" class="nutrition-donut-fill" cx="50" cy="50" r="38" stroke-dasharray="0 240"></circle>
+                    </svg>
+                    <div style="position: absolute; text-align: center;">
+                        <span id="dash-donut-pct" style="font-size: 0.85rem; font-weight: 900; color: white;">0%</span>
+                    </div>
+                </div>
+
+                <div style="flex: 1;">
+                    <p style="font-size: 0.75rem; color: var(--on-surface-variant);">Weekly Calorie Target</p>
+                    <p id="dash-nutrition-cal-text" style="font-size: 1.1rem; font-weight: 900; color: var(--primary-fixed); margin-top: 0.15rem;">0 / 16,800 <span style="font-size: 0.75rem; font-weight: 500;">kcal</span></p>
+                    
+                    <!-- Conditional Today Nudge -->
+                    <p id="dash-today-nudge" style="font-size: 0.7rem; color: var(--error); margin-top: 0.35rem; display: flex; align-items: center; gap: 0.25rem;">
+                        <span class="material-symbols-outlined" style="font-size: 0.85rem;">info</span>
+                        <span>No meals logged yet today — scan your first meal</span>
+                    </p>
+                </div>
+            </div>
+
+            <a href="nutrition.html" class="btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%; margin-top: 1.25rem; text-decoration: none; padding: 0.75rem; border-radius: var(--radius-full); background: var(--primary-fixed); color: var(--on-primary-fixed); font-weight: 800; font-family: var(--font-headline); border: none;">
+                LOG A MEAL
+                <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
         </div>
 
-        <!-- Summary -->
-        <div class="card-low" style="padding: 2rem; border: 1px solid rgba(71, 72, 50, 0.1);">
+        <!-- 6. Last Workout Summary (Unchanged) -->
+        <div class="card-low" style="padding: 2rem; border: 1px solid rgba(71, 72, 50, 0.1); margin-bottom: 1.5rem;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
                 <h3 class="text-headline-sm font-headline">Last Workout Summary</h3>
                 <span id="dash-summary-time" style="font-size: 0.75rem; color: var(--on-surface-variant);">Yesterday, 18:45</span>
@@ -100,7 +197,7 @@
             </div>
 
             <!-- Perf Bars -->
-            <div class="perf-bars">
+            <div class="perf-bars" id="dash-perf-bars">
                 <div class="perf-bar" style="height: 40%; background: rgba(126, 219, 127, 0.1);"></div>
                 <div class="perf-bar" style="height: 65%; background: rgba(126, 219, 127, 0.1);"></div>
                 <div class="perf-bar" style="height: 50%; background: rgba(126, 219, 127, 0.2);"></div>
@@ -112,11 +209,16 @@
             </div>
         </div>
 
-        <!-- AI Insight -->
+        <!-- 7. Kinetic AI Insight Card (Unchanged, keep btnSpeakInsight wiring intact!) -->
         <div class="ai-insight-card glass-panel" style="margin-top: 1.5rem; border: 1px solid rgba(245, 255, 0, 0.1);">
-            <div class="ai-insight-card__header">
-                <span class="material-symbols-outlined">psychology</span>
-                <span class="ai-insight-card__title">KINETIC AI INSIGHT</span>
+            <div class="ai-insight-card__header" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <span class="material-symbols-outlined">psychology</span>
+                    <span class="ai-insight-card__title">KINETIC AI INSIGHT</span>
+                </div>
+                <button id="btnSpeakInsight" class="nav-circle-btn nav-circle-btn--sm" style="width: 2.1rem; height: 2.1rem; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); color: var(--primary-fixed); cursor: pointer; display: flex; align-items: center; justify-content: center; border-radius: 50%;" title="Listen AI Insight">
+                    <span id="speakInsightIcon" class="material-symbols-outlined" style="font-size: 1.15rem;">volume_up</span>
+                </button>
             </div>
             <p id="dash-ai-insight-text" class="ai-insight-card__body">"Your recovery rate is optimal this week. Kinetic AI suggests focusing on full depth and knee stability during squat sessions."</p>
             <a href="workout.html#performance" class="ai-insight-card__link">
@@ -150,6 +252,8 @@
         </a>
     </nav>
 
+    <script src="js/voiceCueLibrary.js"></script>
+    <script src="js/voiceCoach.js"></script>
     <script src="js/app.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
@@ -157,6 +261,22 @@
                 navigator.serviceWorker.register('sw.js');
             });
         }
+        document.getElementById('btnSpeakInsight')?.addEventListener('click', () => {
+            if (!window.voiceCoach) return;
+            const icon = document.getElementById('speakInsightIcon');
+            if (window.voiceCoach.isSpeakingInsight()) {
+                window.voiceCoach.stop();
+                if (icon) icon.innerText = 'volume_up';
+            } else {
+                const insightEl = document.getElementById('dash-ai-insight-text');
+                const text = insightEl ? insightEl.innerText : '';
+                if (!text) return;
+                if (icon) icon.innerText = 'pause';
+                window.voiceCoach.speakInsight(text, () => {
+                    if (icon) icon.innerText = 'volume_up';
+                });
+            }
+        });
     </script>
 </body>
 </html>
