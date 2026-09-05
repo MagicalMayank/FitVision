@@ -1,4 +1,4 @@
-// metrics.js - Dynamic Metrics Engine for Kinetic Oracle
+// metrics.js - Dynamic Metrics Engine for FitVision
 
 window.API_BASE = window.API_BASE || 'http://localhost:8000';
 var API_BASE = window.API_BASE;
@@ -87,15 +87,15 @@ function loadAndRenderMetrics() {
         strengthBarEl.style.width = `${(totalDaysCompleted / 5) * 100}%`;
     }
 
-    // 5. Fetch Oracle Insight from AI
-    fetchOracleInsight(totalWorkoutMins, totalCalories, completedSessions, lastSession);
+    // 5. Fetch Kinetic AI Insight from AI
+    fetchKineticAIInsight(totalWorkoutMins, totalCalories, completedSessions, lastSession);
 }
 
-async function fetchOracleInsight(workoutMins, totalCalories, completedSessions, lastSession) {
+async function fetchKineticAIInsight(workoutMins, totalCalories, completedSessions, lastSession) {
     const insightEl = document.getElementById('metrics-oracle-insight');
     if (!insightEl) return;
 
-    insightEl.innerHTML = '<span style="opacity:0.7;">Kinetic Oracle analyzing recovery & biomechanics...</span>';
+    insightEl.innerHTML = '<span style="opacity:0.7;">Kinetic AI analyzing recovery & biomechanics...</span>';
 
     const lastExercise = lastSession ? lastSession.exercise : 'Squat Session';
     const lastAccuracy = lastSession ? lastSession.accuracyPct : 92;
@@ -123,7 +123,7 @@ async function fetchOracleInsight(workoutMins, totalCalories, completedSessions,
             }
         }
     } catch (e) {
-        console.warn('Ollama Oracle insight error, using rule-based insight:', e);
+        console.warn('Ollama Kinetic AI insight error, using rule-based insight:', e);
     }
 
     // Fallback dynamic insight
