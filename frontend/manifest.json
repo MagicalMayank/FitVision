@@ -1,8 +1,8 @@
 {
-  "name": "Kinetic Oracle",
-  "short_name": "Kinetic",
+  "name": "FitVision",
+  "short_name": "FitVision",
   "description": "Premium AI-powered fitness coach with real-time pose analysis.",
-  "start_url": "index.html",
+  "start_url": "splash.html",
   "display": "standalone",
   "background_color": "#131313",
   "theme_color": "#131313",

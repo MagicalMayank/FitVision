@@ -1,4 +1,4 @@
-const CACHE_NAME = 'kinetic-oracle-v1';
+const CACHE_NAME = 'fitvision-v1';
 const ASSETS = [
   'index.html',
   'workout.html',

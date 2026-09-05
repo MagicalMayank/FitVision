@@ -2,9 +2,6 @@ class RepCounter {
     constructor(displayId) {
         this.display = document.getElementById(displayId);
         this.count = 0;
-        this.state = 'up'; // 'up' or 'down'
-        this.thresholdDown = 90; // Angle threshold for down position
-        this.thresholdUp = 160;  // Angle threshold for up position
         this.target = 15;
         this.initTargetControls();
     }
@@ -17,7 +14,10 @@ class RepCounter {
         if (incBtn) {
             incBtn.addEventListener('click', () => {
                 this.target++;
-                targetDisplay.innerText = this.target;
+                if (targetDisplay) targetDisplay.innerText = this.target;
+                if (window.voiceCoach && typeof window.voiceCoach.checkTargetAdjustment === 'function') {
+                    window.voiceCoach.checkTargetAdjustment(this.target, window.currentExercise || 'squat');
+                }
             });
         }
 
@@ -34,30 +34,14 @@ class RepCounter {
     update(data) {
         if (!data) return;
 
-        // If backend returned validated state machine rep count, use it directly!
+        // Primary: Backend state machine (biomechanical_rules.py) is single source of truth
         if (data.reps !== undefined && typeof data.reps === 'number') {
-            if (data.reps !== this.count) {
-                this.count = data.reps;
+            if (data.reps > this.count) {
                 this.animateCount();
             }
+            this.count = data.reps;
             if (this.display) this.display.innerText = this.count;
-            return;
         }
-
-        // Fallback local angle counting
-        const angles = data.angles || data;
-        const currentAngle = angles ? (angles.knee || angles.elbow || angles.primary) : null;
-        if (currentAngle === null) return;
-
-        if (this.state === 'up' && currentAngle < this.thresholdDown) {
-            this.state = 'down';
-        } else if (this.state === 'down' && currentAngle > this.thresholdUp) {
-            this.state = 'up';
-            this.count++;
-            this.animateCount();
-        }
-
-        if (this.display) this.display.innerText = this.count;
     }
 
     animateCount() {
