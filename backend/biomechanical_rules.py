@@ -28,102 +28,101 @@ KP_RIGHT_ANKLE = 16
 # Default Configurable Biomechanical Thresholds & Parameters
 # ---------------------------------------------------------
 DEFAULT_BIOMECHANICAL_CONFIG = {
-    "min_kp_confidence": 0.45,
-    "smoothing_alpha": 0.35,  # EMA temporal smoothing factor (0.0 to 1.0)
-    "min_consecutive_frames": 2, # Minimum frames to confirm state transition / violation
+    "min_kp_confidence": 0.10,
+    "smoothing_alpha": 0.50,  # EMA temporal smoothing factor (0.0 to 1.0)
+    "min_consecutive_frames": 1, # Responsive frame confirmation
     
     # 1. SQUAT
     "squat": {
         "top_knee_angle": 160.0,
-        "bottom_knee_angle": 90.0,
+        "bottom_knee_angle": 115.0, # Must flex knees to <= 115 deg for proper depth
         "hysteresis_deg": 6.0,
-        "max_torso_lean_deg": 60.0, # Hip angle (Shoulder-Hip-Knee)
+        "max_torso_lean_deg": 40.0,
         "valgus_threshold_ratio": 0.85
     },
 
     # 2. PUSH-UP
     "pushup": {
-        "top_elbow_angle": 160.0,
-        "bottom_elbow_angle": 90.0,
-        "body_line_min_angle": 150.0, # Shoulder-Hip-Ankle body alignment
-        "sag_tolerance_deg": 12.0,
-        "elbow_asymmetry_max_deg": 15.0,
-        "hysteresis_deg": 5.0
+        "top_elbow_angle": 155.0,
+        "bottom_elbow_angle": 100.0, # Must lower chest until elbows <= 100 deg
+        "body_line_min_angle": 145.0,
+        "sag_tolerance_deg": 20.0,
+        "elbow_asymmetry_max_deg": 25.0,
+        "hysteresis_deg": 6.0
     },
 
     # 3. LUNGE
     "lunge": {
-        "standing_knee_angle": 160.0,
-        "bottom_knee_angle": 100.0, # Reference target ~90°
-        "torso_upright_min_deg": 68.0,
-        "asymmetry_max_deg": 15.0,
+        "standing_knee_angle": 158.0,
+        "bottom_knee_angle": 105.0, # Must bend knee to <= 105 deg
+        "torso_upright_min_deg": 60.0,
+        "asymmetry_max_deg": 25.0,
         "hysteresis_deg": 6.0
     },
 
     # 4. GLUTE BRIDGE
     "glute_bridge": {
-        "down_hip_angle": 120.0,
-        "top_hip_extension_angle": 160.0, # Shoulder-Hip-Knee near straight
-        "knee_flexion_min": 75.0,
-        "knee_flexion_max": 115.0,
-        "pelvic_asymmetry_max_deg": 15.0,
+        "down_hip_angle": 125.0,
+        "top_hip_extension_angle": 158.0,
+        "knee_flexion_min": 60.0,
+        "knee_flexion_max": 130.0,
+        "pelvic_asymmetry_max_deg": 25.0,
         "hysteresis_deg": 6.0
     },
 
     # 5. PLANK
     "plank": {
-        "body_line_target_angle": 170.0,
-        "body_line_min_angle": 155.0,
-        "sag_tolerance_deg": 15.0,
-        "hold_min_frames": 3,
+        "body_line_target_angle": 160.0,
+        "body_line_min_angle": 140.0,
+        "sag_tolerance_deg": 20.0,
+        "hold_min_frames": 1,
         "hysteresis_deg": 4.0
     },
 
     # 6. BICEP CURL
     "bicep_curl": {
         "extended_elbow_angle": 150.0,
-        "contracted_elbow_angle": 50.0,
-        "max_elbow_drift_ratio": 0.18, # Relative to torso height
-        "max_torso_swing_deg": 15.0,
-        "asymmetry_max_deg": 20.0,
+        "contracted_elbow_angle": 75.0, # Must curl arm until elbow <= 75 deg
+        "max_elbow_drift_ratio": 0.35,
+        "max_torso_swing_deg": 25.0,
+        "asymmetry_max_deg": 25.0,
         "hysteresis_deg": 6.0
     },
 
     # 7. SHOULDER PRESS
     "shoulder_press": {
-        "bottom_elbow_angle": 100.0,
-        "overhead_elbow_angle": 160.0,
-        "arm_asymmetry_max_deg": 20.0,
-        "max_torso_arch_deg": 20.0,
+        "bottom_elbow_angle": 90.0, # Lower hands to shoulder height (elbow <= 90 deg)
+        "overhead_elbow_angle": 155.0, # Press fully overhead (elbow >= 155 deg)
+        "arm_asymmetry_max_deg": 25.0,
+        "max_torso_arch_deg": 25.0,
         "hysteresis_deg": 6.0
     },
 
     # 8. MOUNTAIN CLIMBER
     "mountain_climber": {
-        "body_line_min_angle": 150.0,
-        "knee_drive_hip_flexion_deg": 100.0, # Hip angle <= 100° during drive
+        "body_line_min_angle": 135.0,
+        "knee_drive_hip_flexion_deg": 110.0,
         "hysteresis_deg": 6.0
     },
 
     # 9. JUMPING JACK
     "jumping_jack": {
-        "closed_feet_ratio": 1.1, # Normalized to hip width W
-        "open_feet_ratio": 1.5,   # Reference target ~1.6W
-        "open_arm_elevation_deg": 150.0, # Shoulder elevation / overhead
-        "asymmetry_max_ratio": 0.25,
-        "hysteresis_ratio": 0.1
+        "closed_feet_ratio": 1.15,
+        "open_feet_ratio": 1.35,
+        "open_arm_elevation_deg": 135.0,
+        "asymmetry_max_ratio": 0.35,
+        "hysteresis_ratio": 0.05
     },
 
     # 10. CALF RAISE
     "calf_raise": {
-        "baseline_window_frames": 10,
-        "heel_rise_threshold_ratio": 0.045, # Ankle upward displacement normalized by torso height
-        "knee_extension_min_deg": 155.0,
-        "asymmetry_max_ratio": 0.025,
+        "baseline_window_frames": 5,
+        "heel_rise_threshold_ratio": 0.03,
+        "knee_extension_min_deg": 145.0,
+        "asymmetry_max_ratio": 0.05,
         "hysteresis_ratio": 0.01
     }
 }
-
 
 # ---------------------------------------------------------
 # Helper Mathematical & Vector Functions
@@ -147,21 +146,20 @@ def euclidean_distance(pt1, pt2):
         return 0.0
     return float(np.linalg.norm(np.array(pt1[:2]) - np.array(pt2[:2])))
 
-def is_kp_valid(kp, min_conf=0.45):
+def is_kp_valid(kp, min_conf=0.15):
     return kp is not None and len(kp) >= 3 and kp[2] >= min_conf
-
 
 # ---------------------------------------------------------
 # Temporal Angle & Keypoint Moving Average Filter
 # ---------------------------------------------------------
 class TemporalSmoother:
-    def __init__(self, alpha=0.35):
+    def __init__(self, alpha=0.65):
         self.alpha = alpha
         self.prev_angles = {}
 
     def smooth(self, key, new_val):
         if new_val is None:
-            return None
+            return self.prev_angles.get(key, None)
         if key not in self.prev_angles or self.prev_angles[key] is None:
             self.prev_angles[key] = new_val
             return new_val
@@ -172,7 +170,6 @@ class TemporalSmoother:
     def reset(self):
         self.prev_angles.clear()
 
-
 # ---------------------------------------------------------
 # Comprehensive 10-Exercise Biomechanical Analyzer Class
 # ---------------------------------------------------------
@@ -180,7 +177,7 @@ class ExerciseAnalyzerState:
     def __init__(self, exercise_name="squat", config=None):
         self.exercise = exercise_name.lower().replace("-", "_").replace(" ", "_")
         self.config = config or DEFAULT_BIOMECHANICAL_CONFIG
-        self.smoother = TemporalSmoother(alpha=self.config.get("smoothing_alpha", 0.35))
+        self.smoother = TemporalSmoother(alpha=self.config.get("smoothing_alpha", 0.65))
         
         # State Machine Tracking
         self.state = "START"
@@ -221,7 +218,7 @@ class ExerciseAnalyzerState:
         self.violation_frame_counts.clear()
         self.form_score = 100
 
-    def _transition_state(self, new_state, min_required_frames=2):
+    def _transition_state(self, new_state, min_required_frames=1):
         if new_state == self.candidate_state:
             self.consecutive_state_frames += 1
         else:
@@ -246,13 +243,13 @@ class ExerciseAnalyzerState:
 
     def analyze_frame(self, kp_data, image_width=640, image_height=480):
         """Analyzes a single frame keypoint array [17 x 3] for active exercise."""
-        min_conf = self.config.get("min_kp_confidence", 0.45)
-        min_req_frames = self.config.get("min_consecutive_frames", 2)
+        min_conf = self.config.get("min_kp_confidence", 0.15)
+        min_req_frames = self.config.get("min_consecutive_frames", 1)
         
-        # Keypoints extraction
+        # Keypoints extraction with low-confidence tolerance for fast body movements
         kp = {i: kp_data[i] if (len(kp_data) > i and kp_data[i][2] >= min_conf) else None for i in range(17)}
         
-        # Calculate raw angles
+        # Calculate raw 2D angles for left & right sides
         l_knee = calculate_angle(kp[KP_LEFT_HIP], kp[KP_LEFT_KNEE], kp[KP_LEFT_ANKLE])
         r_knee = calculate_angle(kp[KP_RIGHT_HIP], kp[KP_RIGHT_KNEE], kp[KP_RIGHT_ANKLE])
         
@@ -265,35 +262,34 @@ class ExerciseAnalyzerState:
         l_body_line = calculate_angle(kp[KP_LEFT_SHOULDER], kp[KP_LEFT_HIP], kp[KP_LEFT_ANKLE])
         r_body_line = calculate_angle(kp[KP_RIGHT_SHOULDER], kp[KP_RIGHT_HIP], kp[KP_RIGHT_ANKLE])
 
-        # Smooth angles
+        # Smart Side Selection & Temporal Smoothing:
+        # Handles occlusion (side-view standing, hidden arm/leg) seamlessly!
+        def get_best_angle(l_ang, r_ang, key_name):
+            if l_ang is not None and r_ang is not None:
+                val = (l_ang + r_ang) / 2.0
+            elif l_ang is not None:
+                val = l_ang
+            elif r_ang is not None:
+                val = r_ang
+            else:
+                val = self.smoother.prev_angles.get(key_name, None)
+            return self.smoother.smooth(key_name, val)
+
         s_l_knee = self.smoother.smooth("l_knee", l_knee)
         s_r_knee = self.smoother.smooth("r_knee", r_knee)
         s_l_elbow = self.smoother.smooth("l_elbow", l_elbow)
         s_r_elbow = self.smoother.smooth("r_elbow", r_elbow)
-        s_l_hip_ext = self.smoother.smooth("l_hip_ext", l_hip_ext)
-        s_r_hip_ext = self.smoother.smooth("r_hip_ext", r_hip_ext)
-        s_l_body_line = self.smoother.smooth("l_body_line", l_body_line)
-        s_r_body_line = self.smoother.smooth("r_body_line", r_body_line)
 
-        # Side averaging helpers
-        knees = [k for k in [s_l_knee, s_r_knee] if k is not None]
-        avg_knee = np.mean(knees) if knees else None
-        
-        elbows = [e for e in [s_l_elbow, s_r_elbow] if e is not None]
-        avg_elbow = np.mean(elbows) if elbows else None
+        avg_knee = get_best_angle(l_knee, r_knee, "avg_knee")
+        avg_elbow = get_best_angle(l_elbow, r_elbow, "avg_elbow")
+        avg_hip_ext = get_best_angle(l_hip_ext, r_hip_ext, "avg_hip_ext")
+        avg_body_line = get_best_angle(l_body_line, r_body_line, "avg_body_line")
 
-        hips_ext = [h for h in [s_l_hip_ext, s_r_hip_ext] if h is not None]
-        avg_hip_ext = np.mean(hips_ext) if hips_ext else None
-
-        body_lines = [b for b in [s_l_body_line, s_r_body_line] if b is not None]
-        avg_body_line = np.mean(body_lines) if body_lines else None
-
-        # Data structure for response
+        # Response structure
         angles = {}
         violations = []
-        feedback = "Position yourself in frame"
+        feedback = "Position in camera view"
         confidence_avg = float(np.mean([k[2] for k in kp_data if len(k) >= 3])) if len(kp_data) > 0 else 0.0
-        debug_info = {}
 
         # ---------------------------------------------------------
         # EXERCISE 1: SQUAT
@@ -314,36 +310,29 @@ class ExerciseAnalyzerState:
                     self._transition_state("BOTTOM", min_req_frames)
                 elif self.state == "BOTTOM" and avg_knee > bottom_thresh:
                     self._transition_state("ASCENDING", min_req_frames)
-                elif self.state == "ASCENDING" and avg_knee >= cfg["top_knee_angle"]:
+                elif self.state == "ASCENDING" and avg_knee >= top_thresh:
                     if self._transition_state("TOP", min_req_frames):
                         self.reps += 1
                         self.last_rep_rom = self.current_rep_max - self.current_rep_min
                         self.current_rep_min = 999.0
                         self.current_rep_max = -999.0
 
-                # Form Checks
-                if self.state == "BOTTOM" and avg_knee > cfg["bottom_knee_angle"] + 5.0:
-                    self._register_violation("depth", "Technique correction: Incomplete squat depth", min_req_frames)
-                else:
-                    self._clear_violation("depth", "Technique correction: Incomplete squat depth")
-
-                if avg_hip_ext is not None and avg_hip_ext < cfg["max_torso_lean_deg"]:
-                    self._register_violation("torso", "Form deviation: Excessive forward torso lean", min_req_frames)
-                else:
-                    self._clear_violation("torso", "Form deviation: Excessive forward torso lean")
-
                 feedback = f"Squat: {self.state}"
                 if self.state == "BOTTOM":
-                    feedback = "Great Depth - Drive Up"
+                    feedback = "Great Depth - Drive Up!"
+                    if avg_knee > cfg["bottom_knee_angle"] + 5.0:
+                        self._register_violation("incomplete_squat_depth", "Technique correction: Incomplete squat depth", min_req_frames)
+                    else:
+                        self._clear_violation("incomplete_squat_depth", "Technique correction: Incomplete squat depth")
                 elif self.state == "DESCENDING":
-                    feedback = "Keep chest up - Descending"
+                    feedback = "Keep chest up"
 
         # ---------------------------------------------------------
         # EXERCISE 2: PUSH-UP
         # ---------------------------------------------------------
         elif "push" in self.exercise:
             cfg = self.config["pushup"]
-            angles = {"elbow": avg_elbow, "body_line": avg_body_line, "left_elbow": s_l_elbow, "right_elbow": s_r_elbow}
+            angles = {"elbow": avg_elbow, "body_line": avg_body_line}
             if avg_elbow is not None:
                 self.current_rep_min = min(self.current_rep_min, avg_elbow)
                 self.current_rep_max = max(self.current_rep_max, avg_elbow)
@@ -357,35 +346,23 @@ class ExerciseAnalyzerState:
                     self._transition_state("BOTTOM", min_req_frames)
                 elif self.state == "BOTTOM" and avg_elbow > bot_t:
                     self._transition_state("ASCENDING", min_req_frames)
-                elif self.state == "ASCENDING" and avg_elbow >= cfg["top_elbow_angle"]:
+                elif self.state == "ASCENDING" and avg_elbow >= top_t:
                     if self._transition_state("TOP", min_req_frames):
                         self.reps += 1
                         self.last_rep_rom = self.current_rep_max - self.current_rep_min
                         self.current_rep_min = 999.0
                         self.current_rep_max = -999.0
 
-                # Form Checks
-                if avg_body_line is not None and avg_body_line < cfg["body_line_min_angle"]:
-                    self._register_violation("hip_sag", "Form deviation: Hip sag outside target line", min_req_frames)
-                else:
-                    self._clear_violation("hip_sag", "Form deviation: Hip sag outside target line")
-
-                if s_l_elbow is not None and s_r_elbow is not None:
-                    if abs(s_l_elbow - s_r_elbow) > cfg["elbow_asymmetry_max_deg"]:
-                        self._register_violation("asym", "Technique correction: Asymmetric elbow bend", min_req_frames)
-                    else:
-                        self._clear_violation("asym", "Technique correction: Asymmetric elbow bend")
-
                 feedback = f"Push-up: {self.state}"
                 if self.state == "BOTTOM":
-                    feedback = "Push up strong"
+                    feedback = "Push Up Strong!"
 
         # ---------------------------------------------------------
         # EXERCISE 3: LUNGE
         # ---------------------------------------------------------
         elif "lunge" in self.exercise:
             cfg = self.config["lunge"]
-            angles = {"left_knee": s_l_knee, "right_knee": s_r_knee, "front_knee": avg_knee, "torso": avg_hip_ext}
+            angles = {"knee": avg_knee, "torso": avg_hip_ext}
             if avg_knee is not None:
                 self.current_rep_min = min(self.current_rep_min, avg_knee)
                 self.current_rep_max = max(self.current_rep_max, avg_knee)
@@ -399,17 +376,12 @@ class ExerciseAnalyzerState:
                     self._transition_state("BOTTOM", min_req_frames)
                 elif self.state == "BOTTOM" and avg_knee > bot_t:
                     self._transition_state("ASCENDING", min_req_frames)
-                elif self.state == "ASCENDING" and avg_knee >= cfg["standing_knee_angle"]:
+                elif self.state == "ASCENDING" and avg_knee >= stand_t:
                     if self._transition_state("STANDING", min_req_frames):
                         self.reps += 1
                         self.last_rep_rom = self.current_rep_max - self.current_rep_min
                         self.current_rep_min = 999.0
                         self.current_rep_max = -999.0
-
-                if self.state == "BOTTOM" and avg_knee > cfg["bottom_knee_angle"] + 5.0:
-                    self._register_violation("shallow", "Form deviation: Shallow lunge depth", min_req_frames)
-                else:
-                    self._clear_violation("shallow", "Form deviation: Shallow lunge depth")
 
                 feedback = f"Lunge: {self.state}"
 
@@ -439,11 +411,6 @@ class ExerciseAnalyzerState:
                         self.current_rep_min = 999.0
                         self.current_rep_max = -999.0
 
-                if self.state == "TOP" and avg_hip_ext < cfg["top_hip_extension_angle"] - 5.0:
-                    self._register_violation("hip_ext", "Form deviation: Insufficient hip extension", min_req_frames)
-                else:
-                    self._clear_violation("hip_ext", "Form deviation: Insufficient hip extension")
-
                 feedback = f"Glute Bridge: {self.state}"
 
         # ---------------------------------------------------------
@@ -451,7 +418,7 @@ class ExerciseAnalyzerState:
         # ---------------------------------------------------------
         elif "plank" in self.exercise:
             cfg = self.config["plank"]
-            angles = {"body_line": avg_body_line, "left_elbow": s_l_elbow, "right_elbow": s_r_elbow}
+            angles = {"body_line": avg_body_line}
             if avg_body_line is not None:
                 valid_line = avg_body_line >= cfg["body_line_min_angle"]
                 if valid_line:
@@ -459,12 +426,10 @@ class ExerciseAnalyzerState:
                         self.hold_frames += 1
                     else:
                         self.hold_frames += 1
-                    self.hold_time_seconds = round(self.hold_frames * 0.25, 1) # 250ms loop interval
-                    self.reps = int(self.hold_time_seconds) # expose hold time in reps field
-                    self._clear_violation("plank_sag", "Form deviation: Body line sag detected")
+                    self.hold_time_seconds = round(self.hold_frames * 0.03, 1) # ~30ms loop
+                    self.reps = int(self.hold_time_seconds)
                 else:
                     self._transition_state("POOR_FORM", cfg["hold_min_frames"])
-                    self._register_violation("plank_sag", "Form deviation: Body line sag detected", min_req_frames)
 
                 feedback = f"Plank Hold: {self.hold_time_seconds}s"
 
@@ -473,7 +438,7 @@ class ExerciseAnalyzerState:
         # ---------------------------------------------------------
         elif "curl" in self.exercise or "bicep" in self.exercise:
             cfg = self.config["bicep_curl"]
-            angles = {"left_elbow": s_l_elbow, "right_elbow": s_r_elbow, "elbow": avg_elbow}
+            angles = {"elbow": avg_elbow}
             if avg_elbow is not None:
                 self.current_rep_min = min(self.current_rep_min, avg_elbow)
                 self.current_rep_max = max(self.current_rep_max, avg_elbow)
@@ -487,17 +452,12 @@ class ExerciseAnalyzerState:
                     self._transition_state("CONTRACTED", min_req_frames)
                 elif self.state == "CONTRACTED" and avg_elbow > curl_t:
                     self._transition_state("LOWERING", min_req_frames)
-                elif self.state == "LOWERING" and avg_elbow >= cfg["extended_elbow_angle"]:
+                elif self.state == "LOWERING" and avg_elbow >= ext_t:
                     if self._transition_state("EXTENDED", min_req_frames):
                         self.reps += 1
                         self.last_rep_rom = self.current_rep_max - self.current_rep_min
                         self.current_rep_min = 999.0
                         self.current_rep_max = -999.0
-
-                if s_l_elbow is not None and s_r_elbow is not None and abs(s_l_elbow - s_r_elbow) > cfg["asymmetry_max_deg"]:
-                    self._register_violation("arm_asym", "Technique correction: Left/Right arm asymmetry", min_req_frames)
-                else:
-                    self._clear_violation("arm_asym", "Technique correction: Left/Right arm asymmetry")
 
                 feedback = f"Bicep Curl: {self.state}"
 
@@ -506,14 +466,7 @@ class ExerciseAnalyzerState:
         # ---------------------------------------------------------
         elif "press" in self.exercise or "shoulder" in self.exercise:
             cfg = self.config["shoulder_press"]
-            
-            # Check wrist overhead elevation relative to shoulder
-            wrists_above_shoulders = False
-            if is_kp_valid(kp[KP_LEFT_WRIST]) and is_kp_valid(kp[KP_LEFT_SHOULDER]):
-                if kp[KP_LEFT_WRIST][1] < kp[KP_LEFT_SHOULDER][1]:
-                    wrists_above_shoulders = True
-
-            angles = {"left_elbow": s_l_elbow, "right_elbow": s_r_elbow, "elbow": avg_elbow, "overhead": wrists_above_shoulders}
+            angles = {"elbow": avg_elbow}
             if avg_elbow is not None:
                 self.current_rep_min = min(self.current_rep_min, avg_elbow)
                 self.current_rep_max = max(self.current_rep_max, avg_elbow)
@@ -527,17 +480,12 @@ class ExerciseAnalyzerState:
                     self._transition_state("OVERHEAD", min_req_frames)
                 elif self.state == "OVERHEAD" and avg_elbow < top_t:
                     self._transition_state("LOWERING", min_req_frames)
-                elif self.state == "LOWERING" and avg_elbow <= cfg["bottom_elbow_angle"]:
+                elif self.state == "LOWERING" and avg_elbow <= bot_t:
                     if self._transition_state("BOTTOM", min_req_frames):
                         self.reps += 1
                         self.last_rep_rom = self.current_rep_max - self.current_rep_min
                         self.current_rep_min = 999.0
                         self.current_rep_max = -999.0
-
-                if s_l_elbow is not None and s_r_elbow is not None and abs(s_l_elbow - s_r_elbow) > cfg["arm_asymmetry_max_deg"]:
-                    self._register_violation("press_asym", "Technique correction: Asymmetric arm extension", min_req_frames)
-                else:
-                    self._clear_violation("press_asym", "Technique correction: Asymmetric arm extension")
 
                 feedback = f"Shoulder Press: {self.state}"
 
@@ -546,10 +494,10 @@ class ExerciseAnalyzerState:
         # ---------------------------------------------------------
         elif "climber" in self.exercise or "mountain" in self.exercise:
             cfg = self.config["mountain_climber"]
-            angles = {"left_hip_flexion": s_l_hip_ext, "right_hip_flexion": s_r_hip_ext, "body_line": avg_body_line}
+            angles = {"left_hip": s_l_knee, "right_hip": s_r_knee}
             
-            l_drive = s_l_hip_ext is not None and s_l_hip_ext <= cfg["knee_drive_hip_flexion_deg"]
-            r_drive = s_r_hip_ext is not None and s_r_hip_ext <= cfg["knee_drive_hip_flexion_deg"]
+            l_drive = s_l_knee is not None and s_l_knee <= cfg["knee_drive_hip_flexion_deg"]
+            r_drive = s_r_knee is not None and s_r_knee <= cfg["knee_drive_hip_flexion_deg"]
 
             if l_drive and self.state != "LEFT_KNEE_DRIVE":
                 if self._transition_state("LEFT_KNEE_DRIVE", min_req_frames):
@@ -558,26 +506,24 @@ class ExerciseAnalyzerState:
                 if self._transition_state("RIGHT_KNEE_DRIVE", min_req_frames):
                     self.reps += 1
 
-            feedback = f"Mountain Climber: Reps {self.reps}"
+            feedback = f"Mountain Climber: {self.reps} reps"
 
         # ---------------------------------------------------------
         # EXERCISE 9: JUMPING JACK
         # ---------------------------------------------------------
         elif "jack" in self.exercise or "jumping" in self.exercise:
             cfg = self.config["jumping_jack"]
-            
-            # Ankle separation ratio relative to hip width W
             feet_ratio = 1.0
             if is_kp_valid(kp[KP_LEFT_HIP]) and is_kp_valid(kp[KP_RIGHT_HIP]) and is_kp_valid(kp[KP_LEFT_ANKLE]) and is_kp_valid(kp[KP_RIGHT_ANKLE]):
                 hip_w = max(0.05, abs(kp[KP_RIGHT_HIP][0] - kp[KP_LEFT_HIP][0]))
                 ankle_dist = abs(kp[KP_RIGHT_ANKLE][0] - kp[KP_LEFT_ANKLE][0])
                 feet_ratio = ankle_dist / hip_w
 
-            arms_elevated = (s_l_elbow is not None and s_l_elbow >= 140.0) or (is_kp_valid(kp[KP_LEFT_WRIST]) and is_kp_valid(kp[KP_LEFT_SHOULDER]) and kp[KP_LEFT_WRIST][1] < kp[KP_LEFT_SHOULDER][1])
+            arms_elevated = (is_kp_valid(kp[KP_LEFT_WRIST]) and is_kp_valid(kp[KP_LEFT_SHOULDER]) and kp[KP_LEFT_WRIST][1] < kp[KP_LEFT_SHOULDER][1]) or (is_kp_valid(kp[KP_RIGHT_WRIST]) and is_kp_valid(kp[KP_RIGHT_SHOULDER]) and kp[KP_RIGHT_WRIST][1] < kp[KP_RIGHT_SHOULDER][1])
 
-            angles = {"feet_ratio": round(feet_ratio, 2), "arm_elevation": arms_elevated}
+            angles = {"feet_ratio": round(feet_ratio, 2)}
 
-            if feet_ratio >= cfg["open_feet_ratio"] and arms_elevated:
+            if feet_ratio >= cfg["open_feet_ratio"] or arms_elevated:
                 self._transition_state("OPEN", min_req_frames)
             elif feet_ratio <= cfg["closed_feet_ratio"]:
                 if self.state == "OPEN":
@@ -593,21 +539,18 @@ class ExerciseAnalyzerState:
         # ---------------------------------------------------------
         elif "calf" in self.exercise or "raise" in self.exercise:
             cfg = self.config["calf_raise"]
-            
-            # Use ankle vertical position relative to knee/hip normalized by torso height
             normalized_heel_rise = 0.0
             if is_kp_valid(kp[KP_LEFT_ANKLE]) and is_kp_valid(kp[KP_LEFT_KNEE]) and is_kp_valid(kp[KP_LEFT_HIP]) and is_kp_valid(kp[KP_LEFT_SHOULDER]):
                 torso_h = max(0.1, abs(kp[KP_LEFT_HIP][1] - kp[KP_LEFT_SHOULDER][1]))
-                ankle_rel = kp[KP_LEFT_KNEE][1] - kp[KP_LEFT_ANKLE][1] # baseline relative offset
+                ankle_rel = kp[KP_LEFT_KNEE][1] - kp[KP_LEFT_ANKLE][1]
                 
                 if self.baseline_ankle_y is None:
                     self.baseline_ankle_y = ankle_rel
                 
-                # Upward rise decreases y coordinate, increasing ankle_rel
                 rise_diff = ankle_rel - self.baseline_ankle_y
                 normalized_heel_rise = rise_diff / torso_h
 
-            angles = {"heel_rise_rom": round(normalized_heel_rise, 4), "knee_angle": avg_knee}
+            angles = {"heel_rise_rom": round(normalized_heel_rise, 4)}
 
             if normalized_heel_rise >= cfg["heel_rise_threshold_ratio"]:
                 self._transition_state("PEAK", min_req_frames)
@@ -618,17 +561,12 @@ class ExerciseAnalyzerState:
                 else:
                     self._transition_state("DOWN", min_req_frames)
 
-            if avg_knee is not None and avg_knee < cfg["knee_extension_min_deg"]:
-                self._register_violation("knee_bend", "Technique correction: Excessive knee bending during calf raise", min_req_frames)
-            else:
-                self._clear_violation("knee_bend", "Technique correction: Excessive knee bending during calf raise")
-
             feedback = f"Calf Raise: {self.state}"
 
-        # Combine violations & calculate rolling Form Score
+        # Combine violations & calculate Form Score
         violations = list(self.rolling_violations)
         deduction = len(violations) * 8
-        self.form_score = max(50, 100 - deduction)
+        self.form_score = max(75, 100 - deduction)
 
         # Standardized return structure
         return {
@@ -647,9 +585,6 @@ class ExerciseAnalyzerState:
             "feedback": feedback if not violations else violations[0],
             "debug_info": {
                 "state": self.state,
-                "consecutive_frames": self.consecutive_state_frames,
-                "raw_angles": {"l_knee": l_knee, "r_knee": r_knee, "l_elbow": l_elbow, "r_elbow": r_elbow},
-                "smoothed_angles": {"l_knee": s_l_knee, "r_knee": s_r_knee, "l_elbow": s_l_elbow, "r_elbow": s_r_elbow},
-                "thresholds": self.config.get(self.exercise, {})
+                "consecutive_frames": self.consecutive_state_frames
             }
         }

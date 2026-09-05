@@ -1,5 +1,5 @@
 """
-Feedback Dataset Collector & Custom Class Registry for Kinetic Oracle
+Feedback Dataset Collector & Custom Class Registry for FitVision
 ---------------------------------------------------------------------
 Handles user corrections, saves cropped food images for model fine-tuning,
 and registers custom food classes beyond the built-in 80 classes.

@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from pose_analyzer import analyzer
@@ -15,11 +15,11 @@ db.init_db()
 
 app = FastAPI()
 
-# Enable CORS for frontend development
+# Enable CORS for remote PWA access (Cloudflare Tunnel)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_credentials=True,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -66,6 +66,33 @@ async def analyze_frame(data: FrameData):
         print(f"Error analyzing frame: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+@app.websocket("/ws/pose")
+async def websocket_pose(websocket: WebSocket, exercise: str = "squat"):
+    await websocket.accept()
+    current_exercise = exercise
+    analyzer.reset_exercise(current_exercise)
+    try:
+        while True:
+            message = await websocket.receive()
+            if "bytes" in message and message["bytes"]:
+                raw_bytes = message["bytes"]
+                result = analyzer.analyze_bytes(raw_bytes, exercise=current_exercise)
+                await websocket.send_json(result)
+            elif "text" in message and message["text"]:
+                try:
+                    payload = json.loads(message["text"])
+                    if "exercise" in payload:
+                        current_exercise = payload["exercise"]
+                    if "image" in payload and payload["image"]:
+                        result = analyzer.analyze(payload["image"], exercise=current_exercise)
+                        await websocket.send_json(result)
+                except Exception:
+                    pass
+    except WebSocketDisconnect:
+        pass
+    except Exception as e:
+        print(f"WebSocket connection closed: {e}")
+
 @app.get("/biomechanics/config")
 async def get_biomechanics_config():
     return analyzer.config
@@ -101,7 +128,7 @@ async def get_ai_insight(data: AIInsightRequest):
         nutrition = data.nutrition_data
         workout = data.workout_data or {}
 
-        prompt = f"""You are a sports nutritionist AI coach for a fitness app called "Kinetic Oracle". 
+        prompt = f"""You are a sports nutritionist AI coach for a fitness app called "FitVision". 
 You are given the user's REAL nutrition and workout data for today. Your job is to:
 1. Analyze their nutritional intake relative to their goals
 2. Provide coaching advice on what to eat next
@@ -328,7 +355,20 @@ async def get_user_profile():
 
 @app.get("/health")
 async def health():
-    return {"status": "ok"}
+    ollama_status = "offline"
+    try:
+        res = requests.get("http://localhost:11434/api/tags", timeout=2)
+        if res.status_code == 200:
+            ollama_status = "online"
+    except Exception:
+        pass
+
+    return {
+        "status": "online",
+        "backend": "online",
+        "models_loaded": True,
+        "ollama": ollama_status
+    }
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

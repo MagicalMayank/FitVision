@@ -2683,5 +2683,30 @@
       "usda": "Rice flour cake"
     },
     "notes": "Odia/Bengali; steamed or fried rice flour cakes with coconut filling"
+  },
+  {
+    "dish_name": "banana",
+    "category": "snack",
+    "primary_ingredients": [
+      "raw_banana"
+    ],
+    "ingredient_ratios": {
+      "raw_banana": 1.0
+    },
+    "nutrition_per_100g": {
+      "calories": 89,
+      "protein_g": 1.1,
+      "carbs_g": 22.8,
+      "fat_g": 0.3
+    },
+    "cooking_properties": {
+      "oil_absorption_pct": 0.0,
+      "cooked_to_raw_ratio": 1.0
+    },
+    "mappings": {
+      "ifct": "Fresh Fruit - Banana",
+      "usda": "Bananas, raw"
+    },
+    "notes": "Fresh raw banana fruit; rich in potassium, fiber, and vitamin C"
   }
 ]
